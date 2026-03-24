@@ -1,162 +1,267 @@
-import React, { useState, useEffect } from 'react';
-import { Menu, X, Github, Linkedin, Mail } from 'lucide-react';
+import React, { useState, useEffect, useMemo, useCallback } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Menu, X, Github, Linkedin, Mail, HeartHandshake } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useLanguage } from '../contexts/LanguageContext';
+import { useRecruiterLetter } from '../contexts/RecruiterLetterContext';
+
+function scrollToSection(sectionId: string) {
+  const el = document.getElementById(sectionId);
+  if (!el) return;
+  const headerOffset = 80;
+  const y = el.getBoundingClientRect().top + window.pageYOffset - headerOffset;
+  window.scrollTo({ top: y, behavior: 'smooth' });
+}
 
 const Header: React.FC = () => {
+  const { t, locale, setLocale, messages } = useLanguage();
+  const { openLetter } = useRecruiterLetter();
+  const location = useLocation();
+  const navigate = useNavigate();
+  const isHome = location.pathname === '/';
+
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('');
 
-  const navLinks = [
-    { name: 'About', href: '#about' },
-    { name: 'Skills', href: '#skills' },
-    { name: 'Experience', href: '#experience' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'Contact', href: '#contact' },
-  ];
+  const navLinks = useMemo(
+    () => [
+      { name: t('nav.about'), id: 'about' as const },
+      { name: t('nav.whyFit'), id: 'why-fit' as const },
+      { name: t('nav.skills'), id: 'skills' as const },
+      { name: t('nav.experience'), id: 'experience' as const },
+      { name: t('nav.projects'), id: 'projects' as const },
+      { name: t('nav.contact'), id: 'contact' as const },
+    ],
+    [t]
+  );
+
+  const goToSection = useCallback(
+    (sectionId: string) => {
+      setIsMobileMenuOpen(false);
+      if (!isHome) {
+        navigate({ pathname: '/', hash: `#${sectionId}` });
+      } else {
+        scrollToSection(sectionId);
+      }
+    },
+    [isHome, navigate]
+  );
 
   useEffect(() => {
+    if (!isHome) {
+      setActiveSection('');
+      return;
+    }
+
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
 
-      // Active section detection
-      const scrollPosition = window.scrollY + 100; // Offset for header
-      
-      // Check sections
+      const scrollPosition = window.scrollY + 100;
+
       for (const link of navLinks) {
-        const sectionId = link.href.substring(1);
-        const element = document.getElementById(sectionId);
+        const element = document.getElementById(link.id);
         if (element) {
           const offsetTop = element.offsetTop;
           const offsetHeight = element.offsetHeight;
           if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
-            setActiveSection(sectionId);
+            setActiveSection(link.id);
           }
         }
       }
-      
-      // Special case for Hero/Top
+
       if (window.scrollY < 100) setActiveSection('');
     };
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [navLinks, isHome]);
 
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    e.preventDefault();
-    const targetId = href.replace('#', '');
-    const element = document.getElementById(targetId);
-    
-    if (element) {
-      const headerOffset = 80;
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth"
-      });
-    }
-    
-    setIsMobileMenuOpen(false);
-  };
-
-  const scrollToTop = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault();
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
+  const langSwitcher = (
+    <div
+      className="flex items-center rounded-xl border border-black/[0.08] bg-apple-surface/90 p-1 shadow-inner-soft"
+      role="group"
+      aria-label={t('a11y.language')}
+    >
+      <button
+        type="button"
+        onClick={() => setLocale('en')}
+        className={`px-2.5 py-1.5 text-[11px] font-semibold rounded-lg transition-all ${
+          locale === 'en'
+            ? 'bg-white text-apple-text shadow-apple'
+            : 'text-apple-secondary hover:text-apple-text'
+        }`}
+      >
+        EN
+      </button>
+      <button
+        type="button"
+        onClick={() => setLocale('vi')}
+        className={`px-2.5 py-1.5 text-[11px] font-semibold rounded-lg transition-all ${
+          locale === 'vi'
+            ? 'bg-white text-apple-text shadow-apple'
+            : 'text-apple-secondary hover:text-apple-text'
+        }`}
+      >
+        VI
+      </button>
+    </div>
+  );
 
   return (
-    <header 
+    <header
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-slate-950/80 backdrop-blur-md border-b border-slate-800' : 'bg-transparent'
+        isScrolled
+          ? 'bg-white/85 backdrop-blur-xl border-b border-black/[0.06] shadow-apple'
+          : 'bg-transparent'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 md:px-8">
-        <div className="flex justify-between items-center h-16 md:h-20">
-          {/* Logo */}
-          <a href="#" onClick={scrollToTop} className="text-xl md:text-2xl font-bold text-slate-100 tracking-tighter cursor-pointer">
-            VQD<span className="text-primary-500">.</span>
-          </a>
-
-          {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center space-x-8">
-            {navLinks.map((link) => {
-              const isActive = activeSection === link.href.substring(1);
-              return (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  onClick={(e) => handleNavClick(e, link.href)}
-                  className={`text-sm font-medium transition-colors relative ${
-                    isActive ? 'text-primary-400' : 'text-slate-300 hover:text-primary-400'
-                  }`}
-                >
-                  {link.name}
-                  {isActive && (
-                    <motion.div
-                      layoutId="activeSection"
-                      className="absolute -bottom-1 left-0 right-0 h-0.5 bg-primary-500 rounded-full"
-                    />
-                  )}
-                </a>
-              );
-            })}
-            <div className="flex items-center space-x-4 ml-4 border-l border-slate-700 pl-4">
-               <a href="https://github.com/VQuocDinh" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-white transition-colors">
-                  <Github size={20} />
-               </a>
-               <a href="https://linkedin.com/in/voquocdinh" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-white transition-colors">
-                  <Linkedin size={20} />
-               </a>
-            </div>
-          </nav>
-
-          {/* Mobile Menu Button */}
-          <button
-            className="md:hidden text-slate-300 hover:text-white"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+      <div className="max-w-6xl mx-auto px-4 md:px-8">
+        <div className="flex justify-between items-center h-14 md:h-16 gap-3">
+          <Link
+            to="/"
+            className="text-lg md:text-xl font-semibold text-apple-text tracking-tight focus-visible:outline-offset-4 rounded-md shrink-0"
+            aria-label={t('a11y.home')}
+            onClick={(e) => {
+              if (isHome) {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }
+            }}
           >
-            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+            VQD<span className="text-apple-blue">.</span>
+          </Link>
+
+          <div className="flex items-center gap-2 md:gap-3">
+            <button
+              type="button"
+              onClick={openLetter}
+              className="p-2 rounded-lg text-apple-tertiary hover:text-apple-blue hover:bg-blue-50/60 transition-colors shrink-0"
+              aria-label={messages.recruiterLetter.ariaModal}
+              title={messages.recruiterLetter.reopen}
+            >
+              <HeartHandshake size={20} />
+            </button>
+            <div className="md:hidden">{langSwitcher}</div>
+
+            <nav className="hidden md:flex items-center gap-1" aria-label={t('a11y.primaryNav')}>
+              {navLinks.map((link) => {
+                const isActive = activeSection === link.id;
+                return (
+                  <button
+                    key={link.id}
+                    type="button"
+                    onClick={() => goToSection(link.id)}
+                    className={`relative px-3 py-2 text-[13px] font-medium transition-colors rounded-lg ${
+                      isActive
+                        ? 'text-apple-text'
+                        : 'text-apple-secondary hover:text-apple-text hover:bg-black/[0.03]'
+                    }`}
+                  >
+                    {link.name}
+                    {isActive && (
+                      <motion.div
+                        layoutId="activeSection"
+                        className="absolute bottom-1 left-3 right-3 h-0.5 bg-apple-blue rounded-full"
+                        transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+                      />
+                    )}
+                  </button>
+                );
+              })}
+              <div className="flex items-center gap-2 ml-2 pl-4 border-l border-apple-border/80">
+                {langSwitcher}
+                <a
+                  href="https://github.com/VQuocDinh"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2 rounded-lg text-apple-tertiary hover:text-apple-text hover:bg-black/[0.03] transition-colors"
+                  aria-label="GitHub"
+                >
+                  <Github size={18} />
+                </a>
+                <a
+                  href="https://linkedin.com/in/voquocdinh"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2 rounded-lg text-apple-tertiary hover:text-apple-text hover:bg-black/[0.03] transition-colors"
+                  aria-label="LinkedIn"
+                >
+                  <Linkedin size={18} />
+                </a>
+              </div>
+            </nav>
+
+            <button
+              type="button"
+              className="md:hidden p-2 -mr-2 rounded-lg text-apple-secondary hover:text-apple-text hover:bg-black/[0.04] transition-colors"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              aria-expanded={isMobileMenuOpen}
+              aria-label={isMobileMenuOpen ? t('a11y.closeMenu') : t('a11y.openMenu')}
+            >
+              {isMobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
+            </button>
+          </div>
         </div>
       </div>
 
-      {/* Mobile Nav */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-slate-900 border-b border-slate-800 overflow-hidden shadow-xl"
+            className="md:hidden bg-white/95 backdrop-blur-xl border-b border-black/[0.06] overflow-hidden shadow-apple-md"
           >
-            <div className="px-4 py-6 space-y-4 flex flex-col items-center">
+            <div className="px-4 py-6 space-y-1 flex flex-col items-stretch max-w-md mx-auto">
               {navLinks.map((link) => {
-                const isActive = activeSection === link.href.substring(1);
+                const isActive = activeSection === link.id;
                 return (
-                  <a
-                    key={link.name}
-                    href={link.href}
-                    onClick={(e) => handleNavClick(e, link.href)}
-                    className={`font-medium text-lg block ${
-                      isActive ? 'text-primary-400' : 'text-slate-300 hover:text-primary-400'
+                  <button
+                    key={link.id}
+                    type="button"
+                    onClick={() => goToSection(link.id)}
+                    className={`font-medium text-[15px] py-3 px-3 rounded-xl text-center ${
+                      isActive
+                        ? 'text-apple-text bg-apple-surface'
+                        : 'text-apple-secondary hover:text-apple-text hover:bg-black/[0.03]'
                     }`}
                   >
                     {link.name}
-                  </a>
+                  </button>
                 );
               })}
-              <div className="flex space-x-6 mt-4 pt-4 border-t border-slate-800 w-full justify-center">
-                <a href="https://github.com/VQuocDinh" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-white">
-                  <Github size={24} />
+              <button
+                type="button"
+                onClick={() => {
+                  setIsMobileMenuOpen(false);
+                  openLetter();
+                }}
+                className="mt-4 py-3 px-3 rounded-xl text-center text-sm font-medium text-apple-blue hover:bg-blue-50/80 transition-colors"
+              >
+                {messages.recruiterLetter.reopen}
+              </button>
+              <div className="flex justify-center gap-6 mt-6 pt-6 border-t border-apple-border/80">
+                <a
+                  href="https://github.com/VQuocDinh"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2 text-apple-tertiary hover:text-apple-text"
+                  aria-label="GitHub"
+                >
+                  <Github size={22} />
                 </a>
-                <a href="https://linkedin.com/in/voquocdinh" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-white">
-                  <Linkedin size={24} />
+                <a
+                  href="https://linkedin.com/in/voquocdinh"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2 text-apple-tertiary hover:text-apple-text"
+                  aria-label="LinkedIn"
+                >
+                  <Linkedin size={22} />
                 </a>
-                 <a href="mailto:vqdinh2202@gmail.com" className="text-slate-400 hover:text-white">
-                  <Mail size={24} />
+                <a href="mailto:vqdinh2202@gmail.com" className="p-2 text-apple-tertiary hover:text-apple-text" aria-label="Email">
+                  <Mail size={22} />
                 </a>
               </div>
             </div>

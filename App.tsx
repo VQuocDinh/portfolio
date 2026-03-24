@@ -1,26 +1,31 @@
 import React from 'react';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import Header from './components/Header';
-import Hero from './components/Hero';
-import About from './components/About';
-import Skills from './components/Skills';
-import Experience from './components/Experience';
-import Projects from './components/Projects';
-import EducationCert from './components/EducationCert';
 import Contact from './components/Contact';
+import HomePage from './pages/HomePage';
+import ProjectDetailPage from './pages/ProjectDetailPage';
+import SkillDetailPage from './pages/SkillDetailPage';
 
 function App() {
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-200 selection:bg-primary-500/30 selection:text-white">
+    <div className="min-h-screen bg-white text-apple-text antialiased">
       <Header />
-      <main>
-        <Hero />
-        <About />
-        <Skills />
-        <Experience />
-        <Projects />
-        <EducationCert />
-      </main>
-      <Contact />
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <>
+              <main className="relative">
+                <HomePage />
+              </main>
+              <Contact />
+            </>
+          }
+        />
+        <Route path="/projects/:slug" element={<ProjectDetailPage />} />
+        <Route path="/skills/:slug" element={<SkillDetailPage />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
     </div>
   );
 }

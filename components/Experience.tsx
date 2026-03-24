@@ -1,161 +1,123 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import Section from './ui/Section';
-import { Calendar, MapPin, Briefcase, CheckCircle2, Server, Layout, Code2, Database, Zap, Users, FileText } from 'lucide-react';
+import {
+  Calendar,
+  MapPin,
+  Briefcase,
+  CheckCircle2,
+  Server,
+  Layout,
+  Code2,
+  Database,
+  Zap,
+  Users,
+  FileText,
+} from 'lucide-react';
 import { motion } from 'framer-motion';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const Experience: React.FC = () => {
-  const experiences = [
-    {
-      company: "BridgeUp Education",
-      role: "Fullstack Developer",
-      period: "Jan 2025 – Present",
-      location: "HCMC",
-      type: "EdTech Startup",
-      summary: "Leading full-stack development of BridgeUp, a comprehensive career development platform serving 500+ users with 4 integrated modules (ScoreCard, GrowCap, LearnCap, ChallengeCap).",
-      achievements: [
-        {
-          text: "Architected and built scalable frontend using React + TypeScript + Vite + TailwindCSS, implementing code splitting and lazy loading that improved initial page load.",
-          icon: <Layout size={16} className="text-teal-400" />
-        },
-        {
-          text: "Optimized application performance with React Query for data fetching, reducing API calls and enhancing user experience.",
-          icon: <Zap size={16} className="text-yellow-400" />
-        },
-        {
-          text: "Designed and implemented RESTful APIs with NestJS & Prisma ORM, optimizing PostgreSQL queries that reduced response time.",
-          icon: <Server size={16} className="text-blue-400" />
-        },
-        {
-          text: "Built social networking features (posts, likes, comments, sharing) handling 1,000+ daily interactions with real-time updates.",
-          icon: <Users size={16} className="text-purple-400" />
-        },
-        {
-          text: "Implemented secure JWT-based authentication & role-based authorization protecting user data across multiple modules.",
-          icon: <CheckCircle2 size={16} className="text-green-400" />
-        },
-        {
-          text: "Wrote comprehensive unit & integration tests using Jest + Testing Library, achieving 80% code coverage.",
-          icon: <Code2 size={16} className="text-pink-400" />
-        },
-        {
-          text: "Collaborated in Agile environment with Product, Data, and Content teams using Jira, consistently delivering features within sprint deadlines.",
-          icon: <FileText size={16} className="text-slate-400" />
-        }
+  const { messages } = useLanguage();
+  const ex = messages.experience;
+
+  const iconSets = useMemo(
+    () => [
+      [
+        <Layout key="0" size={16} className="text-apple-blue" />,
+        <Zap key="1" size={16} className="text-orange-500" />,
+        <Server key="2" size={16} className="text-purple-500" />,
+        <Users key="3" size={16} className="text-apple-blue" />,
+        <CheckCircle2 key="4" size={16} className="text-green-600" />,
+        <Code2 key="5" size={16} className="text-pink-500" />,
+        <FileText key="6" size={16} className="text-apple-tertiary" />,
       ],
-      stack: ["React", "Vite", "TailwindCSS", "TypeScript", "NestJS", "Prisma ORM", "PostgreSQL", "JWT", "Cloudinary", "Vercel", "Render"]
-    },
-    {
-      company: "DXT Technology Company",
-      role: "Fullstack Developer",
-      period: "Jul 2023 – Dec 2024",
-      location: "HCMC",
-      type: "Technology Company",
-      summary: "Developed enterprise-grade web applications serving 2,000+ users with focus on performance optimization and scalability.",
-      achievements: [
-        {
-          text: "Built responsive web applications using React, Next.js, and TypeScript with mobile-first design principles.",
-          icon: <Layout size={16} className="text-indigo-400" />
-        },
-        {
-          text: "Implemented Server-Side Rendering (SSR) & Static Site Generation (SSG) with Next.js, improving SEO rankings and reducing page load time.",
-          icon: <Zap size={16} className="text-orange-400" />
-        },
-        {
-          text: "Integrated RESTful APIs and third-party payment gateways, processing 500+ transactions monthly with 99.9% success rate.",
-          icon: <Database size={16} className="text-blue-400" />
-        },
-        {
-          text: "Managed complex state with React Query & Context API, eliminating prop drilling and improving code maintainability.",
-          icon: <Code2 size={16} className="text-green-400" />
-        },
-        {
-          text: "Conducted code reviews for 3 junior developers, establishing best practices and reducing bug rate.",
-          icon: <Users size={16} className="text-yellow-400" />
-        },
-        {
-          text: "Created comprehensive API documentation using Swagger, improving frontend-backend collaboration efficiency.",
-          icon: <FileText size={16} className="text-slate-400" />
-        }
+      [
+        <Layout key="0" size={16} className="text-apple-blue" />,
+        <Zap key="1" size={16} className="text-orange-500" />,
+        <Database key="2" size={16} className="text-purple-500" />,
+        <Code2 key="3" size={16} className="text-green-600" />,
+        <Users key="4" size={16} className="text-apple-blue" />,
+        <FileText key="5" size={16} className="text-apple-tertiary" />,
       ],
-      stack: ["React", "Next.js", "TailwindCSS", "Node.js", "TypeScript", "Prisma ORM"]
-    }
-  ];
+    ],
+    []
+  );
+
+  const stacks = useMemo(
+    () => [
+      ['React', 'Vite', 'TailwindCSS', 'TypeScript', 'NestJS', 'Prisma ORM', 'PostgreSQL', 'JWT', 'Cloudinary', 'Vercel', 'Render'],
+      ['React', 'Next.js', 'TailwindCSS', 'Node.js', 'TypeScript', 'Prisma ORM'],
+    ],
+    []
+  );
 
   return (
-    <Section id="experience" title="Work Experience" subtitle="My professional journey and key contributions in the tech industry.">
+    <Section id="experience" eyebrow={ex.eyebrow} title={ex.title} subtitle={ex.subtitle} muted>
       <div className="relative max-w-4xl mx-auto">
-        {/* Vertical Timeline Line */}
-        <div className="absolute left-0 md:left-8 top-0 bottom-0 w-px bg-slate-800 hidden md:block"></div>
+        <div className="absolute left-0 md:left-8 top-0 bottom-0 w-px bg-apple-border hidden md:block" aria-hidden />
 
-        <div className="space-y-12">
-          {experiences.map((exp, index) => (
-            <motion.div 
-              key={index}
-              initial={{ opacity: 0, x: -20 }}
+        <div className="space-y-10">
+          {ex.items.map((exp, index) => (
+            <motion.div
+              key={exp.company + exp.period}
+              initial={{ opacity: 0, x: -16 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
+              transition={{ duration: 0.45 }}
               className="relative md:pl-20"
             >
-              {/* Timeline Dot */}
-              <div className="absolute left-8 -translate-x-1/2 top-0 w-4 h-4 rounded-full bg-primary-500 ring-4 ring-slate-950 shadow-[0_0_15px_rgba(59,130,246,0.5)] hidden md:block"></div>
-              
-              <div className="bg-slate-900/40 border border-slate-800 rounded-2xl overflow-hidden hover:border-slate-700 transition-all duration-300 shadow-lg">
-                {/* Header Card */}
-                <div className="p-6 md:p-8 border-b border-slate-800/50 bg-slate-900/60 backdrop-blur-sm">
+              <div
+                className="absolute left-8 -translate-x-1/2 top-0 w-3.5 h-3.5 rounded-full bg-apple-blue ring-4 ring-white border border-blue-600/20 hidden md:block"
+                aria-hidden
+              />
+
+              <div className="bg-white rounded-2xl overflow-hidden border border-black/[0.06] shadow-apple hover:shadow-apple-md transition-all duration-300">
+                <div className="p-6 md:p-8 border-b border-apple-border/50">
                   <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4">
-                    <div>
-                      <h3 className="text-2xl font-bold text-slate-100 flex items-center gap-2">
-                        {exp.role}
-                      </h3>
-                      <div className="flex items-center gap-2 text-primary-400 font-semibold text-lg mt-1">
-                        <Briefcase size={18} />
+                    <div className="space-y-2">
+                      <span className="inline-flex text-[11px] font-semibold uppercase tracking-wider text-apple-text bg-apple-surface px-2.5 py-1 rounded-md border border-black/[0.06]">
+                        {exp.type}
+                      </span>
+                      <h3 className="text-xl font-semibold text-apple-text tracking-tight">{exp.role}</h3>
+                      <div className="flex items-center gap-2 text-apple-blue font-medium mt-1">
+                        <Briefcase size={16} className="shrink-0" />
                         {exp.company}
                       </div>
                     </div>
-                    
-                    <div className="flex flex-col gap-2 text-sm font-medium text-slate-400 bg-slate-950/50 p-3 rounded-lg border border-slate-800/50">
+
+                    <div className="flex flex-col gap-1.5 text-sm text-apple-tertiary">
                       <div className="flex items-center gap-2">
-                        <Calendar size={14} className="text-slate-500" />
+                        <Calendar size={14} className="shrink-0" />
                         <span>{exp.period}</span>
                       </div>
                       <div className="flex items-center gap-2">
-                        <MapPin size={14} className="text-slate-500" />
+                        <MapPin size={14} className="shrink-0" />
                         <span>{exp.location}</span>
                       </div>
                     </div>
                   </div>
-                  
-                  <p className="text-slate-300 leading-relaxed italic border-l-2 border-slate-700 pl-4 py-1">
-                    "{exp.summary}"
-                  </p>
+
+                  <p className="text-apple-secondary leading-relaxed text-sm border-l-2 border-apple-blue/40 pl-4 py-1">{exp.summary}</p>
                 </div>
 
-                {/* Details Body */}
-                <div className="p-6 md:p-8 bg-gradient-to-b from-slate-900/20 to-transparent">
-                  <h4 className="text-sm uppercase tracking-wider text-slate-500 font-bold mb-4">Key Responsibilities & Achievements</h4>
-                  <div className="grid gap-4 mb-8">
-                    {exp.achievements.map((item, idx) => (
-                      <div key={idx} className="flex gap-4 group">
-                        <div className="mt-1 flex-shrink-0 w-8 h-8 rounded-lg bg-slate-800 flex items-center justify-center group-hover:bg-slate-700 transition-colors border border-slate-700/50">
-                          {item.icon}
+                <div className="p-6 md:p-8 bg-apple-surface/40">
+                  <h4 className="text-[11px] uppercase tracking-[0.15em] text-apple-tertiary font-semibold mb-4">{ex.keyAchievements}</h4>
+                  <div className="grid gap-3 mb-8">
+                    {exp.achievements.map((text, idx) => (
+                      <div key={idx} className="flex gap-3 group">
+                        <div className="mt-0.5 flex-shrink-0 w-8 h-8 rounded-lg bg-white flex items-center justify-center border border-black/[0.06] shadow-apple">
+                          {iconSets[index][idx]}
                         </div>
-                        <p className="text-slate-300 text-sm md:text-base leading-relaxed pt-0.5">
-                          {item.text}
-                        </p>
+                        <p className="text-apple-secondary text-sm leading-relaxed pt-1">{text}</p>
                       </div>
                     ))}
                   </div>
 
-                  {/* Tech Stack Footer */}
                   <div>
-                    <h4 className="text-xs uppercase tracking-wider text-slate-600 font-bold mb-3">Technologies Used</h4>
+                    <h4 className="text-[11px] uppercase tracking-[0.15em] text-apple-tertiary font-semibold mb-3">{ex.technologies}</h4>
                     <div className="flex flex-wrap gap-2">
-                      {exp.stack.map((tech) => (
-                        <span 
-                          key={tech} 
-                          className="px-3 py-1 text-xs font-medium text-primary-300 bg-primary-500/10 border border-primary-500/20 rounded-full hover:bg-primary-500/20 transition-colors cursor-default"
-                        >
+                      {stacks[index].map((tech) => (
+                        <span key={tech} className="px-3 py-1 text-xs font-medium text-apple-blue bg-white border border-blue-100 rounded-full">
                           {tech}
                         </span>
                       ))}

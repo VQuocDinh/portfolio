@@ -1,59 +1,65 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import Section from './ui/Section';
 import { Award, Briefcase, Clock, Code, Target } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const About: React.FC = () => {
-  const stats = [
-    { label: 'Experience', value: '1.5+ Years', icon: <Clock size={20} className="text-primary-400" /> },
-    { label: 'Projects', value: '3+ Major', icon: <Briefcase size={20} className="text-primary-400" /> },
-    { label: 'TOEIC', value: '725', icon: <Award size={20} className="text-primary-400" /> },
-    { label: 'Degree', value: 'Software Eng', icon: <Code size={20} className="text-primary-400" /> },
-  ];
+  const { messages } = useLanguage();
+  const a = messages.about;
+  const s = a.stats;
+
+  const stats = useMemo(
+    () => [
+      { label: s.experience, value: s.experienceValue, icon: <Clock size={20} className="text-apple-blue" /> },
+      { label: s.projects, value: s.projectsValue, icon: <Briefcase size={20} className="text-apple-blue" /> },
+      { label: s.toeic, value: '725', icon: <Award size={20} className="text-apple-blue" /> },
+      { label: s.degree, value: s.degreeValue, icon: <Code size={20} className="text-apple-blue" /> },
+    ],
+    [s]
+  );
 
   return (
-    <Section id="about" title="About Me" subtitle="Results-driven developer focused on performance and scalability.">
-      <div className="grid md:grid-cols-2 gap-12 items-start">
-        <div className="space-y-6 text-slate-300 leading-relaxed">
-          <p>
-            I am a <strong className="text-white">Results-driven Fullstack Developer</strong> with <strong className="text-white">1.5+ years</strong> of experience delivering high-performance EdTech and enterprise web applications. Specialized in building scalable <strong className="text-white">React/TypeScript</strong> frontends and RESTful APIs with <strong className="text-white">NestJS</strong>.
-          </p>
-          <p>
-            I have a proven track record of optimizing application performance by <strong className="text-primary-400">40%</strong> and reducing API response times by <strong className="text-primary-400">30%</strong>. My expertise lies in writing maintainable code and creating exceptional user experiences using modern technologies like PostgreSQL, Prisma ORM, and Next.js.
-          </p>
+    <Section id="about" eyebrow={a.eyebrow} title={a.title} subtitle={a.subtitle} muted>
+      <div className="grid md:grid-cols-2 gap-14 lg:gap-16 items-start">
+        <div className="space-y-6 text-apple-secondary leading-[1.75] text-[15px] md:text-base">
+          <p>{a.p1}</p>
+          <p>{a.p2}</p>
 
-          <div className="pt-4 border-t border-slate-800 mt-6">
-            <h3 className="text-white font-semibold mb-4 flex items-center gap-2">
-              <Target size={18} className="text-primary-500" /> 
-              Career Goals
+          <div className="pt-6 border-t border-apple-border/50">
+            <h3 className="text-apple-text font-semibold mb-4 flex items-center gap-2 text-base">
+              <Target size={18} className="text-apple-blue shrink-0" />
+              {a.careerGoals}
             </h3>
-            <div className="space-y-3">
+            <div className="space-y-4">
               <div className="flex gap-3">
-                <div className="mt-1 min-w-[4px] h-[4px] bg-primary-500 rounded-full"></div>
-                <p className="text-sm"><strong className="text-slate-200">Short-term (1–2 years):</strong> Deepen expertise in frontend architecture & system design, contribute to impactful products.</p>
+                <div className="mt-2 min-w-[6px] h-[6px] bg-apple-blue rounded-full shrink-0" />
+                <p className="text-sm leading-relaxed">
+                  <strong className="text-apple-text font-medium">{a.shortTermLabel}</strong> {a.shortTerm}
+                </p>
               </div>
               <div className="flex gap-3">
-                <div className="mt-1 min-w-[4px] h-[4px] bg-primary-500 rounded-full"></div>
-                <p className="text-sm"><strong className="text-slate-200">Long-term (5 years):</strong> Grow into a <strong className="text-white">Lead Developer</strong>, driving technical direction and mentoring teams.</p>
+                <div className="mt-2 min-w-[6px] h-[6px] bg-apple-blue rounded-full shrink-0" />
+                <p className="text-sm leading-relaxed">
+                  <strong className="text-apple-text font-medium">{a.longTermLabel}</strong> {a.longTerm}
+                </p>
               </div>
             </div>
           </div>
         </div>
 
-        <div className="space-y-8">
-          <div className="grid grid-cols-2 gap-4">
-            {stats.map((stat, index) => (
-              <div 
-                key={index} 
-                className="bg-slate-900 border border-slate-800 p-6 rounded-xl hover:border-primary-500/30 transition-colors group"
-              >
-                <div className="mb-3 p-3 bg-slate-800 w-fit rounded-lg group-hover:bg-primary-900/20 transition-colors">
-                  {stat.icon}
-                </div>
-                <h3 className="text-2xl font-bold text-white mb-1">{stat.value}</h3>
-                <p className="text-slate-500 text-sm font-medium">{stat.label}</p>
+        <div className="grid grid-cols-2 gap-4">
+          {stats.map((stat, index) => (
+            <div
+              key={index}
+              className="group bg-white p-6 rounded-2xl border border-black/[0.06] shadow-apple hover:shadow-apple-md hover:border-black/[0.08] transition-all duration-300"
+            >
+              <div className="mb-4 p-3 bg-apple-surface/80 w-fit rounded-xl border border-black/[0.04] group-hover:bg-white transition-colors">
+                {stat.icon}
               </div>
-            ))}
-          </div>
+              <h3 className="text-2xl font-semibold text-apple-text mb-1 tracking-tight">{stat.value}</h3>
+              <p className="text-apple-tertiary text-sm font-medium">{stat.label}</p>
+            </div>
+          ))}
         </div>
       </div>
     </Section>

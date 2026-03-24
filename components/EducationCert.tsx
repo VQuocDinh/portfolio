@@ -1,61 +1,50 @@
 import React from 'react';
 import Section from './ui/Section';
 import { GraduationCap, Award } from 'lucide-react';
-import { Education, Certificate } from '../types';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const EducationCert: React.FC = () => {
-  const education: Education = {
-    institution: "Posts and Telecommunications Institute of Technology (PTIT)",
-    degree: "Bachelor of Software Engineering",
-    period: "2020 – 2025",
-    details: ["Awarded Excellent Academic Scholarship (3 consecutive years) for maintaining GPA > 3.5/4.0"]
-  };
-
-  const certifications: Certificate[] = [
-    { name: "The Ultimate React Course 2025", issuer: "Udemy", year: "2025" },
-    { name: "Front End Development Libraries", issuer: "freeCodeCamp", year: "2024" },
-    { name: "JavaScript Algorithms and Data Structures", issuer: "freeCodeCamp", year: "2023" },
-    { name: "TOEIC Listening & Reading: 725", issuer: "IIG Vietnam", year: "2024" },
-  ];
+  const { messages } = useLanguage();
+  const e = messages.education;
 
   return (
-    <Section id="education" className="bg-slate-900/30 rounded-3xl my-10" title="Education & Certifications">
-      <div className="grid lg:grid-cols-2 gap-12">
-        {/* Education Column */}
+    <Section id="education" eyebrow={e.eyebrow} title={e.title} subtitle={e.subtitle} muted>
+      <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
         <div>
-          <h3 className="text-xl font-semibold text-white mb-8 flex items-center gap-2">
-            <GraduationCap className="text-primary-500" />
-            Education
+          <h3 className="text-lg font-semibold text-apple-text mb-6 flex items-center gap-2">
+            <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-white border border-black/[0.06] shadow-apple">
+              <GraduationCap className="text-apple-blue" size={20} />
+            </span>
+            {e.educationHeading}
           </h3>
-          <div className="bg-slate-900 border-l-4 border-primary-500 p-6 rounded-r-xl shadow-sm">
-            <h4 className="text-lg font-bold text-white">{education.institution}</h4>
-            <p className="text-primary-400 font-medium mb-1">{education.degree}</p>
-            <p className="text-slate-500 text-sm mb-4">{education.period}</p>
-            <ul className="list-disc list-inside text-slate-400 text-sm">
-              {education.details.map((detail, idx) => (
-                <li key={idx}>{detail}</li>
-              ))}
+          <div className="bg-white border border-black/[0.06] border-l-4 border-l-apple-blue p-6 md:p-7 rounded-2xl shadow-apple">
+            <h4 className="text-base font-semibold text-apple-text leading-snug">{e.institution}</h4>
+            <p className="text-apple-blue font-semibold text-sm mt-2">{e.degree}</p>
+            <p className="text-apple-tertiary text-sm mb-4">{e.period}</p>
+            <ul className="list-disc list-outside ml-4 text-apple-secondary text-sm space-y-1 leading-relaxed">
+              <li>{e.detail}</li>
             </ul>
           </div>
         </div>
 
-        {/* Certifications Column */}
         <div>
-          <h3 className="text-xl font-semibold text-white mb-8 flex items-center gap-2">
-            <Award className="text-primary-500" />
-            Certifications & Training
+          <h3 className="text-lg font-semibold text-apple-text mb-6 flex items-center gap-2">
+            <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-white border border-black/[0.06] shadow-apple">
+              <Award className="text-apple-blue" size={20} />
+            </span>
+            {e.certHeading}
           </h3>
-          <div className="space-y-4">
-            {certifications.map((cert, idx) => (
-              <div 
-                key={idx} 
-                className="flex items-center justify-between p-4 bg-slate-900 rounded-lg border border-slate-800 hover:border-slate-700 transition-colors"
+          <div className="space-y-3">
+            {e.certs.map((cert, idx) => (
+              <div
+                key={idx}
+                className="flex items-start sm:items-center justify-between gap-4 p-4 md:p-5 bg-white rounded-xl border border-black/[0.06] shadow-apple hover:shadow-apple-md transition-all duration-300"
               >
-                <div>
-                  <h4 className="text-white font-medium">{cert.name}</h4>
-                  <p className="text-slate-500 text-sm">{cert.issuer}</p>
+                <div className="min-w-0">
+                  <h4 className="text-apple-text font-medium text-sm leading-snug">{cert.name}</h4>
+                  <p className="text-apple-tertiary text-xs mt-1">{cert.issuer}</p>
                 </div>
-                <span className="text-slate-600 text-xs font-mono border border-slate-800 px-2 py-1 rounded">
+                <span className="text-apple-tertiary text-xs font-mono bg-apple-surface px-2.5 py-1 rounded-lg border border-black/[0.04] shrink-0">
                   {cert.year}
                 </span>
               </div>

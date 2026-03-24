@@ -1,84 +1,125 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import Section from './ui/Section';
-import { Project } from '../types';
-import { Github, ExternalLink, FolderGit2 } from 'lucide-react';
+import { Github, ArrowUpRight, FolderGit2, ChevronRight, Globe } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
+import { LIVE_NOTICE_SLUGS, PROJECT_CARD_META } from '../lib/projectMeta';
+import LiveSiteNoticeModal from './LiveSiteNoticeModal';
 
 const Projects: React.FC = () => {
-  const projects: Project[] = [
-    {
-      title: "Medical Record Management System",
-      description: "Full-stack healthcare platform with JWT authentication & role-based access control (RBAC). Secure patient data management system ensuring HIPAA-compliant data handling.",
-      tags: ["NestJS", "React", "PostgreSQL", "JWT", "RBAC"],
-      githubUrl: "https://github.com/VQuocDinh/PRMS",
-      image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=800&auto=format&fit=crop" 
-    },
-    {
-      title: "Coffee E-Commerce Platform",
-      description: "Service-oriented architecture e-commerce system with microservices design pattern. Dockerized deployment enabling scalable, maintainable infrastructure.",
-      tags: ["Docker", "Microservices", "React", "Node.js"],
-      githubUrl: "https://github.com/VQuocDinh/hancoffee-service-oriented",
-      image: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=800&auto=format&fit=crop"
-    },
-    {
-      title: "Online Music Streaming Platform",
-      description: "Music streaming application with AI-powered recommendation engine using Python. Implemented machine learning algorithms for personalized music suggestions.",
-      tags: ["Python", "React", "Machine Learning", "AI"],
-      githubUrl: "https://github.com/VQuocDinh/play-music",
-      image: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=800&auto=format&fit=crop"
-    }
-  ];
+  const { messages } = useLanguage();
+  const p = messages.projects;
+  const [liveModal, setLiveModal] = useState<{ open: boolean; url: string }>({ open: false, url: '' });
 
   return (
-    <Section id="projects" title="Key Projects" subtitle="Highlights of my technical implementation and problem-solving.">
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {projects.map((project, index) => (
-          <div 
-            key={index} 
-            className="group bg-slate-900 border border-slate-800 rounded-xl overflow-hidden hover:shadow-2xl hover:shadow-primary-900/10 hover:border-slate-700 transition-all duration-300 flex flex-col"
-          >
-            {/* Image Placeholder */}
-            <div className="h-48 overflow-hidden bg-slate-800 relative">
-               <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent z-10 opacity-60"></div>
-               <img 
-                src={project.image} 
-                alt={project.title} 
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-               />
-               <div className="absolute top-4 right-4 z-20 bg-slate-900/80 backdrop-blur p-2 rounded-full border border-slate-700">
-                  <FolderGit2 size={20} className="text-primary-400" />
-               </div>
-            </div>
+    <Section id="projects" eyebrow={p.eyebrow} title={p.title} subtitle={p.subtitle}>
+      <LiveSiteNoticeModal
+        open={liveModal.open}
+        onClose={() => setLiveModal({ open: false, url: '' })}
+        liveUrl={liveModal.url}
+      />
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        {p.items.map((project, index) => {
+          const meta = PROJECT_CARD_META[index];
+          const liveBtnBase =
+            'inline-flex items-center justify-center gap-2 w-full sm:w-auto px-4 py-2.5 rounded-xl text-sm font-semibold border transition-colors';
+          const liveEnabled = `${liveBtnBase} bg-apple-text text-white border-transparent hover:bg-apple-text/90`;
+          const liveDisabled = `${liveBtnBase} bg-apple-surface text-apple-tertiary border-black/[0.06] cursor-not-allowed opacity-65`;
 
-            <div className="p-6 flex-1 flex flex-col">
-              <h3 className="text-xl font-bold text-white mb-2 group-hover:text-primary-400 transition-colors">
-                {project.title}
-              </h3>
-              <p className="text-slate-400 text-sm mb-4 line-clamp-3 flex-1">
-                {project.description}
-              </p>
-              
-              <div className="flex flex-wrap gap-2 mb-6">
-                {project.tags.map(tag => (
-                  <span key={tag} className="text-xs font-medium px-2 py-1 bg-slate-800 text-slate-300 rounded border border-slate-700">
-                    {tag}
-                  </span>
-                ))}
-              </div>
+          return (
+            <article
+              key={project.slug}
+              className="group flex flex-col bg-white rounded-2xl overflow-hidden border border-black/[0.06] shadow-apple hover:shadow-apple-lg hover:border-black/[0.1] transition-all duration-300"
+            >
+              <Link to={`/projects/${project.slug}`} className="block aspect-[16/10] overflow-hidden relative bg-apple-surface">
+                <img
+                  src={meta.image.replace('w=1200', 'w=800')}
+                  alt=""
+                  className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500 ease-out"
+                />
+                <div className="absolute top-3 right-3 bg-white/95 backdrop-blur-sm p-2 rounded-full shadow-apple border border-black/[0.06]">
+                  <FolderGit2 size={18} className="text-apple-blue" aria-hidden />
+                </div>
+              </Link>
 
-              <div className="mt-auto">
-                <a 
-                  href={project.githubUrl} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-sm font-medium text-white hover:text-primary-400 transition-colors group/link"
-                >
-                  <Github size={16} />
-                  <span className="group-hover/link:underline">View Source</span>
-                </a>
+              <div className="p-6 flex-1 flex flex-col">
+                <h3 className="text-lg font-semibold text-apple-text mb-2 group-hover:text-apple-blue transition-colors tracking-tight">
+                  <Link to={`/projects/${project.slug}`} className="focus-visible:outline-offset-2 rounded">
+                    {project.title}
+                  </Link>
+                </h3>
+                <p className="text-apple-secondary text-sm mb-5 line-clamp-3 flex-1 leading-relaxed">{project.description}</p>
+
+                <div className="flex flex-wrap gap-1.5 mb-4">
+                  {meta.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="text-[11px] font-semibold uppercase tracking-wide px-2.5 py-1 bg-apple-surface text-apple-secondary rounded-md border border-black/[0.04]"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+
+                <div className="mt-auto pt-1 flex flex-col gap-3">
+                  {meta.liveUrl ? (
+                    LIVE_NOTICE_SLUGS.has(project.slug) ? (
+                      <button
+                        type="button"
+                        onClick={() => setLiveModal({ open: true, url: meta.liveUrl! })}
+                        className={liveEnabled}
+                      >
+                        <Globe size={16} aria-hidden />
+                        {p.viewLive}
+                        <ArrowUpRight size={14} className="opacity-90" aria-hidden />
+                      </button>
+                    ) : (
+                      <a
+                        href={meta.liveUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={liveEnabled}
+                      >
+                        <Globe size={16} aria-hidden />
+                        {p.viewLive}
+                        <ArrowUpRight size={14} className="opacity-90" aria-hidden />
+                      </a>
+                    )
+                  ) : (
+                    <button type="button" disabled className={liveDisabled} title={p.viewLiveDisabled} aria-label={p.viewLiveDisabled}>
+                      <Globe size={16} aria-hidden />
+                      {p.viewLive}
+                    </button>
+                  )}
+
+                  <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                    <Link
+                      to={`/projects/${project.slug}`}
+                      className="inline-flex items-center gap-2 text-sm font-semibold text-apple-blue hover:text-apple-blue-hover transition-colors"
+                    >
+                      {p.viewDetails}
+                      <ChevronRight size={16} className="group-hover:translate-x-0.5 transition-transform" aria-hidden />
+                    </Link>
+                    <a
+                      href={meta.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-sm font-semibold text-apple-text hover:text-apple-blue transition-colors group/link"
+                    >
+                      <Github size={16} aria-hidden />
+                      <span>{p.viewSource}</span>
+                      <ArrowUpRight
+                        size={14}
+                        className="opacity-0 -translate-x-1 group-hover/link:opacity-100 group-hover/link:translate-x-0 transition-all"
+                        aria-hidden
+                      />
+                    </a>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-        ))}
+            </article>
+          );
+        })}
       </div>
     </Section>
   );

@@ -7,41 +7,57 @@ interface SectionProps {
   className?: string;
   title?: string;
   subtitle?: string;
+  /** Small label above title (e.g. "Overview") */
+  eyebrow?: string;
+  /** Soft gray band for visual rhythm */
+  muted?: boolean;
 }
 
-const Section: React.FC<SectionProps> = ({ id, children, className = "", title, subtitle }) => {
+const Section: React.FC<SectionProps> = ({ id, children, className = "", title, subtitle, eyebrow, muted = false }) => {
   return (
-    <section id={id} className={`scroll-mt-24 py-20 px-4 md:px-8 max-w-7xl mx-auto ${className}`}>
-      {(title || subtitle) && (
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
+    <section
+      id={id}
+      className={`scroll-mt-24 ${muted ? 'bg-apple-surface/60' : ''}`}
+    >
+      <div className={`max-w-6xl mx-auto px-4 md:px-8 py-20 md:py-24 ${className}`}>
+        {(title || subtitle || eyebrow) && (
+          <motion.div 
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.45 }}
+            className="mb-14 md:mb-16 text-center max-w-3xl mx-auto"
+          >
+            {eyebrow && (
+              <p className="text-[11px] md:text-xs font-semibold uppercase tracking-[0.2em] text-apple-blue mb-3">
+                {eyebrow}
+              </p>
+            )}
+            {title && (
+              <h2 className="text-3xl md:text-[2.125rem] font-semibold text-apple-text mb-4 tracking-tighter-plus leading-tight">
+                {title}
+              </h2>
+            )}
+            {subtitle && (
+              <p className="text-apple-secondary text-base md:text-lg leading-relaxed">
+                {subtitle}
+              </p>
+            )}
+            <div className="mt-8 flex justify-center">
+              <div className="h-px w-12 bg-apple-border rounded-full" aria-hidden />
+            </div>
+          </motion.div>
+        )}
+        
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.5 }}
-          className="mb-12 text-center"
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.5, delay: 0.08 }}
         >
-          {title && (
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-100 mb-4 tracking-tight">
-              {title}
-            </h2>
-          )}
-          {subtitle && (
-            <p className="text-slate-400 max-w-2xl mx-auto">
-              {subtitle}
-            </p>
-          )}
-          <div className="w-16 h-1 bg-primary-500 mx-auto mt-6 rounded-full"></div>
+          {children}
         </motion.div>
-      )}
-      
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-50px" }}
-        transition={{ duration: 0.5, delay: 0.2 }}
-      >
-        {children}
-      </motion.div>
+      </div>
     </section>
   );
 };

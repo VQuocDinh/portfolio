@@ -1,56 +1,50 @@
-import React from 'react';
+import React, { useMemo } from 'react';
+import { Link } from 'react-router-dom';
 import Section from './ui/Section';
-import { SkillCategory } from '../types';
+import { useLanguage } from '../contexts/LanguageContext';
+import type { SkillDetailEntry } from '../lib/skills';
+import { SKILLS_STRUCTURE } from '../lib/skillsRegistry';
 
 const Skills: React.FC = () => {
-  const skillsData: SkillCategory[] = [
-    {
-      title: "Frontend",
-      skills: ["React", "TypeScript", "JavaScript (ES6+)", "Next.js", "Vite", "TailwindCSS", "Ant Design", "HTML5", "CSS3"]
-    },
-    {
-      title: "Backend",
-      skills: ["Node.js", "NestJS", "RESTful APIs", "JWT Authentication", "Prisma ORM"]
-    },
-    {
-      title: "Database",
-      skills: ["PostgreSQL", "MySQL", "MongoDB", "Database Design & Optimization"]
-    },
-    {
-      title: "State Management",
-      skills: ["React Query", "Context API", "SSR/SSG"]
-    },
-    {
-      title: "DevOps & Tools",
-      skills: ["Git/GitHub", "Docker", "Linux", "Swagger", "Jira", "Figma", "Vercel", "Render"]
-    },
-    {
-      title: "Testing",
-      skills: ["Jest", "React Testing Library", "Unit & Integration Testing"]
+  const { messages } = useLanguage();
+  const sk = messages.skills;
+  const sd = messages.skillDetail;
+
+  const detailBySlug = useMemo(() => {
+    const m = new Map<string, SkillDetailEntry>();
+    for (const e of sd.entries) {
+      m.set(e.slug, e);
     }
-  ];
+    return m;
+  }, [sd.entries]);
 
   return (
-    <Section id="skills" title="Technical Skills" subtitle="My comprehensive technical arsenal for modern web development.">
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {skillsData.map((category, idx) => (
-          <div 
-            key={idx} 
-            className="bg-slate-900/50 p-6 rounded-2xl border border-slate-800 hover:border-slate-700 transition-all flex flex-col"
+    <Section id="skills" eyebrow={sk.eyebrow} title={sk.title} subtitle={sk.subtitle}>
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+        {SKILLS_STRUCTURE.map((row) => (
+          <div
+            key={row.key}
+            className="bg-white p-6 md:p-7 rounded-2xl border border-black/[0.06] shadow-apple hover:shadow-apple-md hover:border-black/[0.08] transition-all duration-300 flex flex-col min-h-[200px]"
           >
-            <h3 className="text-lg font-semibold text-white mb-4 flex items-center">
-              <span className="w-2 h-6 bg-primary-500 rounded-full mr-3"></span>
-              {category.title}
+            <h3 className="text-[15px] font-semibold text-apple-text mb-5 flex items-center">
+              <span className="w-1 h-5 bg-apple-blue rounded-full mr-3 shrink-0" aria-hidden />
+              {sk.categories[row.key]}
             </h3>
             <div className="flex flex-wrap gap-2 mt-auto">
-              {category.skills.map((skill) => (
-                <span 
-                  key={skill}
-                  className="px-3 py-1.5 bg-slate-800 text-slate-300 text-sm rounded-md border border-slate-700/50 hover:text-white hover:border-primary-500/50 transition-colors cursor-default"
-                >
-                  {skill}
-                </span>
-              ))}
+              {row.slugs.map((slug) => {
+                const entry = detailBySlug.get(slug);
+                if (!entry) return null;
+                return (
+                  <Link
+                    key={slug}
+                    to={`/skills/${slug}`}
+                    className="px-3 py-1.5 bg-apple-surface/90 text-apple-secondary text-[13px] rounded-lg border border-black/[0.04] font-medium hover:text-apple-text hover:bg-white hover:border-apple-blue/25 hover:shadow-apple transition-all cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-apple-blue"
+                    aria-label={`${sd.learnMoreAria} ${entry.title}`}
+                  >
+                    {entry.title}
+                  </Link>
+                );
+              })}
             </div>
           </div>
         ))}

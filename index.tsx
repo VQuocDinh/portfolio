@@ -1,6 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { BrowserRouter } from 'react-router-dom';
 import App from './App';
+import { LanguageProvider } from './contexts/LanguageContext';
+import { RecruiterLetterProvider } from './contexts/RecruiterLetterContext';
 
 const rootElement = document.getElementById('root');
 if (!rootElement) {
@@ -10,6 +13,8 @@ if (!rootElement) {
 const root = ReactDOM.createRoot(rootElement);
 root.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <LanguageProvider children={<RecruiterLetterProvider children={<App />} />} />
+    </BrowserRouter>
   </React.StrictMode>
 );

@@ -1,0 +1,47 @@
+/* Global polish — portfolio */
+:root {
+  --hero-pattern: rgba(0, 0, 0, 0.03);
+}
+
+/* Subtle grid (no color gradients) */
+.hero-pattern {
+  background-image:
+    linear-gradient(var(--hero-pattern) 1px, transparent 1px),
+    linear-gradient(90deg, var(--hero-pattern) 1px, transparent 1px);
+  background-size: 64px 64px;
+  background-position: center top;
+}
+
+/* IDE-style blinking caret in Hero code window */
+@keyframes hero-code-cursor-blink {
+  0%,
+  45% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+
+.hero-code-cursor {
+  display: inline-block;
+  vertical-align: text-bottom;
+  width: 2px;
+  min-height: 1.05em;
+  margin-left: 3px;
+  border-radius: 1px;
+  background-color: #0071e3;
+  box-shadow: 0 0 0 1px rgba(0, 113, 227, 0.15);
+  animation: hero-code-cursor-blink 1.05s step-end infinite;
+}
+
+:focus-visible {
+  outline: 2px solid #0071e3;
+  outline-offset: 2px;
+}
+
+button:focus:not(:focus-visible),
+a:focus:not(:focus-visible) {
+  outline: none;
+}
