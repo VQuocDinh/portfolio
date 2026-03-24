@@ -39,6 +39,9 @@ export const en = {
     closeMenu: 'Close menu',
     language: 'Language',
     downloadCv: 'Download CV (PDF)',
+    themeLight: 'Light mode',
+    themeDark: 'Dark mode',
+    themeToggle: 'Toggle color theme',
   },
   lang: {
     en: 'English',

@@ -1,10 +1,11 @@
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { Menu, X, Github, Linkedin, Mail, HeartHandshake, FileDown } from 'lucide-react';
+import { Menu, X, Github, Linkedin, Mail, HeartHandshake, FileDown, Sun, Moon } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useRecruiterLetter } from '../contexts/RecruiterLetterContext';
 import { CV_DOWNLOAD_NAME, CV_HREF } from '../lib/cv';
+import { useTheme } from '../contexts/ThemeContext';
 
 function scrollToSection(sectionId: string) {
   const el = document.getElementById(sectionId);
@@ -16,6 +17,7 @@ function scrollToSection(sectionId: string) {
 
 const Header: React.FC = () => {
   const { t, locale, setLocale, messages } = useLanguage();
+  const { theme, toggleTheme } = useTheme();
   const { openLetter } = useRecruiterLetter();
   const location = useLocation();
   const navigate = useNavigate();
@@ -80,7 +82,7 @@ const Header: React.FC = () => {
 
   const langSwitcher = (
     <div
-      className="flex items-center rounded-xl border border-black/[0.08] bg-apple-surface/90 p-1 shadow-inner-soft"
+      className="flex items-center rounded-xl border border-apple-border/50 bg-apple-surface/90 p-1 shadow-inner-soft"
       role="group"
       aria-label={t('a11y.language')}
     >
@@ -89,7 +91,7 @@ const Header: React.FC = () => {
         onClick={() => setLocale('en')}
         className={`px-2.5 py-1.5 text-[11px] font-semibold rounded-lg transition-all ${
           locale === 'en'
-            ? 'bg-white text-apple-text shadow-apple'
+            ? 'bg-apple-bg text-apple-text shadow-apple'
             : 'text-apple-secondary hover:text-apple-text'
         }`}
       >
@@ -100,7 +102,7 @@ const Header: React.FC = () => {
         onClick={() => setLocale('vi')}
         className={`px-2.5 py-1.5 text-[11px] font-semibold rounded-lg transition-all ${
           locale === 'vi'
-            ? 'bg-white text-apple-text shadow-apple'
+            ? 'bg-apple-bg text-apple-text shadow-apple'
             : 'text-apple-secondary hover:text-apple-text'
         }`}
       >
@@ -113,7 +115,7 @@ const Header: React.FC = () => {
     <header
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-white/85 backdrop-blur-xl border-b border-black/[0.06] shadow-apple'
+          ? 'bg-apple-bg/85 backdrop-blur-xl border-b border-apple-border/45 shadow-apple'
           : 'bg-transparent'
       }`}
     >
@@ -136,8 +138,17 @@ const Header: React.FC = () => {
           <div className="flex items-center gap-2 md:gap-3">
             <button
               type="button"
+              onClick={toggleTheme}
+              className="p-2 rounded-lg text-apple-tertiary hover:text-apple-blue hover:bg-blue-50/60 dark:hover:bg-blue-950/40 transition-colors shrink-0"
+              aria-label={t('a11y.themeToggle')}
+              title={theme === 'dark' ? t('a11y.themeLight') : t('a11y.themeDark')}
+            >
+              {theme === 'dark' ? <Sun size={20} aria-hidden /> : <Moon size={20} aria-hidden />}
+            </button>
+            <button
+              type="button"
               onClick={openLetter}
-              className="p-2 rounded-lg text-apple-tertiary hover:text-apple-blue hover:bg-blue-50/60 transition-colors shrink-0"
+              className="p-2 rounded-lg text-apple-tertiary hover:text-apple-blue hover:bg-blue-50/60 dark:hover:bg-blue-950/40 transition-colors shrink-0"
               aria-label={messages.recruiterLetter.ariaModal}
               title={messages.recruiterLetter.reopen}
             >
@@ -156,7 +167,7 @@ const Header: React.FC = () => {
                     className={`relative px-3 py-2 text-[13px] font-medium transition-colors rounded-lg ${
                       isActive
                         ? 'text-apple-text'
-                        : 'text-apple-secondary hover:text-apple-text hover:bg-black/[0.03]'
+                        : 'text-apple-secondary hover:text-apple-text hover:bg-apple-text/10'
                     }`}
                   >
                     {link.name}
@@ -176,7 +187,7 @@ const Header: React.FC = () => {
                   href="https://github.com/VQuocDinh"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2 rounded-lg text-apple-tertiary hover:text-apple-text hover:bg-black/[0.03] transition-colors"
+                  className="p-2 rounded-lg text-apple-tertiary hover:text-apple-text hover:bg-apple-text/10 dark:hover:bg-apple-text/15 transition-colors"
                   aria-label="GitHub"
                 >
                   <Github size={18} />
@@ -185,7 +196,7 @@ const Header: React.FC = () => {
                   href="https://linkedin.com/in/voquocdinh"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2 rounded-lg text-apple-tertiary hover:text-apple-text hover:bg-black/[0.03] transition-colors"
+                  className="p-2 rounded-lg text-apple-tertiary hover:text-apple-text hover:bg-apple-text/10 dark:hover:bg-apple-text/15 transition-colors"
                   aria-label="LinkedIn"
                 >
                   <Linkedin size={18} />
@@ -193,7 +204,7 @@ const Header: React.FC = () => {
                 <a
                   href={CV_HREF}
                   download={CV_DOWNLOAD_NAME}
-                  className="p-2 rounded-lg text-apple-tertiary hover:text-apple-blue hover:bg-blue-50/60 transition-colors"
+                  className="p-2 rounded-lg text-apple-tertiary hover:text-apple-blue hover:bg-blue-50/60 dark:hover:bg-blue-950/40 transition-colors"
                   aria-label={t('a11y.downloadCv')}
                   title={messages.contact.downloadCv}
                 >
@@ -204,7 +215,7 @@ const Header: React.FC = () => {
 
             <button
               type="button"
-              className="md:hidden p-2 -mr-2 rounded-lg text-apple-secondary hover:text-apple-text hover:bg-black/[0.04] transition-colors"
+              className="md:hidden p-2 -mr-2 rounded-lg text-apple-secondary hover:text-apple-text hover:bg-apple-text/15 transition-colors"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               aria-expanded={isMobileMenuOpen}
               aria-label={isMobileMenuOpen ? t('a11y.closeMenu') : t('a11y.openMenu')}
@@ -221,7 +232,7 @@ const Header: React.FC = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-white/95 backdrop-blur-xl border-b border-black/[0.06] overflow-hidden shadow-apple-md"
+            className="md:hidden bg-apple-bg/95 backdrop-blur-xl border-b border-apple-border/45 overflow-hidden shadow-apple-md"
           >
             <div className="px-4 py-6 space-y-1 flex flex-col items-stretch max-w-md mx-auto">
               {navLinks.map((link) => {
@@ -234,7 +245,7 @@ const Header: React.FC = () => {
                     className={`font-medium text-[15px] py-3 px-3 rounded-xl text-center ${
                       isActive
                         ? 'text-apple-text bg-apple-surface'
-                        : 'text-apple-secondary hover:text-apple-text hover:bg-black/[0.03]'
+                        : 'text-apple-secondary hover:text-apple-text hover:bg-apple-text/10'
                     }`}
                   >
                     {link.name}
@@ -255,7 +266,7 @@ const Header: React.FC = () => {
                 href={CV_HREF}
                 download={CV_DOWNLOAD_NAME}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="mt-2 py-3 px-3 rounded-xl text-center text-sm font-semibold text-apple-text bg-apple-surface border border-black/[0.06] hover:border-apple-blue/30 hover:bg-white flex items-center justify-center gap-2 transition-colors"
+                className="mt-2 py-3 px-3 rounded-xl text-center text-sm font-semibold text-apple-text bg-apple-surface border border-apple-border/45 hover:border-apple-blue/30 hover:bg-apple-bg flex items-center justify-center gap-2 transition-colors"
               >
                 <FileDown size={18} aria-hidden />
                 {messages.contact.downloadCv}

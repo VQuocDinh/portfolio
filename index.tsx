@@ -4,6 +4,7 @@ import { BrowserRouter } from 'react-router-dom';
 import App from './App';
 import { LanguageProvider } from './contexts/LanguageContext';
 import { RecruiterLetterProvider } from './contexts/RecruiterLetterContext';
+import { ThemeProvider } from './contexts/ThemeContext';
 
 const rootElement = document.getElementById('root');
 if (!rootElement) {
@@ -13,8 +14,12 @@ if (!rootElement) {
 const root = ReactDOM.createRoot(rootElement);
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <LanguageProvider children={<RecruiterLetterProvider children={<App />} />} />
-    </BrowserRouter>
+      <BrowserRouter>
+        <LanguageProvider
+          children={
+            <RecruiterLetterProvider children={<ThemeProvider children={<App />} />} />
+          }
+        />
+      </BrowserRouter>
   </React.StrictMode>
 );

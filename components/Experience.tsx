@@ -71,11 +71,11 @@ const Experience: React.FC = () => {
                 aria-hidden
               />
 
-              <div className="bg-white rounded-2xl overflow-hidden border border-black/[0.06] shadow-apple hover:shadow-apple-md transition-all duration-300">
+              <div className="bg-apple-bg rounded-2xl overflow-hidden border border-apple-border/45 shadow-apple hover:shadow-apple-md transition-all duration-300">
                 <div className="p-6 md:p-8 border-b border-apple-border/50">
                   <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4">
                     <div className="space-y-2">
-                      <span className="inline-flex text-[11px] font-semibold uppercase tracking-wider text-apple-text bg-apple-surface px-2.5 py-1 rounded-md border border-black/[0.06]">
+                      <span className="inline-flex text-[11px] font-semibold uppercase tracking-wider text-apple-text bg-apple-surface px-2.5 py-1 rounded-md border border-apple-border/45">
                         {exp.type}
                       </span>
                       <h3 className="text-xl font-semibold text-apple-text tracking-tight">{exp.role}</h3>
@@ -105,7 +105,7 @@ const Experience: React.FC = () => {
                   <div className="grid gap-3 mb-8">
                     {exp.achievements.map((text, idx) => (
                       <div key={idx} className="flex gap-3 group">
-                        <div className="mt-0.5 flex-shrink-0 w-8 h-8 rounded-lg bg-white flex items-center justify-center border border-black/[0.06] shadow-apple">
+                        <div className="mt-0.5 flex-shrink-0 w-8 h-8 rounded-lg bg-apple-bg flex items-center justify-center border border-apple-border/45 shadow-apple">
                           {iconSets[index][idx]}
                         </div>
                         <p className="text-apple-secondary text-sm leading-relaxed pt-1">{text}</p>
@@ -117,7 +117,7 @@ const Experience: React.FC = () => {
                     <h4 className="text-[11px] uppercase tracking-[0.15em] text-apple-tertiary font-semibold mb-3">{ex.technologies}</h4>
                     <div className="flex flex-wrap gap-2">
                       {stacks[index].map((tech) => (
-                        <span key={tech} className="px-3 py-1 text-xs font-medium text-apple-blue bg-white border border-blue-100 rounded-full">
+                        <span key={tech} className="px-3 py-1 text-xs font-medium text-apple-blue bg-apple-bg border border-blue-200/80 dark:border-blue-800/50 rounded-full">
                           {tech}
                         </span>
                       ))}

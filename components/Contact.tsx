@@ -64,7 +64,7 @@ const Contact: React.FC = () => {
   };
 
   const inputClass =
-    'w-full bg-white border border-black/[0.08] rounded-xl px-4 py-3 text-apple-text text-sm placeholder:text-apple-tertiary ' +
+    'w-full bg-apple-bg border border-apple-border/50 rounded-xl px-4 py-3 text-apple-text text-sm placeholder:text-apple-tertiary ' +
     'focus:outline-none focus:border-apple-blue focus:ring-2 focus:ring-apple-blue/15 transition-all ' +
     'disabled:opacity-50 disabled:cursor-not-allowed';
 
@@ -73,26 +73,26 @@ const Contact: React.FC = () => {
       <Section id="contact" eyebrow={c.eyebrow} title={c.title} subtitle={c.subtitle}>
         <div className="grid md:grid-cols-2 gap-10 lg:gap-12 max-w-4xl mx-auto">
           <div className="space-y-6">
-            <div className="bg-white p-6 md:p-7 rounded-2xl border border-black/[0.06] shadow-apple">
+            <div className="bg-apple-bg p-6 md:p-7 rounded-2xl border border-apple-border/45 shadow-apple">
               <h3 className="text-lg font-semibold text-apple-text mb-6">{c.infoTitle}</h3>
               <div className="space-y-4">
                 <a
                   href="mailto:vqdinh2202@gmail.com"
                   className="flex items-center gap-4 text-apple-secondary hover:text-apple-blue transition-colors group rounded-xl -mx-1 px-1 py-0.5"
                 >
-                  <div className="p-2.5 bg-apple-surface rounded-xl group-hover:bg-blue-50 transition-colors border border-black/[0.04]">
+                  <div className="p-2.5 bg-apple-surface rounded-xl group-hover:bg-blue-50 dark:group-hover:bg-blue-950/35 transition-colors border border-apple-border/35">
                     <Mail size={18} aria-hidden />
                   </div>
                   <span className="text-sm font-medium break-all">vqdinh2202@gmail.com</span>
                 </a>
                 <div className="flex items-center gap-4 text-apple-secondary">
-                  <div className="p-2.5 bg-apple-surface rounded-xl border border-black/[0.04]">
+                  <div className="p-2.5 bg-apple-surface rounded-xl border border-apple-border/35">
                     <Phone size={18} aria-hidden />
                   </div>
                   <span className="text-sm font-medium">+84 399 967 453</span>
                 </div>
                 <div className="flex items-center gap-4 text-apple-secondary">
-                  <div className="p-2.5 bg-apple-surface rounded-xl border border-black/[0.04]">
+                  <div className="p-2.5 bg-apple-surface rounded-xl border border-apple-border/35">
                     <MapPin size={18} aria-hidden />
                   </div>
                   <span className="text-sm font-medium">{c.address}</span>
@@ -105,7 +105,7 @@ const Contact: React.FC = () => {
                 href="https://github.com/VQuocDinh"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-1 bg-apple-text hover:bg-gray-800 text-white py-3.5 rounded-xl flex justify-center items-center gap-2 transition-colors text-sm font-semibold shadow-apple"
+                className="flex-1 bg-zinc-900 hover:bg-zinc-800 text-white py-3.5 rounded-xl flex justify-center items-center gap-2 transition-colors text-sm font-semibold shadow-apple dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-200"
               >
                 <Github size={18} aria-hidden />
                 GitHub
@@ -123,14 +123,14 @@ const Contact: React.FC = () => {
             <a
               href={CV_HREF}
               download={CV_DOWNLOAD_NAME}
-              className="flex w-full items-center justify-center gap-2 py-3.5 rounded-xl border border-black/[0.1] bg-white text-apple-text text-sm font-semibold hover:bg-apple-surface hover:border-apple-blue/25 transition-colors shadow-apple"
+              className="flex w-full items-center justify-center gap-2 py-3.5 rounded-xl border border-apple-border/55 bg-apple-bg text-apple-text text-sm font-semibold hover:bg-apple-surface hover:border-apple-blue/25 transition-colors shadow-apple"
             >
               <FileDown size={18} aria-hidden />
               {c.downloadCv}
             </a>
           </div>
 
-          <form className="space-y-4 bg-white p-6 md:p-7 rounded-2xl border border-black/[0.06] shadow-apple" onSubmit={handleSubmit} noValidate>
+          <form className="space-y-4 bg-apple-bg p-6 md:p-7 rounded-2xl border border-apple-border/45 shadow-apple" onSubmit={handleSubmit} noValidate>
             <h3 className="text-lg font-semibold text-apple-text mb-1">{c.formTitle}</h3>
             <p className="text-apple-tertiary text-sm mb-4">{c.formHint}</p>
             <div className="space-y-4">

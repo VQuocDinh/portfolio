@@ -10,9 +10,9 @@ const WhyFit: React.FC = () => {
   return (
     <Section id="why-fit" eyebrow={w.eyebrow} title={w.title} subtitle={w.subtitle}>
       <div className="max-w-3xl mx-auto">
-        <div className="bg-white rounded-2xl border border-black/[0.06] shadow-apple p-6 md:p-8">
+        <div className="bg-apple-bg rounded-2xl border border-apple-border/45 shadow-apple p-6 md:p-8">
           <div className="flex items-start gap-4 mb-6">
-            <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-apple-blue border border-blue-100">
+            <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-blue-50 dark:bg-blue-950/40 text-apple-blue border border-blue-100 dark:border-blue-800/50">
               <UserCheck size={22} aria-hidden />
             </span>
             <p className="text-apple-secondary leading-relaxed text-[15px] md:text-base pt-0.5">{w.intro}</p>

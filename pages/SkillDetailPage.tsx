@@ -37,7 +37,7 @@ const SkillDetailPage: React.FC = () => {
   ];
 
   return (
-    <main className="min-h-screen bg-white pt-20 md:pt-24 pb-16">
+    <main className="min-h-screen bg-apple-bg pt-20 md:pt-24 pb-16">
       <div className="max-w-3xl mx-auto px-4 md:px-8">
         <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.35 }}>
           <Breadcrumb items={breadcrumbItems} ariaLabel={sd.breadcrumbAria} />
@@ -82,14 +82,14 @@ const SkillDetailPage: React.FC = () => {
           <div className="mt-12">
             <Link
               to="/#skills"
-              className="inline-flex items-center justify-center px-6 py-3.5 rounded-xl border border-black/[0.1] bg-white text-apple-text text-sm font-semibold hover:bg-apple-surface transition-colors shadow-apple"
+              className="inline-flex items-center justify-center px-6 py-3.5 rounded-xl border border-apple-border/55 bg-apple-bg text-apple-text text-sm font-semibold hover:bg-apple-surface transition-colors shadow-apple"
             >
               {sd.backToSkills}
             </Link>
           </div>
 
           <p
-            className="mt-10 pt-8 border-t border-black/[0.06] text-[15px] text-apple-secondary leading-relaxed"
+            className="mt-10 pt-8 border-t border-apple-border/45 text-[15px] text-apple-secondary leading-relaxed"
             role="note"
           >
             {sd.skillUpdatingNote.replace(/\{skill\}/g, entry.title)}

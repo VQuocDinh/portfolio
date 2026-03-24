@@ -8,7 +8,7 @@ import SkillDetailPage from './pages/SkillDetailPage';
 
 function App() {
   return (
-    <div className="min-h-screen bg-white text-apple-text antialiased">
+    <div className="min-h-screen bg-apple-bg text-apple-text antialiased transition-colors duration-200">
       <Header />
       <Routes>
         <Route

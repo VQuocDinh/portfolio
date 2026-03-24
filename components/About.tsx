@@ -65,9 +65,9 @@ const About: React.FC = () => {
           {stats.map((stat, index) => (
             <div
               key={index}
-              className="group bg-white p-6 rounded-2xl border border-black/[0.06] shadow-apple hover:shadow-apple-md hover:border-black/[0.08] transition-all duration-300"
+              className="group bg-apple-bg p-6 rounded-2xl border border-apple-border/45 shadow-apple hover:shadow-apple-md hover:border-apple-border/50 transition-all duration-300"
             >
-              <div className="mb-4 p-3 bg-apple-surface/80 w-fit rounded-xl border border-black/[0.04] group-hover:bg-white transition-colors">
+              <div className="mb-4 p-3 bg-apple-surface/80 w-fit rounded-xl border border-apple-border/35 group-hover:bg-apple-bg transition-colors">
                 {stat.icon}
               </div>
               <h3 className="text-2xl font-semibold text-apple-text mb-1 tracking-tight">{stat.value}</h3>

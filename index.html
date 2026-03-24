@@ -1,6 +1,17 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
   <head>
+    <script>
+      (function () {
+        try {
+          var t = localStorage.getItem('portfolio-theme');
+          if (t === 'dark') document.documentElement.classList.add('dark');
+          else if (t === 'light') document.documentElement.classList.remove('dark');
+          else if (window.matchMedia('(prefers-color-scheme: dark)').matches)
+            document.documentElement.classList.add('dark');
+        } catch (e) {}
+      })();
+    </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vo Quoc Dinh | Frontend & Fullstack Developer</title>
@@ -10,16 +21,17 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
+        darkMode: 'class',
         theme: {
           extend: {
             colors: {
               apple: {
-                bg: '#ffffff',
-                surface: '#f5f5f7',
-                border: '#d2d2d7',
-                text: '#1d1d1f',
-                secondary: '#6e6e73',
-                tertiary: '#86868b',
+                bg: 'rgb(var(--color-apple-bg) / <alpha-value>)',
+                surface: 'rgb(var(--color-apple-surface) / <alpha-value>)',
+                border: 'rgb(var(--color-apple-border) / <alpha-value>)',
+                text: 'rgb(var(--color-apple-text) / <alpha-value>)',
+                secondary: 'rgb(var(--color-apple-secondary) / <alpha-value>)',
+                tertiary: 'rgb(var(--color-apple-tertiary) / <alpha-value>)',
                 blue: '#0071e3',
                 'blue-hover': '#0077ED',
               }
@@ -48,10 +60,26 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
+      :root {
+        --color-apple-bg: 255 255 255;
+        --color-apple-surface: 245 245 247;
+        --color-apple-border: 210 210 215;
+        --color-apple-text: 29 29 31;
+        --color-apple-secondary: 110 110 115;
+        --color-apple-tertiary: 134 134 139;
+      }
+      html.dark {
+        --color-apple-bg: 0 0 0;
+        --color-apple-surface: 28 28 30;
+        --color-apple-border: 58 58 60;
+        --color-apple-text: 244 244 246;
+        --color-apple-secondary: 161 161 170;
+        --color-apple-tertiary: 134 134 139;
+      }
       body {
         font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Inter', 'Helvetica Neue', sans-serif;
-        background-color: #ffffff;
-        color: #1d1d1f;
+        background-color: rgb(var(--color-apple-bg));
+        color: rgb(var(--color-apple-text));
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
       }
@@ -59,18 +87,18 @@
         width: 8px;
       }
       ::-webkit-scrollbar-track {
-        background: #f5f5f7;
+        background: rgb(var(--color-apple-surface));
       }
       ::-webkit-scrollbar-thumb {
-        background: #d2d2d7;
+        background: rgb(var(--color-apple-border));
         border-radius: 4px;
       }
       ::-webkit-scrollbar-thumb:hover {
-        background: #aeaeb2;
+        background: rgb(var(--color-apple-tertiary));
       }
       ::selection {
-        background: rgba(0, 113, 227, 0.15);
-        color: #1d1d1f;
+        background: rgba(0, 113, 227, 0.25);
+        color: rgb(var(--color-apple-text));
       }
     </style>
   <script type="importmap">

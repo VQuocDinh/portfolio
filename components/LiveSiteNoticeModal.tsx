@@ -60,13 +60,13 @@ const LiveSiteNoticeModal: React.FC<LiveSiteNoticeModalProps> = ({ open, onClose
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 12, scale: 0.98 }}
             transition={{ type: 'spring', stiffness: 380, damping: 32 }}
-            className="relative z-10 w-full max-w-md rounded-2xl bg-white shadow-apple-xl border border-black/[0.08] overflow-hidden"
+            className="relative z-10 w-full max-w-md rounded-2xl bg-apple-bg shadow-apple-xl border border-apple-border/50 overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="absolute top-0 left-0 right-0 h-1 bg-apple-blue/90" aria-hidden />
             <div className="p-6 md:p-8">
               <div className="flex items-start justify-between gap-4 mb-4">
-                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-apple-surface border border-black/[0.06]">
+                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-apple-surface border border-apple-border/45">
                   <Globe className="text-apple-blue" size={22} aria-hidden />
                 </div>
                 <button
@@ -88,7 +88,7 @@ const LiveSiteNoticeModal: React.FC<LiveSiteNoticeModalProps> = ({ open, onClose
                 <button
                   type="button"
                   onClick={onClose}
-                  className="inline-flex items-center justify-center px-5 py-3 rounded-xl border border-black/[0.1] bg-white text-apple-text text-sm font-semibold hover:bg-apple-surface transition-colors"
+                  className="inline-flex items-center justify-center px-5 py-3 rounded-xl border border-apple-border/55 bg-apple-bg text-apple-text text-sm font-semibold hover:bg-apple-surface transition-colors"
                 >
                   {p.liveSiteNoticeCancel}
                 </button>

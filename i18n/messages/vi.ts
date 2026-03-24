@@ -39,6 +39,9 @@ export const vi = {
     closeMenu: 'Đóng menu',
     language: 'Ngôn ngữ',
     downloadCv: 'Tải CV (PDF)',
+    themeLight: 'Giao diện sáng',
+    themeDark: 'Giao diện tối',
+    themeToggle: 'Chuyển giao diện sáng/tối',
   },
   lang: {
     en: 'English',

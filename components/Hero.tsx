@@ -65,7 +65,7 @@ const Hero: React.FC = () => {
                 <a
                   href="#contact"
                   onClick={(e) => handleScroll(e, 'contact')}
-                  className="inline-flex items-center justify-center px-8 py-3.5 bg-white text-apple-text rounded-full text-sm font-semibold border border-apple-border/80 hover:border-apple-border hover:bg-apple-surface/80 transition-all shadow-apple"
+                  className="inline-flex items-center justify-center px-8 py-3.5 bg-apple-bg text-apple-text rounded-full text-sm font-semibold border border-apple-border/80 hover:border-apple-border hover:bg-apple-surface/80 transition-all shadow-apple"
                 >
                   {h.contactMe}
                 </a>
@@ -80,8 +80,8 @@ const Hero: React.FC = () => {
               transition={{ duration: 0.65, delay: 0.15 }}
               className="relative w-full max-w-[340px] aspect-square md:w-[380px] md:h-[380px] md:max-w-none"
             >
-              <div className="absolute inset-0 rounded-3xl bg-white shadow-apple-xl border border-black/[0.06] flex flex-col overflow-hidden">
-                <div className="flex items-center gap-2 px-5 py-3 border-b border-black/[0.06] bg-white/80 backdrop-blur-sm">
+              <div className="absolute inset-0 rounded-3xl bg-apple-bg shadow-apple-xl border border-apple-border/45 flex flex-col overflow-hidden">
+                <div className="flex items-center gap-2 px-5 py-3 border-b border-apple-border/45 bg-apple-bg/80 backdrop-blur-sm">
                   <div className="w-3 h-3 rounded-full bg-[#ff5f57] ring-1 ring-black/5" />
                   <div className="w-3 h-3 rounded-full bg-[#febc2e] ring-1 ring-black/5" />
                   <div className="w-3 h-3 rounded-full bg-[#28c840] ring-1 ring-black/5" />

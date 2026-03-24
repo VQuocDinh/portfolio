@@ -48,12 +48,12 @@ const ProjectDetailPage: React.FC = () => {
   ];
 
   const liveBtnClass =
-    'inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl text-sm font-semibold transition-colors shadow-apple border border-black/[0.1]';
-  const liveEnabledClass = `${liveBtnClass} bg-apple-text text-white hover:bg-apple-text/90 border-transparent`;
-  const liveDisabledClass = `${liveBtnClass} bg-apple-surface text-apple-tertiary cursor-not-allowed opacity-60 border-black/[0.06]`;
+    'inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl text-sm font-semibold transition-colors shadow-apple border border-apple-border/55';
+  const liveEnabledClass = `${liveBtnClass} bg-zinc-900 text-white hover:bg-zinc-800 border-transparent dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-200`;
+  const liveDisabledClass = `${liveBtnClass} bg-apple-surface text-apple-tertiary cursor-not-allowed opacity-60 border-apple-border/45`;
 
   return (
-    <main className="min-h-screen bg-white pt-20 md:pt-24 pb-16">
+    <main className="min-h-screen bg-apple-bg pt-20 md:pt-24 pb-16">
       <LiveSiteNoticeModal
         open={liveModal.open}
         onClose={() => setLiveModal({ open: false, url: '' })}
@@ -71,7 +71,7 @@ const ProjectDetailPage: React.FC = () => {
             {p.backToProjects}
           </Link>
 
-          <div className="mt-8 rounded-2xl overflow-hidden border border-black/[0.06] shadow-apple-lg bg-apple-surface">
+          <div className="mt-8 rounded-2xl overflow-hidden border border-apple-border/45 shadow-apple-lg bg-apple-surface">
             <div className="aspect-[21/9] md:aspect-[2/1] w-full overflow-hidden">
               <img src={meta.image} alt={project.title} className="w-full h-full object-cover" />
             </div>
@@ -84,7 +84,7 @@ const ProjectDetailPage: React.FC = () => {
               {meta.tags.map((tag) => (
                 <span
                   key={tag}
-                  className="text-[11px] font-semibold uppercase tracking-wide px-2.5 py-1 bg-apple-surface text-apple-secondary rounded-md border border-black/[0.04]"
+                  className="text-[11px] font-semibold uppercase tracking-wide px-2.5 py-1 bg-apple-surface text-apple-secondary rounded-md border border-apple-border/35"
                 >
                   {tag}
                 </span>
@@ -153,7 +153,7 @@ const ProjectDetailPage: React.FC = () => {
             </div>
             <Link
               to="/#projects"
-              className="inline-flex items-center justify-center px-6 py-3.5 rounded-xl border border-black/[0.1] bg-white text-apple-text text-sm font-semibold hover:bg-apple-surface transition-colors shadow-apple sm:self-start"
+              className="inline-flex items-center justify-center px-6 py-3.5 rounded-xl border border-apple-border/55 bg-apple-bg text-apple-text text-sm font-semibold hover:bg-apple-surface transition-colors shadow-apple sm:self-start"
             >
               {p.backToProjects}
             </Link>

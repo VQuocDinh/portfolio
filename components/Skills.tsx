@@ -24,7 +24,7 @@ const Skills: React.FC = () => {
         {SKILLS_STRUCTURE.map((row) => (
           <div
             key={row.key}
-            className="bg-white p-6 md:p-7 rounded-2xl border border-black/[0.06] shadow-apple hover:shadow-apple-md hover:border-black/[0.08] transition-all duration-300 flex flex-col min-h-[200px]"
+            className="bg-apple-bg p-6 md:p-7 rounded-2xl border border-apple-border/45 shadow-apple hover:shadow-apple-md hover:border-apple-border/50 transition-all duration-300 flex flex-col min-h-[200px]"
           >
             <h3 className="text-[15px] font-semibold text-apple-text mb-5 flex items-center">
               <span className="w-1 h-5 bg-apple-blue rounded-full mr-3 shrink-0" aria-hidden />
@@ -38,7 +38,7 @@ const Skills: React.FC = () => {
                   <Link
                     key={slug}
                     to={`/skills/${slug}`}
-                    className="px-3 py-1.5 bg-apple-surface/90 text-apple-secondary text-[13px] rounded-lg border border-black/[0.04] font-medium hover:text-apple-text hover:bg-white hover:border-apple-blue/25 hover:shadow-apple transition-all cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-apple-blue"
+                    className="px-3 py-1.5 bg-apple-surface/90 text-apple-secondary text-[13px] rounded-lg border border-apple-border/35 font-medium hover:text-apple-text hover:bg-apple-bg hover:border-apple-blue/25 hover:shadow-apple transition-all cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-apple-blue"
                     aria-label={`${sd.learnMoreAria} ${entry.title}`}
                   >
                     {entry.title}
