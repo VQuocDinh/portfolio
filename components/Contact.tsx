@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Github, Linkedin, Send, Loader2, CheckCircle, AlertCircle } from 'lucide-react';
+import { Mail, Phone, MapPin, Github, Linkedin, Send, Loader2, CheckCircle, AlertCircle, FileDown } from 'lucide-react';
 import Section from './ui/Section';
 import emailjs from '@emailjs/browser';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useRecruiterLetter } from '../contexts/RecruiterLetterContext';
+import { CV_DOWNLOAD_NAME, CV_HREF } from '../lib/cv';
 
 const Contact: React.FC = () => {
   const { messages } = useLanguage();
@@ -119,6 +120,14 @@ const Contact: React.FC = () => {
                 LinkedIn
               </a>
             </div>
+            <a
+              href={CV_HREF}
+              download={CV_DOWNLOAD_NAME}
+              className="flex w-full items-center justify-center gap-2 py-3.5 rounded-xl border border-black/[0.1] bg-white text-apple-text text-sm font-semibold hover:bg-apple-surface hover:border-apple-blue/25 transition-colors shadow-apple"
+            >
+              <FileDown size={18} aria-hidden />
+              {c.downloadCv}
+            </a>
           </div>
 
           <form className="space-y-4 bg-white p-6 md:p-7 rounded-2xl border border-black/[0.06] shadow-apple" onSubmit={handleSubmit} noValidate>

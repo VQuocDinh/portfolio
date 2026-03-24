@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import Section from './ui/Section';
-import { Award, Briefcase, Clock, Code, Target } from 'lucide-react';
+import { Award, Briefcase, Clock, Code, Target, Users } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 
 const About: React.FC = () => {
@@ -24,6 +24,20 @@ const About: React.FC = () => {
         <div className="space-y-6 text-apple-secondary leading-[1.75] text-[15px] md:text-base">
           <p>{a.p1}</p>
           <p>{a.p2}</p>
+
+          <div className="pt-6 border-t border-apple-border/50">
+            <h3 className="text-apple-text font-semibold mb-3 flex items-center gap-2 text-base">
+              <Users size={18} className="text-apple-blue shrink-0" />
+              {a.leadershipHeading}
+            </h3>
+            <p className="text-sm font-medium text-apple-text">{a.leadershipOrg}</p>
+            <p className="text-apple-blue font-semibold text-sm mt-1 mb-3">{a.leadershipRole}</p>
+            <ul className="list-disc list-outside ml-4 text-sm space-y-2 leading-relaxed">
+              {a.leadershipPoints.map((line, i) => (
+                <li key={i}>{line}</li>
+              ))}
+            </ul>
+          </div>
 
           <div className="pt-6 border-t border-apple-border/50">
             <h3 className="text-apple-text font-semibold mb-4 flex items-center gap-2 text-base">

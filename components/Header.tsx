@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { Menu, X, Github, Linkedin, Mail, HeartHandshake } from 'lucide-react';
+import { Menu, X, Github, Linkedin, Mail, HeartHandshake, FileDown } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useRecruiterLetter } from '../contexts/RecruiterLetterContext';
+import { CV_DOWNLOAD_NAME, CV_HREF } from '../lib/cv';
 
 function scrollToSection(sectionId: string) {
   const el = document.getElementById(sectionId);
@@ -189,6 +190,15 @@ const Header: React.FC = () => {
                 >
                   <Linkedin size={18} />
                 </a>
+                <a
+                  href={CV_HREF}
+                  download={CV_DOWNLOAD_NAME}
+                  className="p-2 rounded-lg text-apple-tertiary hover:text-apple-blue hover:bg-blue-50/60 transition-colors"
+                  aria-label={t('a11y.downloadCv')}
+                  title={messages.contact.downloadCv}
+                >
+                  <FileDown size={18} />
+                </a>
               </div>
             </nav>
 
@@ -241,6 +251,15 @@ const Header: React.FC = () => {
               >
                 {messages.recruiterLetter.reopen}
               </button>
+              <a
+                href={CV_HREF}
+                download={CV_DOWNLOAD_NAME}
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="mt-2 py-3 px-3 rounded-xl text-center text-sm font-semibold text-apple-text bg-apple-surface border border-black/[0.06] hover:border-apple-blue/30 hover:bg-white flex items-center justify-center gap-2 transition-colors"
+              >
+                <FileDown size={18} aria-hidden />
+                {messages.contact.downloadCv}
+              </a>
               <div className="flex justify-center gap-6 mt-6 pt-6 border-t border-apple-border/80">
                 <a
                   href="https://github.com/VQuocDinh"

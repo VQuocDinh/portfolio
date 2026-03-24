@@ -4,7 +4,7 @@ export const en = {
   meta: {
     title: 'Vo Quoc Dinh | Frontend & Fullstack Developer',
     description:
-      'Portfolio of Vo Quoc Dinh, a Fullstack Developer specializing in React, NestJS, and EdTech solutions.',
+      'Portfolio of Vo Quoc Dinh — Fullstack Developer (React & NestJS) with 2+ years building stable, high-performance web systems.',
   },
   recruiterLetter: {
     title: 'A note for recruiters',
@@ -38,6 +38,7 @@ export const en = {
     openMenu: 'Open menu',
     closeMenu: 'Close menu',
     language: 'Language',
+    downloadCv: 'Download CV (PDF)',
   },
   lang: {
     en: 'English',
@@ -48,8 +49,8 @@ export const en = {
     greeting: "Hi, I'm",
     name: 'Vo Quoc Dinh',
     intro:
-      'I build scalable, high-performance web applications with React, TypeScript, and NestJS — focused on clean code and great user experiences.',
-    location: 'HCMC, Vietnam',
+      'Fullstack Developer (React & NestJS) with 2+ years shipping stable web systems — I use modern tooling (including AI assistants) to deliver faster while keeping code quality and UX sharp.',
+    location: 'Thu Duc City, HCMC, Vietnam',
     openToOpportunities: 'Open to opportunities',
     viewWork: 'View My Work',
     contactMe: 'Contact Me',
@@ -59,21 +60,28 @@ export const en = {
     title: 'About Me',
     subtitle: 'Results-driven developer focused on performance, scalability, and maintainable code.',
     p1:
-      'I am a Results-driven Fullstack Developer with 1.5+ years of experience delivering high-performance EdTech and enterprise web applications. Specialized in building scalable React/TypeScript frontends and RESTful APIs with NestJS.',
+      'I am a Fullstack Developer (ReactJS & NestJS) with 2+ years of experience building stable, high-performance web systems across EdTech and enterprise products. I optimize delivery by leveraging AI tools such as GitHub Copilot and Cursor to accelerate feature work by an estimated 30–40%, while keeping a strong problem-solving mindset and technical leadership in startup environments.',
     p2:
-      'I have a proven track record of optimizing application performance by 40% and reducing API response times by 30%. My expertise lies in writing maintainable code and creating exceptional user experiences using PostgreSQL, Prisma ORM, and Next.js.',
+      'I care about streamlined, elegant, yet robust products: proven impact on performance (including significant application and API improvements), maintainable TypeScript codebases, and great user experiences with PostgreSQL, Prisma/ORM, and Next.js where it fits.',
+    leadershipHeading: 'Leadership & Activities',
+    leadershipOrg: 'KET NOI Volunteer Club – HCMC',
+    leadershipRole: 'Head of Communications (2021–2024)',
+    leadershipPoints: [
+      'Led social media and internal communications, improving team coordination.',
+      'Organized volunteer events, building leadership and collaboration skills applicable to agile environments.',
+    ],
     careerGoals: 'Career Goals',
     shortTermLabel: 'Short-term (1–2 years):',
     shortTerm:
-      'Deepen expertise in frontend architecture & system design, contribute to impactful products.',
+      'Enhance programming and project management skills, contributing to impactful software projects while learning from seasoned developers.',
     longTermLabel: 'Long-term (5 years):',
     longTerm:
-      'Grow into a Lead Developer, driving technical direction and mentoring teams.',
+      'Become a lead developer, mastering cutting-edge technologies and driving innovation in large-scale projects.',
     stats: {
       experience: 'Experience',
-      experienceValue: '1.5+ Years',
+      experienceValue: '2+ Years',
       projects: 'Projects',
-      projectsValue: '3+ Major',
+      projectsValue: '4+ Key',
       toeic: 'TOEIC',
       degree: 'Degree',
       degreeValue: 'Software Eng',
@@ -101,10 +109,12 @@ export const en = {
     categories: {
       frontend: 'Frontend',
       backend: 'Backend',
-      database: 'Database',
-      state: 'State Management',
+      mobile: 'Mobile',
+      database: 'Databases & ORM',
+      state: 'State & Data Management',
       devops: 'DevOps & Tools',
-      testing: 'Testing',
+      testing: 'Testing & Security',
+      tools: 'Tools & AI Productivity',
     },
   },
   skillDetail: skillDetailEn,
@@ -122,7 +132,7 @@ export const en = {
         location: 'HCMC',
         type: 'EdTech Startup',
         summary:
-          'Leading full-stack development of BridgeUp, a comprehensive career development platform serving 500+ users with 4 integrated modules (ScoreCard, GrowCap, LearnCap, ChallengeCap).',
+          'Leading full-stack development of BridgeUp, a comprehensive career development platform serving 500+ users with many integrated large modules.',
         achievements: [
           'Architected and built scalable frontend using React + TypeScript + Vite + TailwindCSS, implementing code splitting and lazy loading that improved initial page load.',
           'Optimized application performance with React Query for data fetching, reducing API calls and enhancing user experience.',
@@ -131,6 +141,7 @@ export const en = {
           'Implemented secure JWT-based authentication & role-based authorization protecting user data across multiple modules.',
           'Wrote comprehensive unit & integration tests using Jest + Testing Library, achieving 80% code coverage.',
           'Collaborated in Agile environment with Product, Data, and Content teams using Jira, consistently delivering features within sprint deadlines.',
+          'Tech stack: React, Vite, TailwindCSS, TypeScript, NestJS, Prisma ORM, PostgreSQL, JWT, Cloudinary, Vercel, Render.',
         ],
       },
       {
@@ -148,6 +159,7 @@ export const en = {
           'Managed complex state with React Query & Context API, eliminating prop drilling and improving code maintainability.',
           'Conducted code reviews for 3 junior developers, establishing best practices and reducing bug rate.',
           'Created comprehensive API documentation using Swagger, improving frontend-backend collaboration efficiency.',
+          'Tech stack: React, Next.js, TailwindCSS, Node.js, TypeScript, Prisma ORM.',
         ],
       },
     ],
@@ -280,6 +292,7 @@ export const en = {
     sending: 'Sending…',
     sent: 'Message sent',
     failed: 'Failed — try again',
+    downloadCv: 'Download CV',
     footer: 'Built with React, Tailwind & Framer Motion.',
   },
 } as const;

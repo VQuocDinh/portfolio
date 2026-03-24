@@ -4,7 +4,7 @@ export const vi = {
   meta: {
     title: 'Võ Quốc Dinh | Lập trình viên Frontend & Fullstack',
     description:
-      'Portfolio của Võ Quốc Dinh — Fullstack Developer chuyên React, NestJS và giải pháp EdTech.',
+      'Portfolio Võ Quốc Dinh — Fullstack Developer (React & NestJS), 2+ năm kinh nghiệm xây dựng hệ thống web ổn định, hiệu năng cao.',
   },
   recruiterLetter: {
     title: 'Lời cảm ơn gửi nhà tuyển dụng',
@@ -38,6 +38,7 @@ export const vi = {
     openMenu: 'Mở menu',
     closeMenu: 'Đóng menu',
     language: 'Ngôn ngữ',
+    downloadCv: 'Tải CV (PDF)',
   },
   lang: {
     en: 'English',
@@ -48,8 +49,8 @@ export const vi = {
     greeting: 'Xin chào, tôi là',
     name: 'Võ Quốc Dinh',
     intro:
-      'Tôi xây dựng ứng dụng web hiệu năng cao, dễ mở rộng với React, TypeScript và NestJS — tập trung vào code sạch và trải nghiệm người dùng tốt.',
-    location: 'TP.HCM, Việt Nam',
+      'Lập trình viên Fullstack (React & NestJS) với 2+ năm kinh nghiệm phát triển hệ thống web ổn định — tôi tận dụng công cụ hiện đại (kể cả AI) để giao feature nhanh hơn mà vẫn giữ chất lượng code và trải nghiệm người dùng.',
+    location: 'TP. Thủ Đức, TP.HCM, Việt Nam',
     openToOpportunities: 'Sẵn sàng nhận cơ hội mới',
     viewWork: 'Xem dự án',
     contactMe: 'Liên hệ',
@@ -60,21 +61,28 @@ export const vi = {
     subtitle:
       'Lập trình viên hướng kết quả, tập trung vào hiệu năng, khả năng mở rộng và code dễ bảo trì.',
     p1:
-      'Tôi là Fullstack Developer hướng kết quả với hơn 1,5 năm kinh nghiệm phát triển ứng dụng EdTech và doanh nghiệp hiệu năng cao. Chuyên xây dựng frontend React/TypeScript có thể mở rộng và API RESTful với NestJS.',
+      'Tôi là Fullstack Developer (ReactJS & NestJS) với hơn 2 năm kinh nghiệm xây dựng hệ thống web ổn định, hiệu năng cao trong môi trường EdTech và doanh nghiệp. Tôi tối ưu vòng đời phát triển nhờ các công cụ AI như GitHub Copilot và Cursor, ước tính gia tốc giao feature 30–40%, đồng thời duy trì tư duy giải quyết vấn đề và vai trò kỹ thuật trong startup.',
     p2:
-      'Tôi đã tối ưu hiệu năng ứng dụng lên 40% và giảm thời gian phản hồi API 30%. Thế mạnh của tôi là viết code dễ bảo trì và tạo trải nghiệm người dùng tốt với PostgreSQL, Prisma ORM và Next.js.',
+      'Tôi hướng tới sản phẩm gọn, tinh tế nhưng vững chắc: có bằng chứng cải thiện hiệu năng ứng dụng và API, code TypeScript dễ bảo trì, trải nghiệm người dùng tốt với PostgreSQL, Prisma/ORM và Next.js khi phù hợp.',
+    leadershipHeading: 'Hoạt động & lãnh đạo',
+    leadershipOrg: 'Câu lạc bộ Tình nguyện Kết Nối – TP.HCM',
+    leadershipRole: 'Trưởng ban Truyền thông (2021–2024)',
+    leadershipPoints: [
+      'Dẫn dắt truyền thông mạng xã nội bộ và ngoại vi, tăng phối hợp trong team.',
+      'Tổ chức sự kiện tình nguyện, rèn kỹ năng lãnh đạo và làm việc nhóm — áp dụng được trong môi trường Agile.',
+    ],
     careerGoals: 'Mục tiêu nghề nghiệp',
     shortTermLabel: 'Ngắn hạn (1–2 năm):',
     shortTerm:
-      'Nâng cao kiến trúc frontend & thiết kế hệ thống, đóng góp vào sản phẩm có ý nghĩa.',
+      'Nâng cao kỹ năng lập trình và quản lý dự án, đóng góp vào các phần mềm có ý nghĩa và học hỏi từ developer kỳ cựu.',
     longTermLabel: 'Dài hạn (5 năm):',
     longTerm:
-      'Phát triển thành Lead Developer, định hướng kỹ thuật và mentoring cho team.',
+      'Trở thành lead developer, làm chủ công nghệ tiên tiến và thúc đẩy đổi mới trong dự án quy mô lớn.',
     stats: {
       experience: 'Kinh nghiệm',
-      experienceValue: '1,5+ năm',
+      experienceValue: '2+ năm',
       projects: 'Dự án',
-      projectsValue: '3+ lớn',
+      projectsValue: '4+ tiêu biểu',
       toeic: 'TOEIC',
       degree: 'Bằng cấp',
       degreeValue: 'Công nghệ phần mềm',
@@ -102,10 +110,12 @@ export const vi = {
     categories: {
       frontend: 'Frontend',
       backend: 'Backend',
-      database: 'Cơ sở dữ liệu',
-      state: 'Quản lý state',
+      mobile: 'Mobile',
+      database: 'Cơ sở dữ liệu & ORM',
+      state: 'State & dữ liệu',
       devops: 'DevOps & Công cụ',
-      testing: 'Kiểm thử',
+      testing: 'Kiểm thử & Bảo mật',
+      tools: 'Công cụ & AI',
     },
   },
   skillDetail: skillDetailVi,
@@ -123,7 +133,7 @@ export const vi = {
         location: 'TP.HCM',
         type: 'Startup EdTech',
         summary:
-          'Dẫn dắt phát triển full-stack cho BridgeUp — nền tảng phát triển sự nghiệp phục vụ 500+ người dùng với 4 module (ScoreCard, GrowCap, LearnCap, ChallengeCap).',
+          'Dẫn dắt phát triển full-stack cho BridgeUp — nền tảng phát triển sự nghiệp phục vụ 500+ người dùng với nhiều module lớn tích hợp.',
         achievements: [
           'Thiết kế và xây dựng frontend React + TypeScript + Vite + TailwindCSS có thể mở rộng, áp dụng code splitting và lazy loading cải thiện tải trang ban đầu.',
           'Tối ưu hiệu năng với React Query, giảm gọi API và cải thiện trải nghiệm người dùng.',
@@ -132,6 +142,7 @@ export const vi = {
           'Triển khai xác thực JWT và phân quyền theo vai trò, bảo vệ dữ liệu người dùng trên nhiều module.',
           'Viết unit & integration test với Jest + Testing Library, đạt 80% coverage.',
           'Làm việc Agile với Product, Data và Content qua Jira, giao feature đúng sprint.',
+          'Tech stack: React, Vite, TailwindCSS, TypeScript, NestJS, Prisma ORM, PostgreSQL, JWT, Cloudinary, Vercel, Render.',
         ],
       },
       {
@@ -149,6 +160,7 @@ export const vi = {
           'Quản lý state phức tạp với React Query & Context API, giảm prop drilling và dễ bảo trì.',
           'Review code cho 3 junior developer, thiết lập best practice và giảm lỗi.',
           'Soạn tài liệu API với Swagger, cải thiện hiệu quả phối hợp frontend–backend.',
+          'Tech stack: React, Next.js, TailwindCSS, Node.js, TypeScript, Prisma ORM.',
         ],
       },
     ],
@@ -280,6 +292,7 @@ export const vi = {
     sending: 'Đang gửi…',
     sent: 'Đã gửi',
     failed: 'Gửi thất bại — thử lại',
+    downloadCv: 'Tải CV',
     footer: 'Xây dựng với React, Tailwind & Framer Motion.',
   },
 } as const;
