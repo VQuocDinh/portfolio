@@ -2,6 +2,7 @@ import React, { useRef, useCallback, useState, useEffect } from 'react';
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { ArrowRight, MapPin, Sparkles } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
+import InteractiveTerminal from './InteractiveTerminal';
 
 const Hero: React.FC = () => {
   const { messages } = useLanguage();
@@ -230,27 +231,7 @@ const Hero: React.FC = () => {
               }}
               className="relative w-full max-w-[360px] aspect-square md:w-[400px] md:h-[400px] md:max-w-none float-animation"
             >
-              <div className="absolute inset-0 rounded-3xl code-window bg-apple-bg/95 shadow-apple-xl border border-apple-border/40 flex flex-col overflow-hidden backdrop-blur-xl">
-                <div className="flex items-center gap-2 px-5 py-3.5 border-b border-apple-border/35 bg-apple-surface/40">
-                  <div className="w-3 h-3 rounded-full bg-[#ff5f57] ring-1 ring-black/5" />
-                  <div className="w-3 h-3 rounded-full bg-[#febc2e] ring-1 ring-black/5" />
-                  <div className="w-3 h-3 rounded-full bg-[#28c840] ring-1 ring-black/5" />
-                  <span className="text-apple-tertiary text-[11px] ml-2 font-mono tracking-tight">developer.ts</span>
-                </div>
-                <div className="p-6 font-mono text-[11px] sm:text-xs md:text-sm leading-relaxed text-left flex-1 bg-apple-surface/20">
-                  <span className="text-purple-500 dark:text-purple-400">const</span> <span className="text-blue-500 dark:text-blue-400">developer</span> = {'{'}
-                  <br />
-                  &nbsp;&nbsp;name: <span className="text-emerald-600 dark:text-emerald-400">&apos;{h.name}&apos;</span>,<br />
-                  &nbsp;&nbsp;role: <span className="text-emerald-600 dark:text-emerald-400">&apos;Fullstack&apos;</span>,<br />
-                  &nbsp;&nbsp;stack: [<span className="text-emerald-600 dark:text-emerald-400">&apos;React&apos;</span>,{' '}
-                  <span className="text-emerald-600 dark:text-emerald-400">&apos;NestJS&apos;</span>],<br />
-                  &nbsp;&nbsp;hardWorker: <span className="text-orange-500 dark:text-orange-400">true</span>,<br />
-                  &nbsp;&nbsp;passion: <span className="text-orange-500 dark:text-orange-400">Infinity</span>
-                  <br />
-                  {'}'};
-                  <span className="hero-code-cursor" aria-hidden />
-                </div>
-              </div>
+              <InteractiveTerminal />
 
               {/* Floating badge bottom-left — parallax layer 4 (foreground, fast) */}
               <motion.div

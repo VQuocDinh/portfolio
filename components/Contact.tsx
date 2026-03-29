@@ -5,6 +5,7 @@ import emailjs from '@emailjs/browser';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useRecruiterLetter } from '../contexts/RecruiterLetterContext';
 import { CV_DOWNLOAD_NAME, CV_HREF } from '../lib/cv';
+import ContactThankYouModal from './ContactThankYouModal';
 
 const Contact: React.FC = () => {
   const { messages } = useLanguage();
@@ -18,6 +19,8 @@ const Contact: React.FC = () => {
     message: '',
   });
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+  const [showModal, setShowModal] = useState(false);
+  const [submittedName, setSubmittedName] = useState('');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -48,6 +51,8 @@ const Contact: React.FC = () => {
       );
 
       setStatus('success');
+      setSubmittedName(formData.name);
+      setShowModal(true);
       setFormData({ name: '', email: '', message: '' });
 
       setTimeout(() => {
@@ -70,6 +75,8 @@ const Contact: React.FC = () => {
 
   return (
     <footer className="relative bg-apple-surface/60 pt-14 pb-10 border-t border-apple-border/50 overflow-hidden">
+      <ContactThankYouModal open={showModal} onClose={() => setShowModal(false)} senderName={submittedName} />
+      
       {/* Background decoration */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-blue-500/5 to-transparent rounded-full blur-3xl pointer-events-none" aria-hidden />
       <div className="absolute bottom-0 left-0 w-80 h-80 bg-gradient-to-tr from-purple-500/5 to-transparent rounded-full blur-3xl pointer-events-none" aria-hidden />

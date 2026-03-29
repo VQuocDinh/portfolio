@@ -298,4 +298,14 @@ export const vi = {
     downloadCv: 'Tải CV',
     footer: 'Xây dựng với React, Tailwind & Framer Motion.',
   },
+  contactThankYou: {
+    badge: 'Đã gửi tin nhắn',
+    title: 'Cảm ơn bạn! 🎉',
+    message: 'Tin nhắn của bạn đã được nhận thành công. Cảm ơn bạn đã liên hệ!',
+    messagePersonal: 'Cảm ơn {name} đã liên hệ! Tin nhắn của bạn đã được nhận — tôi rất trân trọng sự quan tâm của bạn.',
+    responseTime: 'Tôi thường phản hồi trong vòng 24 giờ. Rất mong được kết nối với bạn!',
+    connect: "Hãy kết nối thêm trên",
+    dismiss: 'Đã hiểu, cảm ơn!',
+    close: 'Đóng',
+  },
 } as const;

@@ -298,4 +298,14 @@ export const en = {
     downloadCv: 'Download CV',
     footer: 'Built with React, Tailwind & Framer Motion.',
   },
+  contactThankYou: {
+    badge: 'Message sent',
+    title: 'Thank you! 🎉',
+    message: 'Your message has been received successfully. I appreciate you reaching out!',
+    messagePersonal: 'Thanks for reaching out, {name}! Your message has been received — I truly appreciate your interest.',
+    responseTime: 'I usually reply within 24 hours. Looking forward to connecting with you!',
+    connect: "Let's also connect on",
+    dismiss: 'Got it, thanks!',
+    close: 'Close',
+  },
 } as const;
