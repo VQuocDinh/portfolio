@@ -1,6 +1,7 @@
 import React from 'react';
 import Section from './ui/Section';
-import { UserCheck } from 'lucide-react';
+import { UserCheck, CheckCircle2 } from 'lucide-react';
+import { motion } from 'framer-motion';
 import { useLanguage } from '../contexts/LanguageContext';
 
 const WhyFit: React.FC = () => {
@@ -10,19 +11,26 @@ const WhyFit: React.FC = () => {
   return (
     <Section id="why-fit" eyebrow={w.eyebrow} title={w.title} subtitle={w.subtitle}>
       <div className="max-w-3xl mx-auto">
-        <div className="bg-apple-bg rounded-2xl border border-apple-border/45 shadow-apple p-6 md:p-8">
+        <div className="contact-card bg-apple-bg rounded-2xl border border-apple-border/40 shadow-apple p-6 md:p-8">
           <div className="flex items-start gap-4 mb-6">
-            <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-blue-50 dark:bg-blue-950/40 text-apple-blue border border-blue-100 dark:border-blue-800/50">
+            <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-blue-500 to-purple-500 text-white shadow-md shadow-blue-500/20">
               <UserCheck size={22} aria-hidden />
             </span>
             <p className="text-apple-secondary leading-relaxed text-[15px] md:text-base pt-0.5">{w.intro}</p>
           </div>
           <ul className="space-y-4">
             {w.points.map((point, index) => (
-              <li key={index} className="flex gap-3 text-apple-secondary text-[15px] md:text-base leading-relaxed">
-                <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-apple-blue" aria-hidden />
+              <motion.li
+                key={index}
+                initial={{ opacity: 0, x: -12 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.35, delay: index * 0.06 }}
+                className="flex gap-3 text-apple-secondary text-[15px] md:text-base leading-relaxed group"
+              >
+                <CheckCircle2 size={18} className="mt-0.5 shrink-0 text-emerald-500 group-hover:text-apple-blue transition-colors" aria-hidden />
                 <span>{point}</span>
-              </li>
+              </motion.li>
             ))}
           </ul>
         </div>

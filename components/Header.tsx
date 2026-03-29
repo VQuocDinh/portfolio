@@ -82,7 +82,7 @@ const Header: React.FC = () => {
 
   const langSwitcher = (
     <div
-      className="flex items-center rounded-xl border border-apple-border/50 bg-apple-surface/90 p-1 shadow-inner-soft"
+      className="flex items-center rounded-xl border border-apple-border/40 bg-apple-surface/80 p-1 shadow-inner-soft backdrop-blur-sm"
       role="group"
       aria-label={t('a11y.language')}
     >
@@ -115,7 +115,7 @@ const Header: React.FC = () => {
     <header
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-apple-bg/85 backdrop-blur-xl border-b border-apple-border/45 shadow-apple'
+          ? 'bg-apple-bg/80 backdrop-blur-2xl border-b border-apple-border/35 shadow-apple'
           : 'bg-transparent'
       }`}
     >
@@ -123,7 +123,7 @@ const Header: React.FC = () => {
         <div className="flex justify-between items-center h-14 md:h-16 gap-3">
           <Link
             to="/"
-            className="text-lg md:text-xl font-semibold text-apple-text tracking-tight focus-visible:outline-offset-4 rounded-md shrink-0"
+            className="text-lg md:text-xl font-bold text-apple-text tracking-tight focus-visible:outline-offset-4 rounded-md shrink-0"
             aria-label={t('a11y.home')}
             onClick={(e) => {
               if (isHome) {
@@ -132,14 +132,14 @@ const Header: React.FC = () => {
               }
             }}
           >
-            VQD<span className="text-apple-blue">.</span>
+            VQD<span className="gradient-text">.</span>
           </Link>
 
           <div className="flex items-center gap-2 md:gap-3">
             <button
               type="button"
               onClick={toggleTheme}
-              className="p-2 rounded-lg text-apple-tertiary hover:text-apple-blue hover:bg-blue-50/60 dark:hover:bg-blue-950/40 transition-colors shrink-0"
+              className="p-2 rounded-xl text-apple-tertiary hover:text-apple-blue hover:bg-apple-blue/8 transition-all shrink-0"
               aria-label={t('a11y.themeToggle')}
               title={theme === 'dark' ? t('a11y.themeLight') : t('a11y.themeDark')}
             >
@@ -148,7 +148,7 @@ const Header: React.FC = () => {
             <button
               type="button"
               onClick={openLetter}
-              className="p-2 rounded-lg text-apple-tertiary hover:text-apple-blue hover:bg-blue-50/60 dark:hover:bg-blue-950/40 transition-colors shrink-0"
+              className="p-2 rounded-xl text-apple-tertiary hover:text-apple-blue hover:bg-apple-blue/8 transition-all shrink-0"
               aria-label={messages.recruiterLetter.ariaModal}
               title={messages.recruiterLetter.reopen}
             >
@@ -156,7 +156,7 @@ const Header: React.FC = () => {
             </button>
             <div className="md:hidden">{langSwitcher}</div>
 
-            <nav className="hidden md:flex items-center gap-1" aria-label={t('a11y.primaryNav')}>
+            <nav className="hidden md:flex items-center gap-0.5" aria-label={t('a11y.primaryNav')}>
               {navLinks.map((link) => {
                 const isActive = activeSection === link.id;
                 return (
@@ -164,30 +164,31 @@ const Header: React.FC = () => {
                     key={link.id}
                     type="button"
                     onClick={() => goToSection(link.id)}
-                    className={`relative px-3 py-2 text-[13px] font-medium transition-colors rounded-lg ${
+                    className={`nav-link-hover relative px-3 py-2 text-[13px] font-medium transition-colors rounded-lg ${
                       isActive
                         ? 'text-apple-text'
-                        : 'text-apple-secondary hover:text-apple-text hover:bg-apple-text/10'
+                        : 'text-apple-secondary hover:text-apple-text'
                     }`}
                   >
                     {link.name}
                     {isActive && (
                       <motion.div
                         layoutId="activeSection"
-                        className="absolute bottom-1 left-3 right-3 h-0.5 bg-apple-blue rounded-full"
+                        className="absolute bottom-0.5 left-3 right-3 h-0.5 rounded-full"
+                        style={{ background: 'linear-gradient(90deg, #0071e3, #6e5ce6)' }}
                         transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                       />
                     )}
                   </button>
                 );
               })}
-              <div className="flex items-center gap-2 ml-2 pl-4 border-l border-apple-border/80">
+              <div className="flex items-center gap-2 ml-2 pl-4 border-l border-apple-border/60">
                 {langSwitcher}
                 <a
                   href="https://github.com/VQuocDinh"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2 rounded-lg text-apple-tertiary hover:text-apple-text hover:bg-apple-text/10 dark:hover:bg-apple-text/15 transition-colors"
+                  className="p-2 rounded-xl text-apple-tertiary hover:text-apple-text hover:bg-apple-text/8 transition-all"
                   aria-label="GitHub"
                 >
                   <Github size={18} />
@@ -196,7 +197,7 @@ const Header: React.FC = () => {
                   href="https://linkedin.com/in/voquocdinh"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2 rounded-lg text-apple-tertiary hover:text-apple-text hover:bg-apple-text/10 dark:hover:bg-apple-text/15 transition-colors"
+                  className="p-2 rounded-xl text-apple-tertiary hover:text-apple-text hover:bg-apple-text/8 transition-all"
                   aria-label="LinkedIn"
                 >
                   <Linkedin size={18} />
@@ -204,7 +205,7 @@ const Header: React.FC = () => {
                 <a
                   href={CV_HREF}
                   download={CV_DOWNLOAD_NAME}
-                  className="p-2 rounded-lg text-apple-tertiary hover:text-apple-blue hover:bg-blue-50/60 dark:hover:bg-blue-950/40 transition-colors"
+                  className="p-2 rounded-xl text-apple-tertiary hover:text-apple-blue hover:bg-apple-blue/8 transition-all"
                   aria-label={t('a11y.downloadCv')}
                   title={messages.contact.downloadCv}
                 >
@@ -215,7 +216,7 @@ const Header: React.FC = () => {
 
             <button
               type="button"
-              className="md:hidden p-2 -mr-2 rounded-lg text-apple-secondary hover:text-apple-text hover:bg-apple-text/15 transition-colors"
+              className="md:hidden p-2 -mr-2 rounded-xl text-apple-secondary hover:text-apple-text hover:bg-apple-text/10 transition-colors"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               aria-expanded={isMobileMenuOpen}
               aria-label={isMobileMenuOpen ? t('a11y.closeMenu') : t('a11y.openMenu')}
@@ -232,7 +233,7 @@ const Header: React.FC = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-apple-bg/95 backdrop-blur-xl border-b border-apple-border/45 overflow-hidden shadow-apple-md"
+            className="md:hidden bg-apple-bg/95 backdrop-blur-2xl border-b border-apple-border/35 overflow-hidden shadow-apple-md"
           >
             <div className="px-4 py-6 space-y-1 flex flex-col items-stretch max-w-md mx-auto">
               {navLinks.map((link) => {
@@ -242,10 +243,10 @@ const Header: React.FC = () => {
                     key={link.id}
                     type="button"
                     onClick={() => goToSection(link.id)}
-                    className={`font-medium text-[15px] py-3 px-3 rounded-xl text-center ${
+                    className={`font-medium text-[15px] py-3 px-3 rounded-xl text-center transition-all ${
                       isActive
-                        ? 'text-apple-text bg-apple-surface'
-                        : 'text-apple-secondary hover:text-apple-text hover:bg-apple-text/10'
+                        ? 'text-apple-text bg-apple-blue/8 border border-apple-blue/15'
+                        : 'text-apple-secondary hover:text-apple-text hover:bg-apple-text/5'
                     }`}
                   >
                     {link.name}
@@ -258,7 +259,7 @@ const Header: React.FC = () => {
                   setIsMobileMenuOpen(false);
                   openLetter();
                 }}
-                className="mt-4 py-3 px-3 rounded-xl text-center text-sm font-medium text-apple-blue hover:bg-blue-50/80 transition-colors"
+                className="mt-4 py-3 px-3 rounded-xl text-center text-sm font-medium gradient-text-blue hover:bg-blue-50/80 dark:hover:bg-blue-950/30 transition-colors"
               >
                 {messages.recruiterLetter.reopen}
               </button>
@@ -266,17 +267,17 @@ const Header: React.FC = () => {
                 href={CV_HREF}
                 download={CV_DOWNLOAD_NAME}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="mt-2 py-3 px-3 rounded-xl text-center text-sm font-semibold text-apple-text bg-apple-surface border border-apple-border/45 hover:border-apple-blue/30 hover:bg-apple-bg flex items-center justify-center gap-2 transition-colors"
+                className="mt-2 py-3 px-3 rounded-xl text-center text-sm font-semibold text-apple-text bg-apple-surface border border-apple-border/40 hover:border-apple-blue/30 hover:bg-apple-bg flex items-center justify-center gap-2 transition-all"
               >
                 <FileDown size={18} aria-hidden />
                 {messages.contact.downloadCv}
               </a>
-              <div className="flex justify-center gap-6 mt-6 pt-6 border-t border-apple-border/80">
+              <div className="flex justify-center gap-6 mt-6 pt-6 border-t border-apple-border/60">
                 <a
                   href="https://github.com/VQuocDinh"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2 text-apple-tertiary hover:text-apple-text"
+                  className="p-2 text-apple-tertiary hover:text-apple-text transition-colors"
                   aria-label="GitHub"
                 >
                   <Github size={22} />
@@ -285,12 +286,12 @@ const Header: React.FC = () => {
                   href="https://linkedin.com/in/voquocdinh"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2 text-apple-tertiary hover:text-apple-text"
+                  className="p-2 text-apple-tertiary hover:text-apple-text transition-colors"
                   aria-label="LinkedIn"
                 >
                   <Linkedin size={22} />
                 </a>
-                <a href="mailto:vqdinh2202@gmail.com" className="p-2 text-apple-tertiary hover:text-apple-text" aria-label="Email">
+                <a href="mailto:vqdinh2202@gmail.com" className="p-2 text-apple-tertiary hover:text-apple-text transition-colors" aria-label="Email">
                   <Mail size={22} />
                 </a>
               </div>
