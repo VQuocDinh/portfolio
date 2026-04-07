@@ -54,7 +54,7 @@ const Skills: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: catIndex * 0.06 }}
-              className="skill-card bg-apple-bg p-6 md:p-7 rounded-2xl border border-apple-border/40 shadow-apple flex flex-col min-h-[200px]"
+              className="skill-card neu-raised p-6 md:p-7 rounded-2xl flex flex-col min-h-[200px]"
             >
               <h3 className="text-[15px] font-semibold text-apple-text mb-5 flex items-center gap-3">
                 <span className={`flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br ${gradient} text-white text-sm shadow-md`}>
@@ -70,7 +70,7 @@ const Skills: React.FC = () => {
                     <Link
                       key={slug}
                       to={`/skills/${slug}`}
-                      className="skill-pill px-3.5 py-1.5 bg-apple-surface/80 text-apple-secondary text-[13px] rounded-lg border border-apple-border/35 font-medium hover:text-apple-blue hover:bg-apple-bg hover:border-apple-blue/25 hover:shadow-apple transition-all cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-apple-blue"
+                      className="skill-pill neu-inset-sm px-3.5 py-1.5 text-apple-secondary text-[13px] rounded-lg font-medium hover:text-apple-blue transition-all cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-apple-blue"
                       aria-label={`${sd.learnMoreAria} ${entry.title}`}
                     >
                       {entry.title}

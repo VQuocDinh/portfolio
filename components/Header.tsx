@@ -82,7 +82,7 @@ const Header: React.FC = () => {
 
   const langSwitcher = (
     <div
-      className="flex items-center rounded-xl border border-apple-border/40 bg-apple-surface/80 p-1 shadow-inner-soft backdrop-blur-sm"
+      className="flex items-center rounded-xl neu-inset p-1"
       role="group"
       aria-label={t('a11y.language')}
     >
@@ -91,7 +91,7 @@ const Header: React.FC = () => {
         onClick={() => setLocale('en')}
         className={`px-2.5 py-1.5 text-[11px] font-semibold rounded-lg transition-all ${
           locale === 'en'
-            ? 'bg-apple-bg text-apple-text shadow-apple'
+            ? 'bg-apple-bg text-apple-text neu-raised-sm'
             : 'text-apple-secondary hover:text-apple-text'
         }`}
       >
@@ -102,7 +102,7 @@ const Header: React.FC = () => {
         onClick={() => setLocale('vi')}
         className={`px-2.5 py-1.5 text-[11px] font-semibold rounded-lg transition-all ${
           locale === 'vi'
-            ? 'bg-apple-bg text-apple-text shadow-apple'
+            ? 'bg-apple-bg text-apple-text neu-raised-sm'
             : 'text-apple-secondary hover:text-apple-text'
         }`}
       >
@@ -139,7 +139,7 @@ const Header: React.FC = () => {
             <button
               type="button"
               onClick={toggleTheme}
-              className="p-2 rounded-xl text-apple-tertiary hover:text-apple-blue hover:bg-apple-blue/8 transition-all shrink-0"
+              className="p-2 rounded-xl text-apple-tertiary hover:text-apple-blue neu-inset-sm transition-all shrink-0"
               aria-label={t('a11y.themeToggle')}
               title={theme === 'dark' ? t('a11y.themeLight') : t('a11y.themeDark')}
             >
@@ -148,7 +148,7 @@ const Header: React.FC = () => {
             <button
               type="button"
               onClick={openLetter}
-              className="p-2 rounded-xl text-apple-tertiary hover:text-apple-blue hover:bg-apple-blue/8 transition-all shrink-0"
+              className="p-2 rounded-xl text-apple-tertiary hover:text-apple-blue neu-inset-sm transition-all shrink-0"
               aria-label={messages.recruiterLetter.ariaModal}
               title={messages.recruiterLetter.reopen}
             >
@@ -188,7 +188,7 @@ const Header: React.FC = () => {
                   href="https://github.com/VQuocDinh"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2 rounded-xl text-apple-tertiary hover:text-apple-text hover:bg-apple-text/8 transition-all"
+                  className="p-2 rounded-xl text-apple-tertiary hover:text-apple-text neu-inset-sm transition-all"
                   aria-label="GitHub"
                 >
                   <Github size={18} />
@@ -197,7 +197,7 @@ const Header: React.FC = () => {
                   href="https://linkedin.com/in/voquocdinh"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2 rounded-xl text-apple-tertiary hover:text-apple-text hover:bg-apple-text/8 transition-all"
+                  className="p-2 rounded-xl text-apple-tertiary hover:text-apple-text neu-inset-sm transition-all"
                   aria-label="LinkedIn"
                 >
                   <Linkedin size={18} />
@@ -205,7 +205,7 @@ const Header: React.FC = () => {
                 <a
                   href={CV_HREF}
                   download={CV_DOWNLOAD_NAME}
-                  className="p-2 rounded-xl text-apple-tertiary hover:text-apple-blue hover:bg-apple-blue/8 transition-all"
+                  className="p-2 rounded-xl text-apple-tertiary hover:text-apple-blue neu-inset-sm transition-all"
                   aria-label={t('a11y.downloadCv')}
                   title={messages.contact.downloadCv}
                 >
@@ -233,7 +233,7 @@ const Header: React.FC = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-apple-bg/95 backdrop-blur-2xl border-b border-apple-border/35 overflow-hidden shadow-apple-md"
+            className="md:hidden neu-header-bar border-b border-transparent overflow-hidden"
           >
             <div className="px-4 py-6 space-y-1 flex flex-col items-stretch max-w-md mx-auto">
               {navLinks.map((link) => {
@@ -245,8 +245,8 @@ const Header: React.FC = () => {
                     onClick={() => goToSection(link.id)}
                     className={`font-medium text-[15px] py-3 px-3 rounded-xl text-center transition-all ${
                       isActive
-                        ? 'text-apple-text bg-apple-blue/8 border border-apple-blue/15'
-                        : 'text-apple-secondary hover:text-apple-text hover:bg-apple-text/5'
+                        ? 'text-apple-text neu-raised-sm'
+                        : 'text-apple-secondary hover:text-apple-text'
                     }`}
                   >
                     {link.name}
@@ -259,7 +259,7 @@ const Header: React.FC = () => {
                   setIsMobileMenuOpen(false);
                   openLetter();
                 }}
-                className="mt-4 py-3 px-3 rounded-xl text-center text-sm font-medium gradient-text-blue hover:bg-blue-50/80 dark:hover:bg-blue-950/30 transition-colors"
+                className="mt-4 py-3 px-3 rounded-xl text-center text-sm font-medium gradient-text-blue neu-inset-sm transition-colors"
               >
                 {messages.recruiterLetter.reopen}
               </button>
@@ -267,7 +267,7 @@ const Header: React.FC = () => {
                 href={CV_HREF}
                 download={CV_DOWNLOAD_NAME}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="mt-2 py-3 px-3 rounded-xl text-center text-sm font-semibold text-apple-text bg-apple-surface border border-apple-border/40 hover:border-apple-blue/30 hover:bg-apple-bg flex items-center justify-center gap-2 transition-all"
+                className="mt-2 py-3 px-3 rounded-xl text-center text-sm font-semibold text-apple-text neu-raised-sm flex items-center justify-center gap-2 transition-all"
               >
                 <FileDown size={18} aria-hidden />
                 {messages.contact.downloadCv}

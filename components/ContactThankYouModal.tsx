@@ -59,7 +59,7 @@ const ContactThankYouModal: React.FC<ContactThankYouModalProps> = ({ open, onClo
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 16, scale: 0.95 }}
             transition={{ type: 'spring', stiffness: 400, damping: 30 }}
-            className="relative z-10 w-full max-w-md rounded-2xl bg-apple-bg shadow-apple-xl border border-apple-border/50 overflow-hidden"
+            className="relative z-10 w-full max-w-md rounded-2xl neu-raised-lg overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Gradient top bar */}
@@ -73,7 +73,7 @@ const ContactThankYouModal: React.FC<ContactThankYouModalProps> = ({ open, onClo
             <button
               type="button"
               onClick={onClose}
-              className="absolute top-4 right-4 p-2 rounded-full text-apple-tertiary hover:text-apple-text hover:bg-apple-surface transition-colors z-10"
+              className="absolute top-4 right-4 p-2 rounded-full text-apple-tertiary hover:text-apple-text neu-inset-sm transition-colors z-10"
               aria-label={t.close}
             >
               <X size={18} />
@@ -96,7 +96,7 @@ const ContactThankYouModal: React.FC<ContactThankYouModalProps> = ({ open, onClo
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3, duration: 0.4 }}
               >
-                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-green-500/10 border border-green-500/20 mb-4">
+                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full neu-inset-sm mb-4">
                   <Sparkles size={12} className="text-green-500" />
                   <span className="text-[11px] font-semibold text-green-600 dark:text-green-400 uppercase tracking-wider">{t.badge}</span>
                 </div>
@@ -136,7 +136,7 @@ const ContactThankYouModal: React.FC<ContactThankYouModalProps> = ({ open, onClo
                     href="https://github.com/VQuocDinh"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="social-btn px-5 py-2.5 rounded-xl bg-zinc-900 text-white text-sm font-semibold hover:bg-zinc-800 transition-all dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-200 shadow-sm"
+                    className="social-btn neu-raised-sm px-5 py-2.5 rounded-xl bg-zinc-900 text-white text-sm font-semibold hover:bg-zinc-800 transition-all dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-200"
                   >
                     GitHub
                   </a>
@@ -144,7 +144,7 @@ const ContactThankYouModal: React.FC<ContactThankYouModalProps> = ({ open, onClo
                     href="https://linkedin.com/in/voquocdinh"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="social-btn px-5 py-2.5 rounded-xl bg-[#0077b5] text-white text-sm font-semibold hover:bg-[#006396] transition-all shadow-sm"
+                    className="social-btn neu-raised-sm px-5 py-2.5 rounded-xl bg-[#0077b5] text-white text-sm font-semibold hover:bg-[#006396] transition-all"
                   >
                     LinkedIn
                   </a>
@@ -158,7 +158,7 @@ const ContactThankYouModal: React.FC<ContactThankYouModalProps> = ({ open, onClo
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.55 }}
-                className="mt-6 w-full py-3 rounded-xl border border-apple-border/45 bg-apple-surface/50 text-apple-text text-sm font-semibold hover:bg-apple-surface transition-colors"
+                className="mt-6 w-full py-3 rounded-xl neu-inset text-apple-text text-sm font-semibold hover:opacity-95 transition-colors"
               >
                 {t.dismiss}
               </motion.button>

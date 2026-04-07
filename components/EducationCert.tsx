@@ -23,7 +23,7 @@ const EducationCert: React.FC = () => {
             </span>
             {e.educationHeading}
           </h3>
-          <div className="bg-apple-bg edu-card-gradient p-6 md:p-7 rounded-2xl shadow-apple">
+          <div className="edu-card-gradient bg-apple-bg p-6 md:p-7 rounded-2xl">
             <h4 className="text-base font-bold text-apple-text leading-snug">{e.institution}</h4>
             <p className="gradient-text-blue font-semibold text-sm mt-2">{e.degree}</p>
             <p className="text-apple-tertiary text-sm mb-4">{e.period}</p>
@@ -56,13 +56,13 @@ const EducationCert: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.3, delay: idx * 0.06 }}
-                className="flex items-start sm:items-center justify-between gap-4 p-4 md:p-5 bg-apple-bg rounded-xl border border-apple-border/40 shadow-apple hover:shadow-apple-md hover:-translate-y-0.5 transition-all duration-300 group"
+                className="flex items-start sm:items-center justify-between gap-4 p-4 md:p-5 neu-raised-sm rounded-xl hover:-translate-y-0.5 transition-all duration-300 group"
               >
                 <div className="min-w-0">
                   <h4 className="text-apple-text font-medium text-sm leading-snug group-hover:text-apple-blue transition-colors">{cert.name}</h4>
                   <p className="text-apple-tertiary text-xs mt-1">{cert.issuer}</p>
                 </div>
-                <span className="text-apple-tertiary text-xs font-mono bg-apple-surface px-2.5 py-1 rounded-lg border border-apple-border/35 shrink-0">
+                <span className="text-apple-tertiary text-xs font-mono neu-inset-sm px-2.5 py-1 rounded-lg shrink-0">
                   {cert.year}
                 </span>
               </motion.div>

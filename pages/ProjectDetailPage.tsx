@@ -48,9 +48,9 @@ const ProjectDetailPage: React.FC = () => {
   ];
 
   const liveBtnClass =
-    'inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl text-sm font-semibold transition-colors shadow-apple border border-apple-border/55';
-  const liveEnabledClass = `${liveBtnClass} bg-zinc-900 text-white hover:bg-zinc-800 border-transparent dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-200`;
-  const liveDisabledClass = `${liveBtnClass} bg-apple-surface text-apple-tertiary cursor-not-allowed opacity-60 border-apple-border/45`;
+    'inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl text-sm font-semibold transition-colors';
+  const liveEnabledClass = `${liveBtnClass} neu-raised-sm bg-zinc-900 text-white hover:bg-zinc-800 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-200`;
+  const liveDisabledClass = `${liveBtnClass} neu-inset text-apple-tertiary cursor-not-allowed opacity-60`;
 
   return (
     <main className="min-h-screen bg-apple-bg pt-20 md:pt-24 pb-16">
@@ -71,7 +71,7 @@ const ProjectDetailPage: React.FC = () => {
             {p.backToProjects}
           </Link>
 
-          <div className="mt-8 rounded-2xl overflow-hidden border border-apple-border/45 shadow-apple-lg bg-apple-surface">
+          <div className="mt-8 rounded-2xl overflow-hidden neu-raised-lg bg-apple-muted/50">
             <div className="aspect-[21/9] md:aspect-[2/1] w-full overflow-hidden">
               <img src={meta.image} alt={project.title} className="w-full h-full object-cover" />
             </div>
@@ -84,7 +84,7 @@ const ProjectDetailPage: React.FC = () => {
               {meta.tags.map((tag) => (
                 <span
                   key={tag}
-                  className="text-[11px] font-semibold uppercase tracking-wide px-2.5 py-1 bg-apple-surface text-apple-secondary rounded-md border border-apple-border/35"
+                  className="text-[11px] font-semibold uppercase tracking-wide px-2.5 py-1 text-apple-secondary rounded-md neu-inset-sm"
                 >
                   {tag}
                 </span>
@@ -144,7 +144,7 @@ const ProjectDetailPage: React.FC = () => {
                 href={meta.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-apple-blue hover:bg-apple-blue-hover text-white text-sm font-semibold transition-colors shadow-apple-md"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl cta-gradient text-white text-sm font-semibold transition-colors"
               >
                 <Github size={18} aria-hidden />
                 {p.viewSource}
@@ -153,7 +153,7 @@ const ProjectDetailPage: React.FC = () => {
             </div>
             <Link
               to="/#projects"
-              className="inline-flex items-center justify-center px-6 py-3.5 rounded-xl border border-apple-border/55 bg-apple-bg text-apple-text text-sm font-semibold hover:bg-apple-surface transition-colors shadow-apple sm:self-start"
+              className="inline-flex items-center justify-center px-6 py-3.5 rounded-xl neu-btn-ghost text-sm font-semibold sm:self-start"
             >
               {p.backToProjects}
             </Link>

@@ -54,7 +54,7 @@ const RecruiterThankYouModal: React.FC<RecruiterThankYouModalProps> = ({ open, o
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 12, scale: 0.98 }}
             transition={{ type: 'spring', stiffness: 380, damping: 32 }}
-            className="relative z-10 w-full max-w-lg rounded-2xl bg-apple-bg shadow-apple-xl border border-apple-border/50 overflow-hidden"
+            className="relative z-10 w-full max-w-lg rounded-2xl neu-raised-lg overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="absolute top-0 left-0 right-0 h-1 bg-apple-blue/90" aria-hidden />
@@ -70,7 +70,7 @@ const RecruiterThankYouModal: React.FC<RecruiterThankYouModalProps> = ({ open, o
             <div className="px-6 pt-8 pb-6 md:px-8 md:pt-10 md:pb-8">
               <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between mb-4 pr-8 sm:pr-10">
                 <div className="flex items-center gap-2 min-w-0">
-                  <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-blue-50 dark:bg-blue-950/40 text-apple-blue border border-blue-100 dark:border-blue-800/50">
+                  <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl neu-inset-sm text-apple-blue">
                     <HeartHandshake size={22} aria-hidden />
                   </span>
                   <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-apple-blue">{r.badge}</span>
@@ -78,7 +78,7 @@ const RecruiterThankYouModal: React.FC<RecruiterThankYouModalProps> = ({ open, o
                 <div className="flex flex-col gap-1.5 sm:items-end">
                   <span className="text-[10px] font-semibold uppercase tracking-wider text-apple-tertiary">{r.letterLanguage}</span>
                   <div
-                    className="flex items-center rounded-xl border border-apple-border/50 bg-apple-surface/90 p-1 shadow-inner-soft"
+                    className="flex items-center rounded-xl neu-inset p-1"
                     role="group"
                     aria-label={r.ariaLanguageGroup}
                   >
@@ -87,7 +87,7 @@ const RecruiterThankYouModal: React.FC<RecruiterThankYouModalProps> = ({ open, o
                       onClick={() => setLocale('en')}
                       className={`px-2.5 py-1.5 text-[11px] font-semibold rounded-lg transition-all ${
                         locale === 'en'
-                          ? 'bg-apple-bg text-apple-text shadow-apple'
+                          ? 'bg-apple-bg text-apple-text neu-raised-sm'
                           : 'text-apple-secondary hover:text-apple-text'
                       }`}
                     >
@@ -98,7 +98,7 @@ const RecruiterThankYouModal: React.FC<RecruiterThankYouModalProps> = ({ open, o
                       onClick={() => setLocale('vi')}
                       className={`px-2.5 py-1.5 text-[11px] font-semibold rounded-lg transition-all ${
                         locale === 'vi'
-                          ? 'bg-apple-bg text-apple-text shadow-apple'
+                          ? 'bg-apple-bg text-apple-text neu-raised-sm'
                           : 'text-apple-secondary hover:text-apple-text'
                       }`}
                     >
@@ -126,7 +126,7 @@ const RecruiterThankYouModal: React.FC<RecruiterThankYouModalProps> = ({ open, o
               <button
                 type="button"
                 onClick={onDismiss}
-                className="mt-8 w-full py-3.5 rounded-xl bg-apple-blue hover:bg-apple-blue-hover text-white text-sm font-semibold transition-colors shadow-apple-md"
+                className="mt-8 w-full py-3.5 rounded-xl cta-gradient text-white text-sm font-semibold transition-colors"
               >
                 {r.continue}
               </button>

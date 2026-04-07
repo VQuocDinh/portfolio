@@ -11,7 +11,7 @@ const WhyFit: React.FC = () => {
   return (
     <Section id="why-fit" eyebrow={w.eyebrow} title={w.title} subtitle={w.subtitle}>
       <div className="max-w-3xl mx-auto">
-        <div className="contact-card bg-apple-bg rounded-2xl border border-apple-border/40 shadow-apple p-6 md:p-8">
+        <div className="contact-card neu-raised rounded-2xl p-6 md:p-8">
           <div className="flex items-start gap-4 mb-6">
             <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-blue-500 to-purple-500 text-white shadow-md shadow-blue-500/20">
               <UserCheck size={22} aria-hidden />

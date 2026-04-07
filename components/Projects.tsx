@@ -21,8 +21,8 @@ const Projects: React.FC = () => {
 
   const liveBtnBase =
     'inline-flex items-center justify-center gap-2 w-full sm:w-auto px-5 py-2.5 rounded-xl text-sm font-semibold transition-all';
-  const liveEnabled = `${liveBtnBase} cta-gradient text-white shadow-md shadow-blue-500/15 hover:shadow-lg hover:shadow-blue-500/20`;
-  const liveDisabled = `${liveBtnBase} bg-apple-surface text-apple-tertiary border border-apple-border/45 cursor-not-allowed opacity-65`;
+  const liveEnabled = `${liveBtnBase} cta-gradient text-white`;
+  const liveDisabled = `${liveBtnBase} neu-inset text-apple-tertiary cursor-not-allowed opacity-65`;
 
   const renderLiveAndLinks = (project: (typeof items)[0]['project'], meta: (typeof items)[0]['meta']) => (
     <div className="mt-auto flex flex-col gap-3 pt-1">
@@ -97,7 +97,7 @@ const Projects: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="project-card group relative flex flex-col overflow-hidden rounded-2xl border border-apple-border/40 bg-apple-bg shadow-apple lg:flex-row lg:min-h-[min(22rem,42vw)]"
+            className="project-card group relative flex flex-col overflow-hidden rounded-2xl neu-raised lg:flex-row lg:min-h-[min(22rem,42vw)]"
           >
             <Link
               to={`/projects/${featured.project.slug}`}
@@ -109,10 +109,10 @@ const Projects: React.FC = () => {
                 className="project-image h-full w-full object-cover"
               />
               <div className="project-overlay absolute inset-0" />
-              <span className="absolute left-4 top-4 inline-flex h-9 min-w-[2.25rem] items-center justify-center rounded-full bg-white/90 dark:bg-black/70 px-2.5 text-xs font-bold tabular-nums text-apple-text backdrop-blur-sm shadow-sm">
+              <span className="absolute left-4 top-4 inline-flex h-9 min-w-[2.25rem] items-center justify-center rounded-full neu-chip px-2.5 text-xs font-bold tabular-nums text-apple-text">
                 01
               </span>
-              <div className="absolute right-4 top-4 rounded-full bg-white/90 dark:bg-black/70 p-2 shadow-sm backdrop-blur-sm">
+              <div className="absolute right-4 top-4 rounded-full neu-chip p-2">
                 <FolderGit2 size={18} className="text-apple-blue" aria-hidden />
               </div>
             </Link>
@@ -131,7 +131,7 @@ const Projects: React.FC = () => {
                 {featured.meta.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="tag-pill rounded-md border border-apple-border/35 bg-apple-surface px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wide text-apple-secondary"
+                    className="tag-pill rounded-md px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wide text-apple-secondary"
                   >
                     {tag}
                   </span>
@@ -155,7 +155,7 @@ const Projects: React.FC = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: (index - 1) * 0.08 }}
-                  className="project-card group flex flex-col overflow-hidden rounded-2xl border border-apple-border/40 bg-apple-bg shadow-apple"
+                  className="project-card group flex flex-col overflow-hidden rounded-2xl neu-raised"
                 >
                   <Link to={`/projects/${project.slug}`} className="relative block aspect-[16/10] overflow-hidden bg-apple-surface">
                     <img
@@ -164,10 +164,10 @@ const Projects: React.FC = () => {
                       className="project-image h-full w-full object-cover"
                     />
                     <div className="project-overlay absolute inset-0" />
-                    <span className="absolute left-3 top-3 inline-flex h-8 min-w-[2rem] items-center justify-center rounded-full bg-white/90 dark:bg-black/70 px-2 text-[11px] font-bold tabular-nums text-apple-text backdrop-blur-sm shadow-sm">
+                    <span className="absolute left-3 top-3 inline-flex h-8 min-w-[2rem] items-center justify-center rounded-full neu-chip px-2 text-[11px] font-bold tabular-nums text-apple-text">
                       {n}
                     </span>
-                    <div className="absolute right-3 top-3 rounded-full bg-white/90 dark:bg-black/70 p-2 shadow-sm backdrop-blur-sm">
+                    <div className="absolute right-3 top-3 rounded-full neu-chip p-2">
                       <FolderGit2 size={18} className="text-apple-blue" aria-hidden />
                     </div>
                   </Link>
@@ -184,7 +184,7 @@ const Projects: React.FC = () => {
                       {meta.tags.map((tag) => (
                         <span
                           key={tag}
-                          className="tag-pill rounded-md border border-apple-border/35 bg-apple-surface px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wide text-apple-secondary"
+                          className="tag-pill rounded-md px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wide text-apple-secondary"
                         >
                           {tag}
                         </span>

@@ -1,4 +1,4 @@
-import React, { useRef, useCallback, useState, useEffect } from 'react';
+import React, { useRef, useCallback } from 'react';
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { ArrowRight, MapPin, Sparkles } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
@@ -7,8 +7,6 @@ import InteractiveTerminal from './InteractiveTerminal';
 const Hero: React.FC = () => {
   const { messages } = useLanguage();
   const sectionRef = useRef<HTMLElement>(null);
-  const [isHovering, setIsHovering] = useState(false);
-
   // Raw mouse position values
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
@@ -56,10 +54,7 @@ const Hero: React.FC = () => {
     [mouseX, mouseY]
   );
 
-  const handleMouseEnter = useCallback(() => setIsHovering(true), []);
   const handleMouseLeave = useCallback(() => {
-    setIsHovering(false);
-    // Smoothly return to center
     mouseX.set(0);
     mouseY.set(0);
   }, [mouseX, mouseY]);
@@ -83,7 +78,6 @@ const Hero: React.FC = () => {
       id="hero"
       className="relative min-h-[100vh] flex items-center pt-14 overflow-hidden"
       onMouseMove={handleMouseMove}
-      onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
       {/* Parallax grid background */}
@@ -116,40 +110,7 @@ const Hero: React.FC = () => {
         aria-hidden
       />
 
-      {/* Spotlight circle following cursor — large, vivid glow */}
-      <motion.div
-        className="absolute pointer-events-none"
-        style={{
-          width: 900,
-          height: 900,
-          x: useTransform(smoothX, [-0.5, 0.5], [-450, window.innerWidth - 450]),
-          y: useTransform(smoothY, [-0.5, 0.5], [-450, window.innerHeight - 450]),
-          background: 'radial-gradient(circle, rgba(0,113,227,0.22) 0%, rgba(110,92,230,0.10) 40%, transparent 70%)',
-          borderRadius: '50%',
-          filter: 'blur(60px)',
-          opacity: isHovering ? 1 : 0,
-          transition: 'opacity 0.3s ease',
-        }}
-        aria-hidden
-      />
-      {/* Inner bright core of spotlight */}
-      <motion.div
-        className="absolute pointer-events-none"
-        style={{
-          width: 400,
-          height: 400,
-          x: useTransform(smoothX, [-0.5, 0.5], [-200, window.innerWidth - 200]),
-          y: useTransform(smoothY, [-0.5, 0.5], [-200, window.innerHeight - 200]),
-          background: 'radial-gradient(circle, rgba(0,113,227,0.15) 0%, rgba(110,92,230,0.06) 50%, transparent 70%)',
-          borderRadius: '50%',
-          filter: 'blur(30px)',
-          opacity: isHovering ? 1 : 0,
-          transition: 'opacity 0.3s ease',
-        }}
-        aria-hidden
-      />
-
-      <div className="absolute inset-0 pointer-events-none border-b border-apple-border/30" aria-hidden />
+      <div className="absolute inset-0 pointer-events-none border-b border-apple-border/20" aria-hidden />
 
       <div className="max-w-6xl mx-auto px-4 md:px-8 w-full relative z-10">
         <div className="flex flex-col md:flex-row items-center gap-14 lg:gap-20">
@@ -164,7 +125,7 @@ const Hero: React.FC = () => {
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.1, duration: 0.4 }}
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-apple-blue/8 border border-apple-blue/15 mb-6"
+                className="neu-hero-badge inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6"
               >
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
@@ -198,7 +159,7 @@ const Hero: React.FC = () => {
                 <a
                   href="#projects"
                   onClick={(e) => handleScroll(e, 'projects')}
-                  className="cta-gradient inline-flex items-center justify-center px-8 py-3.5 text-white rounded-full text-sm font-semibold shadow-lg shadow-blue-500/20 hover:shadow-xl hover:shadow-blue-500/25 group"
+                  className="cta-gradient inline-flex items-center justify-center px-8 py-3.5 rounded-full text-sm font-semibold group"
                 >
                   <span className="inline-flex items-center gap-2">
                     {h.viewWork}
@@ -208,7 +169,7 @@ const Hero: React.FC = () => {
                 <a
                   href="#contact"
                   onClick={(e) => handleScroll(e, 'contact')}
-                  className="inline-flex items-center justify-center px-8 py-3.5 bg-apple-bg text-apple-text rounded-full text-sm font-semibold border border-apple-border/60 hover:border-apple-blue/30 hover:bg-apple-surface/80 transition-all shadow-apple hover:shadow-apple-md"
+                  className="neu-btn-ghost inline-flex items-center justify-center px-8 py-3.5 rounded-full text-sm font-semibold"
                 >
                   {h.contactMe}
                 </a>
@@ -239,7 +200,7 @@ const Hero: React.FC = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.8, duration: 0.5 }}
                 style={{ x: badgeX, y: badgeY }}
-                className="absolute -bottom-4 -left-4 md:-left-6 px-4 py-2.5 rounded-xl glass-card shadow-apple-lg"
+                className="absolute -bottom-4 -left-4 md:-left-6 px-4 py-2.5 rounded-xl neu-float"
               >
                 <div className="flex items-center gap-2">
                   <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center">
@@ -258,7 +219,7 @@ const Hero: React.FC = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 1.0, duration: 0.5 }}
                 style={{ x: badge2X, y: badge2Y }}
-                className="absolute -top-3 -right-3 md:-right-5 px-3 py-2 rounded-xl glass-card shadow-apple-lg"
+                className="absolute -top-3 -right-3 md:-right-5 px-3 py-2 rounded-xl neu-float"
               >
                 <div className="flex items-center gap-1.5">
                   <span className="text-sm">🎯</span>

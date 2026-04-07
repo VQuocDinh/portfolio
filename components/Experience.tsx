@@ -71,7 +71,7 @@ const Experience: React.FC = () => {
                 aria-hidden
               />
 
-              <div className="experience-card bg-apple-bg rounded-2xl overflow-hidden border border-apple-border/40 shadow-apple">
+              <div className="experience-card neu-raised rounded-2xl overflow-hidden">
                 <div className="p-6 md:p-8 border-b border-apple-border/40">
                   <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4">
                     <div className="space-y-2">
@@ -105,7 +105,7 @@ const Experience: React.FC = () => {
                   <div className="grid gap-3 mb-8">
                     {exp.achievements.map((text, idx) => (
                       <div key={idx} className="flex gap-3 group">
-                        <div className="achievement-icon mt-0.5 flex-shrink-0 w-8 h-8 rounded-lg bg-apple-bg flex items-center justify-center border border-apple-border/40 shadow-apple group-hover:shadow-apple-md transition-all">
+                        <div className="achievement-icon neu-inset-sm mt-0.5 flex-shrink-0 w-8 h-8 rounded-lg flex items-center justify-center transition-all">
                           {iconSets[index][idx]}
                         </div>
                         <p className="text-apple-secondary text-sm leading-relaxed pt-1">{text}</p>
@@ -117,7 +117,7 @@ const Experience: React.FC = () => {
                     <h4 className="text-[11px] uppercase tracking-[0.15em] text-apple-tertiary font-semibold mb-3">{ex.technologies}</h4>
                     <div className="flex flex-wrap gap-2">
                       {stacks[index].map((tech) => (
-                        <span key={tech} className="tag-pill px-3 py-1 text-xs font-medium text-apple-blue bg-apple-bg border border-blue-200/60 dark:border-blue-800/40 rounded-full transition-all">
+                        <span key={tech} className="tag-pill px-3 py-1 text-xs font-medium text-apple-blue rounded-full transition-all">
                           {tech}
                         </span>
                       ))}

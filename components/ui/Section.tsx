@@ -17,7 +17,7 @@ const Section: React.FC<SectionProps> = ({ id, children, className = "", title, 
   return (
     <section
       id={id}
-      className={`scroll-mt-24 ${muted ? 'bg-apple-surface/50' : ''}`}
+      className={`scroll-mt-24 ${muted ? 'bg-apple-muted/75' : ''}`}
     >
       <div className={`max-w-6xl mx-auto px-4 md:px-8 py-20 md:py-28 ${className}`}>
         {(title || subtitle || eyebrow) && (
@@ -34,7 +34,7 @@ const Section: React.FC<SectionProps> = ({ id, children, className = "", title, 
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: 0.05 }}
-                className="inline-flex items-center gap-2 text-[11px] md:text-xs font-semibold uppercase tracking-[0.22em] text-apple-blue mb-4 px-3 py-1.5 rounded-full bg-apple-blue/6 border border-apple-blue/10"
+                className="neu-inset-sm inline-flex items-center gap-2 text-[11px] md:text-xs font-semibold uppercase tracking-[0.22em] text-apple-blue mb-4 px-3 py-1.5 rounded-full"
               >
                 {eyebrow}
               </motion.p>
