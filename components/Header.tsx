@@ -114,9 +114,7 @@ const Header: React.FC = () => {
   return (
     <header
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        isScrolled
-          ? 'bg-apple-bg/80 backdrop-blur-2xl border-b border-apple-border/35 shadow-apple'
-          : 'bg-transparent'
+        isScrolled ? 'neu-header-bar border-b border-transparent' : 'bg-transparent'
       }`}
     >
       <div className="max-w-6xl mx-auto px-4 md:px-8">

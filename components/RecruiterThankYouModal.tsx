@@ -61,7 +61,7 @@ const RecruiterThankYouModal: React.FC<RecruiterThankYouModalProps> = ({ open, o
             <button
               type="button"
               onClick={onDismiss}
-              className="absolute top-3 right-3 p-2 rounded-lg text-apple-tertiary hover:text-apple-text hover:bg-apple-surface transition-colors z-10"
+              className="absolute top-3 right-3 p-2 rounded-lg text-apple-tertiary hover:text-apple-text neu-inset-sm transition-colors z-10"
               aria-label={r.ariaClose}
             >
               <X size={20} />
