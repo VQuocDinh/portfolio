@@ -77,7 +77,7 @@ const About: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: index * 0.08 }}
-              className="stat-card group bg-apple-bg p-6 rounded-2xl border border-apple-border/40 shadow-apple overflow-hidden"
+              className="stat-card group neu-raised p-6 rounded-2xl overflow-hidden"
             >
               <div className={`mb-4 p-2.5 w-fit rounded-xl bg-gradient-to-br ${stat.gradient} text-white shadow-lg shadow-${stat.gradient.split('-')[1]}-500/20`}>
                 {stat.icon}

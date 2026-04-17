@@ -82,7 +82,7 @@ const SkillDetailPage: React.FC = () => {
           <div className="mt-12">
             <Link
               to="/#skills"
-              className="inline-flex items-center justify-center px-6 py-3.5 rounded-xl border border-apple-border/55 bg-apple-bg text-apple-text text-sm font-semibold hover:bg-apple-surface transition-colors shadow-apple"
+              className="inline-flex items-center justify-center px-6 py-3.5 rounded-xl neu-btn-ghost text-sm font-semibold"
             >
               {sd.backToSkills}
             </Link>

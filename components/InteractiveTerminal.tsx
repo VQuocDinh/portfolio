@@ -132,11 +132,11 @@ const InteractiveTerminal: React.FC = () => {
 
   return (
     <div
-      className="absolute inset-0 rounded-3xl code-window bg-apple-bg/95 shadow-apple-xl border border-apple-border/40 flex flex-col overflow-hidden backdrop-blur-xl group cursor-text"
+      className="absolute inset-0 rounded-3xl code-window bg-apple-bg flex flex-col overflow-hidden group cursor-text"
       onClick={() => inputRef.current?.focus()}
     >
       {/* Terminal Header */}
-      <div className="flex items-center gap-2 px-5 py-3.5 border-b border-apple-border/35 bg-apple-surface/40 shrink-0">
+      <div className="flex items-center gap-2 px-5 py-3.5 border-b border-apple-border/25 neu-inset-sm bg-apple-muted/50 shrink-0">
         <div className="flex gap-2">
           <div className="w-3 h-3 rounded-full bg-[#ff5f57] ring-1 ring-black/5" />
           <div className="w-3 h-3 rounded-full bg-[#febc2e] ring-1 ring-black/5" />
@@ -154,7 +154,7 @@ const InteractiveTerminal: React.FC = () => {
       {/* Terminal Body */}
       <div
         ref={terminalBodyRef}
-        className="p-5 font-mono text-[11px] sm:text-xs md:text-sm leading-relaxed text-left flex-1 bg-apple-surface/20 overflow-y-auto no-scrollbar"
+        className="p-5 font-mono text-[11px] sm:text-xs md:text-sm leading-relaxed text-left flex-1 bg-apple-muted/40 overflow-y-auto no-scrollbar"
       >
         <AnimatePresence initial={false}>
           {history.map((item) => (

@@ -69,12 +69,12 @@ const Contact: React.FC = () => {
   };
 
   const inputClass =
-    'form-input-enhanced w-full bg-apple-bg border border-apple-border/45 rounded-xl px-4 py-3.5 text-apple-text text-sm placeholder:text-apple-tertiary/60 ' +
-    'focus:outline-none focus:border-apple-blue focus:ring-3 focus:ring-apple-blue/10 transition-all ' +
+    'form-input-enhanced neu-inset w-full rounded-xl px-4 py-3.5 text-apple-text text-sm placeholder:text-apple-tertiary/60 ' +
+    'focus:outline-none transition-all border-0 ' +
     'disabled:opacity-50 disabled:cursor-not-allowed';
 
   return (
-    <footer className="relative bg-apple-surface/60 pt-14 pb-10 border-t border-apple-border/50 overflow-hidden">
+    <footer className="relative bg-apple-muted/80 pt-14 pb-10 border-t border-apple-border/35 overflow-hidden">
       <ContactThankYouModal open={showModal} onClose={() => setShowModal(false)} senderName={submittedName} />
       
       {/* Background decoration */}
@@ -84,26 +84,26 @@ const Contact: React.FC = () => {
       <Section id="contact" eyebrow={c.eyebrow} title={c.title} subtitle={c.subtitle}>
         <div className="grid md:grid-cols-2 gap-8 lg:gap-10 max-w-4xl mx-auto">
           <div className="space-y-5">
-            <div className="contact-card bg-apple-bg p-6 md:p-7 rounded-2xl border border-apple-border/40 shadow-apple">
+            <div className="contact-card neu-raised p-6 md:p-7 rounded-2xl">
               <h3 className="text-lg font-bold text-apple-text mb-6">{c.infoTitle}</h3>
               <div className="space-y-4">
                 <a
                   href="mailto:vqdinh2202@gmail.com"
                   className="flex items-center gap-4 text-apple-secondary hover:text-apple-blue transition-colors group rounded-xl -mx-1 px-1 py-1"
                 >
-                  <div className="icon-container p-2.5 bg-gradient-to-br from-blue-50 to-blue-100/50 dark:from-blue-950/40 dark:to-blue-900/20 rounded-xl group-hover:from-blue-100 dark:group-hover:from-blue-900/50 transition-all border border-blue-100/60 dark:border-blue-800/30">
+                  <div className="icon-container p-2.5 neu-inset-sm rounded-xl transition-all">
                     <Mail size={18} className="text-blue-500" aria-hidden />
                   </div>
                   <span className="text-sm font-medium break-all">vqdinh2202@gmail.com</span>
                 </a>
                 <div className="flex items-center gap-4 text-apple-secondary">
-                  <div className="p-2.5 bg-gradient-to-br from-green-50 to-emerald-100/50 dark:from-green-950/40 dark:to-emerald-900/20 rounded-xl border border-green-100/60 dark:border-green-800/30">
+                  <div className="p-2.5 neu-inset-sm rounded-xl">
                     <Phone size={18} className="text-green-500" aria-hidden />
                   </div>
                   <span className="text-sm font-medium">+84 399 967 453</span>
                 </div>
                 <div className="flex items-center gap-4 text-apple-secondary">
-                  <div className="p-2.5 bg-gradient-to-br from-orange-50 to-amber-100/50 dark:from-orange-950/40 dark:to-amber-900/20 rounded-xl border border-orange-100/60 dark:border-orange-800/30">
+                  <div className="p-2.5 neu-inset-sm rounded-xl">
                     <MapPin size={18} className="text-orange-500" aria-hidden />
                   </div>
                   <span className="text-sm font-medium">{c.address}</span>
@@ -116,7 +116,7 @@ const Contact: React.FC = () => {
                 href="https://github.com/VQuocDinh"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="social-btn flex-1 bg-zinc-900 hover:bg-zinc-800 text-white py-3.5 rounded-xl flex justify-center items-center gap-2 transition-all text-sm font-semibold shadow-md dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-200"
+                className="social-btn flex-1 bg-zinc-900 hover:bg-zinc-800 text-white py-3.5 rounded-xl flex justify-center items-center gap-2 transition-all text-sm font-semibold neu-raised-sm dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-200"
               >
                 <Github size={18} aria-hidden />
                 GitHub
@@ -125,7 +125,7 @@ const Contact: React.FC = () => {
                 href="https://linkedin.com/in/voquocdinh"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="social-btn flex-1 bg-gradient-to-r from-[#0077b5] to-[#0088cc] hover:from-[#006396] hover:to-[#0077b5] text-white py-3.5 rounded-xl flex justify-center items-center gap-2 transition-all text-sm font-semibold shadow-md"
+                className="social-btn flex-1 bg-gradient-to-r from-[#0077b5] to-[#0088cc] hover:from-[#006396] hover:to-[#0077b5] text-white py-3.5 rounded-xl flex justify-center items-center gap-2 transition-all text-sm font-semibold neu-raised-sm"
               >
                 <Linkedin size={18} aria-hidden />
                 LinkedIn
@@ -134,14 +134,14 @@ const Contact: React.FC = () => {
             <a
               href={CV_HREF}
               download={CV_DOWNLOAD_NAME}
-              className="social-btn flex w-full items-center justify-center gap-2 py-3.5 rounded-xl border border-apple-border/45 bg-apple-bg text-apple-text text-sm font-semibold hover:bg-apple-surface hover:border-apple-blue/25 transition-all shadow-apple"
+              className="social-btn neu-raised-sm flex w-full items-center justify-center gap-2 py-3.5 rounded-xl text-apple-text text-sm font-semibold transition-all"
             >
               <FileDown size={18} aria-hidden />
               {c.downloadCv}
             </a>
           </div>
 
-          <form className="contact-card space-y-4 bg-apple-bg p-6 md:p-7 rounded-2xl border border-apple-border/40 shadow-apple" onSubmit={handleSubmit} noValidate>
+          <form className="contact-card neu-raised space-y-4 p-6 md:p-7 rounded-2xl" onSubmit={handleSubmit} noValidate>
             <h3 className="text-lg font-bold text-apple-text mb-1">{c.formTitle}</h3>
             <p className="text-apple-tertiary text-sm mb-4">{c.formHint}</p>
             <div className="space-y-4">
@@ -204,7 +204,7 @@ const Contact: React.FC = () => {
                     ? 'bg-gradient-to-r from-green-500 to-emerald-500 text-white cursor-default shadow-md'
                     : status === 'error'
                       ? 'bg-gradient-to-r from-red-500 to-pink-500 text-white shadow-md'
-                      : 'cta-gradient text-white disabled:opacity-70 disabled:cursor-not-allowed shadow-lg shadow-blue-500/20 hover:shadow-xl hover:shadow-blue-500/25'
+                      : 'cta-gradient text-white disabled:opacity-70 disabled:cursor-not-allowed'
                 }`}
               >
                 {status === 'submitting' ? (

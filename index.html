@@ -28,6 +28,7 @@
               apple: {
                 bg: 'rgb(var(--color-apple-bg) / <alpha-value>)',
                 surface: 'rgb(var(--color-apple-surface) / <alpha-value>)',
+                muted: 'rgb(var(--color-apple-muted) / <alpha-value>)',
                 border: 'rgb(var(--color-apple-border) / <alpha-value>)',
                 text: 'rgb(var(--color-apple-text) / <alpha-value>)',
                 secondary: 'rgb(var(--color-apple-secondary) / <alpha-value>)',
@@ -40,11 +41,12 @@
               sans: ['-apple-system', 'BlinkMacSystemFont', 'SF Pro Display', 'SF Pro Text', 'Inter', 'Helvetica Neue', 'sans-serif'],
             },
             boxShadow: {
-              'apple': '0 1px 2px rgba(0,0,0,0.04), 0 1px 3px rgba(0,0,0,0.06)',
-              'apple-md': '0 4px 14px rgba(0,0,0,0.07)',
-              'apple-lg': '0 8px 30px rgba(0,0,0,0.08)',
-              'apple-xl': '0 12px 40px rgba(0,0,0,0.1)',
-              'inner-soft': 'inset 0 1px 0 rgba(255,255,255,0.6)',
+              /* Neumorphism — soft convex (light); dark: override via index.css .neu-* ) */
+              'apple': '6px 6px 14px rgba(163,177,198,0.45), -6px -6px 14px rgba(255,255,255,0.92)',
+              'apple-md': '10px 10px 22px rgba(163,177,198,0.48), -8px -8px 20px rgba(255,255,255,0.95)',
+              'apple-lg': '14px 14px 28px rgba(163,177,198,0.42), -10px -10px 24px rgba(255,255,255,0.9)',
+              'apple-xl': '18px 18px 36px rgba(163,177,198,0.4), -12px -12px 28px rgba(255,255,255,0.88)',
+              'inner-soft': 'inset 3px 3px 8px rgba(163,177,198,0.35), inset -3px -3px 8px rgba(255,255,255,0.85)',
             },
             letterSpacing: {
               'tighter-plus': '-0.03em',
@@ -61,20 +63,23 @@
     
     <style>
       :root {
-        --color-apple-bg: 255 255 255;
-        --color-apple-surface: 245 245 247;
-        --color-apple-border: 210 210 215;
-        --color-apple-text: 29 29 31;
-        --color-apple-secondary: 110 110 115;
-        --color-apple-tertiary: 134 134 139;
+        /* Neumorphism base — soft gray canvas */
+        --color-apple-bg: 225 229 235;
+        --color-apple-surface: 232 236 242;
+        --color-apple-muted: 216 220 228;
+        --color-apple-border: 190 198 210;
+        --color-apple-text: 45 48 55;
+        --color-apple-secondary: 95 100 112;
+        --color-apple-tertiary: 120 125 135;
       }
       html.dark {
-        --color-apple-bg: 0 0 0;
-        --color-apple-surface: 28 28 30;
-        --color-apple-border: 58 58 60;
-        --color-apple-text: 244 244 246;
-        --color-apple-secondary: 161 161 170;
-        --color-apple-tertiary: 134 134 139;
+        --color-apple-bg: 42 44 50;
+        --color-apple-surface: 48 50 58;
+        --color-apple-muted: 38 40 46;
+        --color-apple-border: 62 65 74;
+        --color-apple-text: 235 236 240;
+        --color-apple-secondary: 165 168 178;
+        --color-apple-tertiary: 130 133 142;
       }
       body {
         font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Inter', 'Helvetica Neue', sans-serif;
@@ -87,7 +92,7 @@
         width: 8px;
       }
       ::-webkit-scrollbar-track {
-        background: rgb(var(--color-apple-surface));
+        background: rgb(var(--color-apple-muted));
       }
       ::-webkit-scrollbar-thumb {
         background: rgb(var(--color-apple-border));

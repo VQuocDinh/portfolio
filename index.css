@@ -1,17 +1,139 @@
-/* ===== Global polish — portfolio ===== */
+/* ===== Neumorphism — portfolio design tokens ===== */
 
 :root {
-  --hero-pattern: rgba(0, 0, 0, 0.025);
+  --hero-pattern: rgba(80, 90, 110, 0.06);
   --gradient-start: #0071e3;
   --gradient-mid: #6e5ce6;
   --gradient-end: #e34071;
-  --glow-blue: rgba(0, 113, 227, 0.12);
-  --glow-purple: rgba(110, 92, 230, 0.10);
+  --glow-blue: rgba(0, 113, 227, 0.06);
+  --glow-purple: rgba(110, 92, 230, 0.05);
+
+  --neu-out-xs: 3px 3px 8px rgba(163, 177, 198, 0.4), -3px -3px 8px rgba(255, 255, 255, 0.88);
+  --neu-out-sm: 6px 6px 14px rgba(163, 177, 198, 0.45), -6px -6px 14px rgba(255, 255, 255, 0.92);
+  --neu-out-md: 10px 10px 22px rgba(163, 177, 198, 0.48), -8px -8px 20px rgba(255, 255, 255, 0.95);
+  --neu-out-lg: 14px 14px 28px rgba(163, 177, 198, 0.42), -10px -10px 24px rgba(255, 255, 255, 0.9);
+  --neu-out-xl: 18px 18px 36px rgba(163, 177, 198, 0.38), -12px -12px 28px rgba(255, 255, 255, 0.88);
+
+  --neu-in: inset 4px 4px 10px rgba(163, 177, 198, 0.42), inset -4px -4px 10px rgba(255, 255, 255, 0.9);
+  --neu-in-sm: inset 2px 2px 6px rgba(163, 177, 198, 0.38), inset -2px -2px 6px rgba(255, 255, 255, 0.85);
+  --neu-in-deep: inset 6px 6px 14px rgba(163, 177, 198, 0.45), inset -4px -4px 12px rgba(255, 255, 255, 0.82);
 }
+
 html.dark {
-  --hero-pattern: rgba(255, 255, 255, 0.04);
-  --glow-blue: rgba(0, 113, 227, 0.08);
-  --glow-purple: rgba(110, 92, 230, 0.06);
+  --hero-pattern: rgba(255, 255, 255, 0.03);
+  --glow-blue: rgba(0, 113, 227, 0.04);
+  --glow-purple: rgba(110, 92, 230, 0.03);
+
+  --neu-out-xs: 3px 3px 8px rgba(0, 0, 0, 0.45), -3px -3px 8px rgba(255, 255, 255, 0.04);
+  --neu-out-sm: 6px 6px 14px rgba(0, 0, 0, 0.5), -6px -6px 14px rgba(255, 255, 255, 0.05);
+  --neu-out-md: 10px 10px 22px rgba(0, 0, 0, 0.52), -8px -8px 18px rgba(255, 255, 255, 0.04);
+  --neu-out-lg: 14px 14px 28px rgba(0, 0, 0, 0.48), -10px -10px 22px rgba(255, 255, 255, 0.035);
+  --neu-out-xl: 18px 18px 36px rgba(0, 0, 0, 0.45), -12px -12px 26px rgba(255, 255, 255, 0.03);
+
+  --neu-in: inset 4px 4px 10px rgba(0, 0, 0, 0.5), inset -4px -4px 10px rgba(255, 255, 255, 0.03);
+  --neu-in-sm: inset 2px 2px 6px rgba(0, 0, 0, 0.45), inset -2px -2px 6px rgba(255, 255, 255, 0.025);
+  --neu-in-deep: inset 6px 6px 14px rgba(0, 0, 0, 0.52), inset -4px -4px 12px rgba(255, 255, 255, 0.025);
+}
+
+/* ===== Neumorphic surface utilities ===== */
+.neu-raised {
+  background: rgb(var(--color-apple-bg));
+  box-shadow: var(--neu-out-md);
+  border: none;
+  transition: box-shadow 0.35s cubic-bezier(0.4, 0, 0.2, 1), transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.neu-raised:hover {
+  box-shadow: var(--neu-out-lg);
+}
+.neu-raised-sm {
+  background: rgb(var(--color-apple-bg));
+  box-shadow: var(--neu-out-sm);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+.neu-raised-sm:hover {
+  box-shadow: var(--neu-out-md);
+}
+.neu-raised-lg {
+  background: rgb(var(--color-apple-bg));
+  box-shadow: var(--neu-out-lg);
+  transition: box-shadow 0.35s ease;
+}
+.neu-raised-lg:hover {
+  box-shadow: var(--neu-out-xl);
+}
+.neu-inset {
+  background: rgb(var(--color-apple-bg));
+  box-shadow: var(--neu-in);
+}
+.neu-inset-sm {
+  background: rgb(var(--color-apple-bg));
+  box-shadow: var(--neu-in-sm);
+}
+.neu-float {
+  background: rgb(var(--color-apple-bg));
+  box-shadow: var(--neu-out-md);
+  border: none;
+}
+.neu-header-bar {
+  background: rgb(var(--color-apple-bg) / 0.92);
+  box-shadow: var(--neu-out-xs);
+  border-bottom: 1px solid transparent;
+}
+html.dark .neu-header-bar {
+  background: rgb(var(--color-apple-bg) / 0.94);
+}
+
+/* Primary CTA — soft extruded blue */
+.cta-gradient {
+  background: linear-gradient(145deg, #4a94e8 0%, #0071e3 55%, #0068cf 100%);
+  color: #fff;
+  border: none;
+  box-shadow: 6px 6px 16px rgba(163, 177, 198, 0.5), -4px -4px 12px rgba(255, 255, 255, 0.85), inset 0 1px 0 rgba(255, 255, 255, 0.22);
+  transition: box-shadow 0.3s ease, transform 0.25s ease;
+  position: relative;
+  overflow: hidden;
+}
+.cta-gradient::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(145deg, #5aa0f0 0%, #0077ed 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.cta-gradient:hover::before {
+  opacity: 1;
+}
+.cta-gradient:hover {
+  box-shadow: 8px 8px 20px rgba(163, 177, 198, 0.45), -5px -5px 14px rgba(255, 255, 255, 0.9), inset 0 1px 0 rgba(255, 255, 255, 0.28);
+  transform: translateY(-1px);
+}
+.cta-gradient > * {
+  position: relative;
+  z-index: 1;
+}
+html.dark .cta-gradient {
+  box-shadow: 6px 6px 18px rgba(0, 0, 0, 0.55), -4px -4px 12px rgba(255, 255, 255, 0.04), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+html.dark .cta-gradient:hover {
+  box-shadow: 8px 8px 22px rgba(0, 0, 0, 0.5), -5px -5px 14px rgba(255, 255, 255, 0.05), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+/* Secondary pill / ghost neu button */
+.neu-btn-ghost {
+  background: rgb(var(--color-apple-bg));
+  box-shadow: var(--neu-out-sm);
+  color: rgb(var(--color-apple-text));
+  border: none;
+  transition: box-shadow 0.3s ease, transform 0.25s ease;
+}
+.neu-btn-ghost:hover {
+  box-shadow: var(--neu-out-md);
+  transform: translateY(-1px);
+}
+.neu-btn-ghost:active {
+  box-shadow: var(--neu-in);
+  transform: translateY(0);
 }
 
 /* ===== Subtle grid background ===== */
@@ -19,60 +141,60 @@ html.dark {
   background-image:
     linear-gradient(var(--hero-pattern) 1px, transparent 1px),
     linear-gradient(90deg, var(--hero-pattern) 1px, transparent 1px);
-  background-size: 64px 64px;
+  background-size: 56px 56px;
   background-position: center top;
 }
 
-/* ===== Hero ambient glow blobs ===== */
+/* ===== Hero ambient glow — very subtle for neu ===== */
 .hero-glow {
   position: absolute;
   border-radius: 50%;
-  filter: blur(100px);
-  opacity: 0.45;
+  filter: blur(120px);
+  opacity: 0.18;
   pointer-events: none;
   will-change: transform;
 }
 html.dark .hero-glow {
-  opacity: 0.25;
+  opacity: 0.12;
 }
 .hero-glow--blue {
-  width: 420px;
-  height: 420px;
-  background: radial-gradient(circle, rgba(0,113,227,0.35) 0%, transparent 70%);
-  top: -60px;
-  left: -120px;
+  width: 380px;
+  height: 380px;
+  background: radial-gradient(circle, rgba(0, 113, 227, 0.12) 0%, transparent 70%);
+  top: -80px;
+  left: -100px;
   animation: glow-drift-1 14s ease-in-out infinite alternate;
 }
 .hero-glow--purple {
-  width: 350px;
-  height: 350px;
-  background: radial-gradient(circle, rgba(110,92,230,0.30) 0%, transparent 70%);
-  bottom: -80px;
-  right: -60px;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(110, 92, 230, 0.1) 0%, transparent 70%);
+  bottom: -100px;
+  right: -80px;
   animation: glow-drift-2 16s ease-in-out infinite alternate;
 }
 .hero-glow--pink {
-  width: 260px;
-  height: 260px;
-  background: radial-gradient(circle, rgba(227,64,113,0.20) 0%, transparent 70%);
-  top: 40%;
-  right: 20%;
+  width: 220px;
+  height: 220px;
+  background: radial-gradient(circle, rgba(227, 64, 113, 0.08) 0%, transparent 70%);
+  top: 42%;
+  right: 18%;
   animation: glow-drift-3 12s ease-in-out infinite alternate;
 }
 @keyframes glow-drift-1 {
   0% { transform: translate(0, 0) scale(1); }
-  100% { transform: translate(60px, 40px) scale(1.15); }
+  100% { transform: translate(40px, 28px) scale(1.08); }
 }
 @keyframes glow-drift-2 {
   0% { transform: translate(0, 0) scale(1); }
-  100% { transform: translate(-50px, -30px) scale(1.1); }
+  100% { transform: translate(-36px, -24px) scale(1.06); }
 }
 @keyframes glow-drift-3 {
   0% { transform: translate(0, 0) scale(1); }
-  100% { transform: translate(30px, -50px) scale(1.2); }
+  100% { transform: translate(24px, -36px) scale(1.1); }
 }
 
-/* ===== Gradient text utility ===== */
+/* ===== Gradient text ===== */
 .gradient-text {
   background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-mid) 50%, var(--gradient-end) 100%);
   -webkit-background-clip: text;
@@ -86,7 +208,7 @@ html.dark .hero-glow {
   background-clip: text;
 }
 
-/* ===== Gradient border card utility ===== */
+/* ===== Gradient border card — subtle neu ridge ===== */
 .card-gradient-border {
   position: relative;
   overflow: hidden;
@@ -97,7 +219,7 @@ html.dark .hero-glow {
   inset: 0;
   border-radius: inherit;
   padding: 1px;
-  background: linear-gradient(135deg, rgba(0,113,227,0.2), rgba(110,92,230,0.15), rgba(227,64,113,0.1));
+  background: linear-gradient(135deg, rgba(0, 113, 227, 0.12), rgba(110, 92, 230, 0.10), rgba(227, 64, 113, 0.08));
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
@@ -109,12 +231,13 @@ html.dark .hero-glow {
   opacity: 1;
 }
 
-/* ===== Section divider gradient ===== */
+/* ===== Section divider — inset groove ===== */
 .section-divider {
-  height: 2px;
+  height: 4px;
   width: 48px;
-  border-radius: 2px;
-  background: linear-gradient(90deg, var(--gradient-start), var(--gradient-mid));
+  border-radius: 4px;
+  background: rgb(var(--color-apple-bg));
+  box-shadow: var(--neu-in-sm);
 }
 
 /* ===== IDE-style blinking caret ===== */
@@ -130,39 +253,27 @@ html.dark .hero-glow {
   margin-left: 3px;
   border-radius: 1px;
   background: linear-gradient(180deg, #0071e3, #6e5ce6);
-  box-shadow: 0 0 6px rgba(0, 113, 227, 0.3);
+  box-shadow: 2px 2px 4px rgba(163, 177, 198, 0.35), -1px -1px 3px rgba(255, 255, 255, 0.9);
   animation: hero-code-cursor-blink 1.05s step-end infinite;
 }
 
-/* ===== Code window enhanced ===== */
+/* ===== Code window — terminal neu ===== */
 .code-window {
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  border: none;
+  box-shadow: var(--neu-out-lg);
 }
 html.dark .code-window {
-  background: rgba(28, 28, 30, 0.85) !important;
+  background: rgb(var(--color-apple-bg)) !important;
 }
 
-/* ===== Stat card hover glow ===== */
+/* ===== Stat card ===== */
 .stat-card {
   position: relative;
   transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
-.stat-card::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  background: radial-gradient(ellipse at 50% 0%, var(--glow-blue) 0%, transparent 70%);
-  opacity: 0;
-  transition: opacity 0.35s ease;
-  pointer-events: none;
-}
 .stat-card:hover {
-  transform: translateY(-2px);
-}
-.stat-card:hover::after {
-  opacity: 1;
+  transform: translateY(-3px);
+  box-shadow: var(--neu-out-lg);
 }
 
 /* ===== Skill category card ===== */
@@ -172,35 +283,31 @@ html.dark .code-window {
 }
 .skill-card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 8px 30px rgba(0,0,0,0.08), 0 0 0 1px rgba(0,113,227,0.08);
-}
-html.dark .skill-card:hover {
-  box-shadow: 0 8px 30px rgba(0,0,0,0.3), 0 0 0 1px rgba(0,113,227,0.15);
+  box-shadow: var(--neu-out-lg);
 }
 
-/* ===== Skill pill enhanced ===== */
+/* ===== Skill pill ===== */
 .skill-pill {
   position: relative;
   transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .skill-pill:hover {
   transform: translateY(-1px);
-  background: rgb(var(--color-apple-bg)) !important;
-  box-shadow: 0 4px 14px rgba(0,113,227,0.12);
-  border-color: rgba(0,113,227,0.3) !important;
+  box-shadow: var(--neu-out-sm);
   color: #0071e3 !important;
 }
 
 /* ===== Experience timeline ===== */
 .timeline-dot {
   position: relative;
+  box-shadow: var(--neu-out-xs);
 }
 .timeline-dot::after {
   content: '';
   position: absolute;
   inset: -4px;
   border-radius: 50%;
-  background: rgba(0,113,227,0.15);
+  background: rgba(0, 113, 227, 0.12);
   animation: timeline-pulse 2.5s ease-in-out infinite;
 }
 @keyframes timeline-pulse {
@@ -208,7 +315,8 @@ html.dark .skill-card:hover {
   50% { transform: scale(1.5); opacity: 0; }
 }
 .timeline-line {
-  background: linear-gradient(180deg, #0071e3 0%, rgba(0,113,227,0.1) 100%) !important;
+  background: linear-gradient(180deg, #0071e3 0%, rgba(0, 113, 227, 0.12) 100%) !important;
+  box-shadow: 1px 0 2px rgba(163, 177, 198, 0.2);
 }
 
 /* ===== Experience card ===== */
@@ -217,10 +325,7 @@ html.dark .skill-card:hover {
 }
 .experience-card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 12px 40px rgba(0,0,0,0.08);
-}
-html.dark .experience-card:hover {
-  box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+  box-shadow: var(--neu-out-xl);
 }
 
 /* ===== Project card ===== */
@@ -229,19 +334,16 @@ html.dark .experience-card:hover {
 }
 .project-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 20px 50px rgba(0,0,0,0.1);
-}
-html.dark .project-card:hover {
-  box-shadow: 0 20px 50px rgba(0,0,0,0.35);
+  box-shadow: var(--neu-out-xl);
 }
 .project-card .project-image {
   transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .project-card:hover .project-image {
-  transform: scale(1.04);
+  transform: scale(1.03);
 }
 .project-card .project-overlay {
-  background: linear-gradient(180deg, transparent 40%, rgba(0,0,0,0.5) 100%);
+  background: linear-gradient(180deg, transparent 40%, rgba(0, 0, 0, 0.45) 100%);
   opacity: 0;
   transition: opacity 0.4s ease;
 }
@@ -249,32 +351,34 @@ html.dark .project-card:hover {
   opacity: 1;
 }
 
-/* ===== Tag pills in projects ===== */
+/* ===== Tag pills ===== */
 .tag-pill {
   transition: all 0.2s ease;
+  box-shadow: var(--neu-in-sm);
+  background: rgb(var(--color-apple-surface)) !important;
+  border: none !important;
 }
 .tag-pill:hover {
-  background: rgba(0,113,227,0.08);
+  box-shadow: var(--neu-out-xs);
   color: #0071e3;
-  border-color: rgba(0,113,227,0.25);
 }
 
-/* ===== Contact form inputs enhanced ===== */
+/* ===== Contact form inputs ===== */
 .form-input-enhanced {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .form-input-enhanced:focus {
-  box-shadow: 0 0 0 3px rgba(0,113,227,0.1), 0 1px 3px rgba(0,0,0,0.05);
-  border-color: #0071e3;
+  box-shadow: var(--neu-in), 0 0 0 2px rgba(0, 113, 227, 0.3);
+  outline: none;
 }
 
-/* ===== Social button hover ===== */
+/* ===== Social button ===== */
 .social-btn {
   transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .social-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  box-shadow: var(--neu-out-md);
 }
 
 /* ===== Floating badge animation ===== */
@@ -298,7 +402,7 @@ html.dark .project-card:hover {
   }
 }
 
-/* ===== Contact card glow ===== */
+/* ===== Contact card ===== */
 .contact-card {
   position: relative;
   overflow: hidden;
@@ -310,11 +414,12 @@ html.dark .project-card:hover {
   left: 0;
   right: 0;
   height: 3px;
-  background: linear-gradient(90deg, var(--gradient-start), var(--gradient-mid), var(--gradient-end));
   border-radius: 3px 3px 0 0;
+  background: rgb(var(--color-apple-bg));
+  box-shadow: var(--neu-in-sm);
 }
 
-/* ===== Achievement icon bg ===== */
+/* ===== Achievement icon ===== */
 .achievement-icon {
   position: relative;
   overflow: hidden;
@@ -323,7 +428,7 @@ html.dark .project-card:hover {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(0,113,227,0.05) 0%, transparent 100%);
+  background: linear-gradient(135deg, rgba(0, 113, 227, 0.04) 0%, transparent 100%);
   border-radius: inherit;
 }
 
@@ -339,27 +444,31 @@ html.dark .project-card:hover {
   left: 50%;
   transform: translateX(-50%);
   width: 32px;
-  height: 3px;
-  border-radius: 3px;
-  background: linear-gradient(90deg, var(--gradient-start), var(--gradient-mid));
+  height: 4px;
+  border-radius: 4px;
+  background: rgb(var(--color-apple-bg));
+  box-shadow: var(--neu-in-sm);
 }
 
-/* ===== Education card left border gradient ===== */
+/* ===== Education card ===== */
 .edu-card-gradient {
   border-left: 4px solid transparent;
   border-image: linear-gradient(180deg, #0071e3, #6e5ce6) 1;
+  box-shadow: var(--neu-out-md);
+  border-radius: 1rem;
 }
 
 /* ===== Scrollbar ===== */
 ::-webkit-scrollbar {
-  width: 7px;
+  width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: transparent;
+  background: rgb(var(--color-apple-muted));
 }
 ::-webkit-scrollbar-thumb {
   background: rgb(var(--color-apple-border));
   border-radius: 10px;
+  box-shadow: var(--neu-in-sm);
 }
 ::-webkit-scrollbar-thumb:hover {
   background: rgb(var(--color-apple-tertiary));
@@ -381,35 +490,12 @@ a:focus:not(:focus-visible) {
   outline: none;
 }
 
-/* ===== Smooth scroll behavior ===== */
+/* ===== Smooth scroll ===== */
 html {
   scroll-behavior: smooth;
 }
 
-/* ===== CTA button gradient ===== */
-.cta-gradient {
-  background: linear-gradient(135deg, #0071e3 0%, #5856d6 100%);
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
-}
-.cta-gradient::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, #0077ed 0%, #6e5ce6 100%);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-.cta-gradient:hover::before {
-  opacity: 1;
-}
-.cta-gradient > * {
-  position: relative;
-  z-index: 1;
-}
-
-/* ===== Nav link hover underline animation ===== */
+/* ===== Nav link hover underline ===== */
 .nav-link-hover {
   position: relative;
 }
@@ -420,34 +506,36 @@ html {
   left: 12px;
   right: 12px;
   height: 2px;
-  border-radius: 1px;
+  border-radius: 2px;
   background: linear-gradient(90deg, #0071e3, #6e5ce6);
   transform: scaleX(0);
   transform-origin: center;
   transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 1px 1px 2px rgba(163, 177, 198, 0.3);
 }
 .nav-link-hover:hover::after {
   transform: scaleX(1);
 }
 
-/* ===== Glass card utility ===== */
+/* ===== Glass card — neu float (replaces glass) ===== */
 .glass-card {
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgb(var(--color-apple-bg));
+  border: none;
+  box-shadow: var(--neu-out-md);
+  backdrop-filter: none;
 }
 html.dark .glass-card {
-  background: rgba(28, 28, 30, 0.6);
-  border-color: rgba(58, 58, 60, 0.4);
+  background: rgb(var(--color-apple-bg));
+  border: none;
 }
 
-/* ===== Micro-interaction: icon container hover ===== */
+/* ===== Icon container ===== */
 .icon-container {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .icon-container:hover {
-  transform: scale(1.08) rotate(-3deg);
+  transform: scale(1.04);
+  box-shadow: var(--neu-out-sm);
 }
 
 /* ===== Status indicator ===== */
@@ -467,7 +555,21 @@ html.dark .glass-card {
   50% { transform: scale(2); opacity: 0; }
 }
 
-/* ===== Number counter effect for stats ===== */
+/* ===== Stat number ===== */
 .stat-number {
   font-variant-numeric: tabular-nums;
+}
+
+/* ===== Hero role badge — neu convex ===== */
+.neu-hero-badge {
+  background: rgb(var(--color-apple-bg));
+  box-shadow: var(--neu-out-sm);
+  border: none;
+}
+
+/* ===== Project image overlay badges ===== */
+.neu-chip {
+  background: rgb(var(--color-apple-bg));
+  box-shadow: var(--neu-out-sm);
+  border: none;
 }
