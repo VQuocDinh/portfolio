@@ -132,7 +132,7 @@ const InteractiveTerminal: React.FC = () => {
 
   return (
     <div
-      className="absolute inset-0 rounded-3xl code-window bg-apple-bg flex flex-col overflow-hidden group cursor-text"
+      className="absolute inset-0 rounded-3xl code-window flex flex-col overflow-hidden group cursor-text"
       onClick={() => inputRef.current?.focus()}
     >
       {/* Terminal Header */}

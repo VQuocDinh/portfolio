@@ -87,7 +87,7 @@ const RecruiterThankYouModal: React.FC<RecruiterThankYouModalProps> = ({ open, o
                       onClick={() => setLocale('en')}
                       className={`px-2.5 py-1.5 text-[11px] font-semibold rounded-lg transition-all ${
                         locale === 'en'
-                          ? 'bg-apple-bg text-apple-text neu-raised-sm'
+                          ? 'text-apple-text neu-raised-sm'
                           : 'text-apple-secondary hover:text-apple-text'
                       }`}
                     >
@@ -98,7 +98,7 @@ const RecruiterThankYouModal: React.FC<RecruiterThankYouModalProps> = ({ open, o
                       onClick={() => setLocale('vi')}
                       className={`px-2.5 py-1.5 text-[11px] font-semibold rounded-lg transition-all ${
                         locale === 'vi'
-                          ? 'bg-apple-bg text-apple-text neu-raised-sm'
+                          ? 'text-apple-text neu-raised-sm'
                           : 'text-apple-secondary hover:text-apple-text'
                       }`}
                     >

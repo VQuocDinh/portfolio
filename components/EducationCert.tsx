@@ -23,7 +23,7 @@ const EducationCert: React.FC = () => {
             </span>
             {e.educationHeading}
           </h3>
-          <div className="edu-card-gradient bg-apple-bg p-6 md:p-7 rounded-2xl">
+          <div className="edu-card-gradient p-6 md:p-7 rounded-2xl">
             <h4 className="text-base font-bold text-apple-text leading-snug">{e.institution}</h4>
             <p className="gradient-text-blue font-semibold text-sm mt-2">{e.degree}</p>
             <p className="text-apple-tertiary text-sm mb-4">{e.period}</p>

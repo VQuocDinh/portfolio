@@ -53,7 +53,7 @@ const ProjectDetailPage: React.FC = () => {
   const liveDisabledClass = `${liveBtnClass} neu-inset text-apple-tertiary cursor-not-allowed opacity-60`;
 
   return (
-    <main className="min-h-screen bg-apple-bg pt-20 md:pt-24 pb-16">
+    <main className="min-h-screen bg-transparent pt-20 md:pt-24 pb-16">
       <LiveSiteNoticeModal
         open={liveModal.open}
         onClose={() => setLiveModal({ open: false, url: '' })}
@@ -71,7 +71,7 @@ const ProjectDetailPage: React.FC = () => {
             {p.backToProjects}
           </Link>
 
-          <div className="mt-8 rounded-2xl overflow-hidden neu-raised-lg bg-apple-muted/50">
+          <div className="mt-8 rounded-2xl overflow-hidden neu-raised-lg">
             <div className="aspect-[21/9] md:aspect-[2/1] w-full overflow-hidden">
               <img src={meta.image} alt={project.title} className="w-full h-full object-cover" />
             </div>
