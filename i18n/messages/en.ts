@@ -297,6 +297,7 @@ export const en = {
     failed: 'Failed — try again',
     downloadCv: 'Download CV',
     footer: 'Built with React, Tailwind & Framer Motion.',
+    lastUpdate: 'Last updated: August 22, 2025',
   },
   contactThankYou: {
     badge: 'Message sent',

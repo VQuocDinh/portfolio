@@ -246,6 +246,9 @@ const Contact: React.FC = () => {
           <p className="text-apple-tertiary text-sm">
             &copy; {new Date().getFullYear()} Vo Quoc Dinh. {c.footer}
           </p>
+          <p className="text-apple-tertiary/60 text-xs font-light">
+            {c.lastUpdate}
+          </p>
         </div>
       </Section>
     </footer>

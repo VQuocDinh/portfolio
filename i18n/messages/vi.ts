@@ -297,6 +297,7 @@ export const vi = {
     failed: 'Gửi thất bại — thử lại',
     downloadCv: 'Tải CV',
     footer: 'Xây dựng với React, Tailwind & Framer Motion.',
+    lastUpdate: 'Cập nhật lần cuối: 22/8/2025',
   },
   contactThankYou: {
     badge: 'Đã gửi tin nhắn',
