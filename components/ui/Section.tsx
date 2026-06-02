@@ -17,7 +17,7 @@ const Section: React.FC<SectionProps> = ({ id, children, className = "", title, 
   return (
     <section
       id={id}
-      className={`scroll-mt-24 ${muted ? 'glass-section-muted' : ''}`}
+      className={`scroll-mt-24 ${muted ? 'bg-apple-muted/75' : ''}`}
     >
       <div className={`max-w-6xl mx-auto px-4 md:px-8 py-20 md:py-28 ${className}`}>
         {(title || subtitle || eyebrow) && (

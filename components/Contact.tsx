@@ -74,7 +74,7 @@ const Contact: React.FC = () => {
     'disabled:opacity-50 disabled:cursor-not-allowed';
 
   return (
-    <footer className="relative glass-footer pt-14 pb-10 overflow-hidden">
+    <footer className="relative bg-apple-muted/80 pt-14 pb-10 border-t border-apple-border/35 overflow-hidden">
       <ContactThankYouModal open={showModal} onClose={() => setShowModal(false)} senderName={submittedName} />
       
       {/* Background decoration */}

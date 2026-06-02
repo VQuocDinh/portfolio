@@ -37,7 +37,7 @@ const SkillDetailPage: React.FC = () => {
   ];
 
   return (
-    <main className="min-h-screen bg-transparent pt-20 md:pt-24 pb-16">
+    <main className="min-h-screen bg-apple-bg pt-20 md:pt-24 pb-16">
       <div className="max-w-3xl mx-auto px-4 md:px-8">
         <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.35 }}>
           <Breadcrumb items={breadcrumbItems} ariaLabel={sd.breadcrumbAria} />

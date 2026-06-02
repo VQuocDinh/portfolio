@@ -2,9 +2,9 @@ import { skillDetailEn } from './skillDetail-en';
 
 export const en = {
   meta: {
-    title: 'Vo Quoc Dinh | Frontend Developer · ReactJS · Next.js · TypeScript',
+    title: 'Vo Quoc Dinh | Frontend & Fullstack Developer',
     description:
-      'Portfolio of Vo Quoc Dinh — Frontend Developer with 2+ years of experience building and maintaining high-performance, cross-platform web applications with ReactJS, Next.js, and TypeScript.',
+      'Portfolio of Vo Quoc Dinh — Fullstack Developer (React & NestJS) with 2+ years building stable, high-performance web systems.',
   },
   recruiterLetter: {
     title: 'A note for recruiters',
@@ -48,11 +48,11 @@ export const en = {
     vi: 'Tiếng Việt',
   },
   hero: {
-    role: 'ReactJS / Frontend Developer',
+    role: 'Fullstack Developer',
     greeting: "Hi, I'm",
     name: 'Vo Quoc Dinh',
     intro:
-      'Frontend Developer with 2+ years of experience building and maintaining high-performance, cross-platform web applications with ReactJS, Next.js, and TypeScript.',
+      'Fullstack Developer (React & NestJS) with 2+ years shipping stable web systems — I use modern tooling (including AI assistants) to deliver faster while keeping code quality and UX sharp.',
     location: 'Thu Duc City, HCMC, Vietnam',
     openToOpportunities: 'Open to opportunities',
     viewWork: 'View My Work',
@@ -63,15 +63,15 @@ export const en = {
     title: 'About Me',
     subtitle: 'Results-driven developer focused on performance, scalability, and maintainable code.',
     p1:
-      'I am a Frontend Developer with 2+ years of experience building and maintaining high-performance, cross-platform web applications with ReactJS, Next.js, and TypeScript. I have a strong command of React fundamentals — hooks, context, and state management with Redux/Redux Toolkit — and I am skilled at designing scalable frontend architectures from Figma designs. I am experienced in integrating RESTful APIs and real-time WebSocket data, optimizing performance across platforms, and participating in CI/CD, testing, and release processes within Agile teams. I have solid testing practice with Jest, React Testing Library, and Detox (React Native E2E). I am based in HCMC and available for onsite work; I accelerate delivery by 30–40% through AI-assisted workflows (GitHub Copilot, Cursor).',
+      'I am a Fullstack Developer (ReactJS & NestJS) with 2+ years of experience building stable, high-performance web systems across EdTech and enterprise products. I optimize delivery by leveraging AI tools such as GitHub Copilot and Cursor to accelerate feature work by an estimated 30–40%, while keeping a strong problem-solving mindset and technical leadership in startup environments.',
     p2:
-      'I care about streamlined, elegant, yet robust products: proven impact on performance (including significant application and rendering improvements), maintainable TypeScript codebases, and great user experiences with modern web technologies.',
+      'I care about streamlined, elegant, yet robust products: proven impact on performance (including significant application and API improvements), maintainable TypeScript codebases, and great user experiences with PostgreSQL, Prisma/ORM, and Next.js where it fits.',
     leadershipHeading: 'Leadership & Activities',
     leadershipOrg: 'KET NOI Volunteer Club – HCMC',
     leadershipRole: 'Head of Communications (2021–2024)',
     leadershipPoints: [
-      'Led social media and internal communications, improving cross-team coordination.',
-      'Organized volunteer events, building leadership and collaboration skills that transfer to Agile teamwork.',
+      'Led social media and internal communications, improving team coordination.',
+      'Organized volunteer events, building leadership and collaboration skills applicable to agile environments.',
     ],
     careerGoals: 'Career Goals',
     shortTermLabel: 'Short-term (1–2 years):',
@@ -96,13 +96,13 @@ export const en = {
     subtitle:
       'How my background and way of working align with what product and engineering teams usually need.',
     intro:
-      'Every role is different — below is how I typically add value in frontend-oriented positions, based on real delivery experience in EdTech and enterprise settings.',
+      'Every role is different — below is how I typically add value in fullstack and frontend-oriented positions, based on real delivery experience in EdTech and enterprise settings.',
     points: [
-      'Frontend expertise: deep knowledge of React/TypeScript/Next.js core concepts, hooks, context, state management, and reusable UI components.',
-      'Performance mindset: proven focus on faster loads, code-splitting, lazy-loading, and Core Web Vitals optimizations.',
-      'Clear collaboration: used to Agile workflows, code reviews, contract-first APIs, and working with product, design, and backend engineers.',
-      'Quality & testing: solid testing habits with Jest, React Testing Library, and Detox (E2E), ensuring reliable production builds.',
-      'Fast learning & stack fit: very strong with modern tools (including Cursor, GitHub Copilot); quick to adapt to your conventions and design systems.',
+      'End-to-end ownership: comfortable owning features from React/TypeScript UI through NestJS APIs, databases, and deployment basics.',
+      'Performance mindset: proven focus on faster loads and leaner APIs — not only shipping features, but improving how they behave in production.',
+      'Clear collaboration: used to Agile workflows, code review, and working with product, design, and stakeholders in Vietnamese and English contexts.',
+      'Quality & maintainability: testing habits (Jest, Testing Library), structured code, and documentation — easier handover for your team long term.',
+      'Fast learning & stack fit: strong in React/TypeScript/NestJS; quick to adapt to your conventions, design system, and internal tools.',
     ],
   },
   skills: {
@@ -130,36 +130,39 @@ export const en = {
     items: [
       {
         company: 'BridgeUp Education',
-        role: 'ReactJS / Frontend Developer',
+        role: 'Fullstack Developer',
         period: 'Jan 2025 – Present',
-        location: 'HCMC (Agile)',
+        location: 'HCMC',
         type: 'EdTech Startup',
         summary:
-          'Leading frontend development of BridgeUp, a career-development platform serving 500+ users across multiple integrated modules.',
+          'Leading full-stack development of BridgeUp, a comprehensive career development platform serving 500+ users with many integrated large modules.',
         achievements: [
-          'Designed a scalable frontend architecture and reusable component library with ReactJS + TypeScript + Tailwind/SCSS; converted Figma designs into pixel-perfect UI with consistent design tokens and Framer Motion micro-interactions.',
-          'Built reusable logic with React hooks and Context, and managed global state with Redux Toolkit / React Query for predictable, maintainable data flow.',
-          'Integrated RESTful APIs and real-time WebSocket updates (live notifications/status), reducing unnecessary requests and improving data synchronization.',
-          'Optimized cross-platform performance via code splitting and lazy loading, cutting initial load time by ~35% and improving Core Web Vitals; ensured compatibility across Chrome, Firefox, Safari, and Edge with a mobile-first approach.',
-          'Achieved 80% test coverage with Jest + React Testing Library; participated in CI/CD pipelines (GitHub Actions), testing, and release within 2-week Agile sprints (Jira).',
-          'Tech stack: ReactJS, Vite, TypeScript, Tailwind/SCSS, Redux Toolkit, React Query, WebSocket, Framer Motion, Jest, GitHub Actions.',
+          'Architected and built scalable frontend using React + TypeScript + Vite + TailwindCSS, implementing code splitting and lazy loading that improved initial page load.',
+          'Optimized application performance with React Query for data fetching, reducing API calls and enhancing user experience.',
+          'Designed and implemented RESTful APIs with NestJS & Prisma ORM, optimizing PostgreSQL queries that reduced response time.',
+          'Built social networking features (posts, likes, comments, sharing) handling 1,000+ daily interactions with real-time updates.',
+          'Implemented secure JWT-based authentication & role-based authorization protecting user data across multiple modules.',
+          'Wrote comprehensive unit & integration tests using Jest + Testing Library, achieving 80% code coverage.',
+          'Collaborated in Agile environment with Product, Data, and Content teams using Jira, consistently delivering features within sprint deadlines.',
+          'Tech stack: React, Vite, TailwindCSS, TypeScript, NestJS, Prisma ORM, PostgreSQL, JWT, Cloudinary, Vercel, Render.',
         ],
       },
       {
         company: 'DXT Technology Company',
-        role: 'ReactJS / Frontend Developer',
+        role: 'Fullstack Developer',
         period: 'Jul 2023 – Dec 2024',
         location: 'HCMC',
         type: 'Technology Company',
         summary:
-          'Developed enterprise-grade web applications serving 2,000+ users, focused on performance, scalability, and code quality.',
+          'Developed enterprise-grade web applications serving 2,000+ users with focus on performance optimization and scalability.',
         achievements: [
-          'Built responsive, cross-platform applications with ReactJS and Next.js (SSR/SSG); improved Lighthouse performance score from 62 to 89 and boosted Core Web Vitals.',
-          'Translated Figma mockups into pixel-perfect, accessible UI with HTML5, SASS/SCSS and Tailwind; maintained design consistency across 4 product modules.',
-          'Integrated third-party payment gateways, RESTful APIs and WebSocket connections; processed 500+ monthly transactions with 99.9% uptime.',
-          'Managed complex client state with React Query, Context API and Redux patterns, reducing re-renders by ~40%; enforced clean-code standards through peer reviews.',
-          'Authored Swagger API documentation and collaborated on contract-first APIs, streamlining frontend–backend integration.',
-          'Tech stack: ReactJS, Next.js, TypeScript, Tailwind/SCSS, Redux, React Query, WebSocket, RESTful APIs, Git.',
+          'Built responsive web applications using React, Next.js, and TypeScript with mobile-first design principles.',
+          'Implemented Server-Side Rendering (SSR) & Static Site Generation (SSG) with Next.js, improving SEO rankings and reducing page load time.',
+          'Integrated RESTful APIs and third-party payment gateways, processing 500+ transactions monthly with 99.9% success rate.',
+          'Managed complex state with React Query & Context API, eliminating prop drilling and improving code maintainability.',
+          'Conducted code reviews for 3 junior developers, establishing best practices and reducing bug rate.',
+          'Created comprehensive API documentation using Swagger, improving frontend-backend collaboration efficiency.',
+          'Tech stack: React, Next.js, TailwindCSS, Node.js, TypeScript, Prisma ORM.',
         ],
       },
     ],
@@ -189,7 +192,7 @@ export const en = {
         slug: 'aiwine',
         title: 'AIWine — Imported Wine Storefront',
         description:
-          'Imported wine e-commerce platform built in React/Next.js with WooCommerce REST API for catalog, cart, COD ordering, and inventory validation. Implemented multi-layer caching (client-side, Redis/Upstash, on-demand revalidation), reducing API response time by ~50%.',
+          'Full-stack imported wine storefront on Next.js (App Router) + TypeScript, integrated with WooCommerce REST API and WordPress (products, orders, blog).',
         detailOverview:
           'AIWine is a full-stack e-commerce storefront for imported wine, built on Next.js (App Router) and TypeScript. The backend of record for commerce is WooCommerce (REST) with WordPress powering content, products, and blog — unified into a headless-style experience.\n\n' +
           'Frontend: Next.js App Router, React 19, Tailwind CSS 4, Ant Design, custom fonts, and a responsive layout (header with mega menu, footer, policy pages). Data and forms use TanStack Query with tuned stale/gc times, plus React Hook Form + Zod validation (checkout, with schemas separated by concern).\n\n' +
@@ -211,7 +214,7 @@ export const en = {
         slug: 'medical-records',
         title: 'Medical Record Management System',
         description:
-          'Full-stack healthcare platform with a ReactJS frontend, JWT authentication, and role-based access control (RBAC). Implemented face-based recognition and secure, HIPAA-aware patient-data handling.',
+          'PRMS: patient records plus face-based recognition — React + Vite frontend, Express + Sequelize (MySQL) API, and a Python OpenCV helper to match faces against stored patient avatars.',
         detailOverview:
           'PRMS (Patient Record & Recognition Management System) is a two-part application (backend + frontend) for managing patient data and performing simple face-based recognition against stored patient avatars.\n\n' +
           'The repository is organized as an Express API (entry at backend/server.js, routes under backend/src with Sequelize and mysql2), a React + Vite SPA in frontend/, and a Python helper backend/face_recognition.py that uses OpenCV: Haar cascade face detection and histogram correlation to compare an input image with avatar images whose paths are stored in the database (patients table: patient_id, avatar, etc.). A trained model file (model.h5) is also part of the repo for related ML workflows.\n\n' +
@@ -230,7 +233,7 @@ export const en = {
         slug: 'coffee-ecommerce',
         title: 'Coffee E-Commerce Platform',
         description:
-          'Service-oriented e-commerce system with a ReactJS frontend and a Dockerized, highly scalable infrastructure.',
+          'Service-oriented architecture e-commerce system with microservices design pattern. Dockerized deployment enabling scalable, maintainable infrastructure.',
         detailOverview:
           'An e-commerce solution for coffee products built around a service-oriented architecture. Services are containerized with Docker to simplify deployment and scaling. The platform supports catalog management, orders, and integration points for payment and inventory.',
         highlights: [
@@ -244,7 +247,7 @@ export const en = {
         slug: 'music-streaming',
         title: 'Online Music Streaming Platform',
         description:
-          'Music streaming application built with a ReactJS frontend featuring real-time playback state and an AI-powered recommendation engine (Python) for personalized suggestions.',
+          'Music streaming application with AI-powered recommendation engine using Python. Implemented machine learning algorithms for personalized music suggestions.',
         detailOverview:
           'A streaming-style music application featuring playlists, playback, and a Python-powered recommendation layer. Machine learning models analyze listening patterns to surface personalized track suggestions and improve discovery.',
         highlights: [

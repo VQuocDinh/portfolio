@@ -14,8 +14,8 @@
     </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vo Quoc Dinh | Frontend Developer · ReactJS · Next.js · TypeScript</title>
-    <meta name="description" content="Portfolio of Vo Quoc Dinh, a Frontend Developer specializing in ReactJS, Next.js, and TypeScript." />
+    <title>Vo Quoc Dinh | Frontend & Fullstack Developer</title>
+    <meta name="description" content="Portfolio of Vo Quoc Dinh, a Fullstack Developer specializing in React, NestJS, and EdTech solutions." />
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -41,12 +41,12 @@
               sans: ['-apple-system', 'BlinkMacSystemFont', 'SF Pro Display', 'SF Pro Text', 'Inter', 'Helvetica Neue', 'sans-serif'],
             },
             boxShadow: {
-              /* Glassmorphism — soft colored bloom */
-              'apple': '0 8px 32px rgba(31, 38, 135, 0.12), 0 2px 8px rgba(0, 0, 0, 0.06)',
-              'apple-md': '0 12px 40px rgba(31, 38, 135, 0.14), 0 4px 12px rgba(0, 0, 0, 0.08)',
-              'apple-lg': '0 16px 48px rgba(31, 38, 135, 0.18), 0 4px 16px rgba(0, 0, 0, 0.08)',
-              'apple-xl': '0 20px 56px rgba(31, 38, 135, 0.2), 0 8px 24px rgba(0, 0, 0, 0.1)',
-              'inner-soft': 'inset 0 2px 8px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.25)',
+              /* Neumorphism — soft convex (light); dark: override via index.css .neu-* ) */
+              'apple': '6px 6px 14px rgba(163,177,198,0.45), -6px -6px 14px rgba(255,255,255,0.92)',
+              'apple-md': '10px 10px 22px rgba(163,177,198,0.48), -8px -8px 20px rgba(255,255,255,0.95)',
+              'apple-lg': '14px 14px 28px rgba(163,177,198,0.42), -10px -10px 24px rgba(255,255,255,0.9)',
+              'apple-xl': '18px 18px 36px rgba(163,177,198,0.4), -12px -12px 28px rgba(255,255,255,0.88)',
+              'inner-soft': 'inset 3px 3px 8px rgba(163,177,198,0.35), inset -3px -3px 8px rgba(255,255,255,0.85)',
             },
             letterSpacing: {
               'tighter-plus': '-0.03em',
@@ -63,44 +63,30 @@
     
     <style>
       :root {
-        /* Glassmorphism — light airy base behind frosted UI */
-        --color-apple-bg: 230 238 252;
-        --color-apple-surface: 240 245 255;
-        --color-apple-muted: 214 226 248;
-        --color-apple-border: 180 198 230;
-        --color-apple-text: 28 32 44;
-        --color-apple-secondary: 82 90 110;
-        --color-apple-tertiary: 110 118 135;
+        /* Neumorphism base — soft gray canvas */
+        --color-apple-bg: 225 229 235;
+        --color-apple-surface: 232 236 242;
+        --color-apple-muted: 216 220 228;
+        --color-apple-border: 190 198 210;
+        --color-apple-text: 45 48 55;
+        --color-apple-secondary: 95 100 112;
+        --color-apple-tertiary: 120 125 135;
       }
       html.dark {
-        --color-apple-bg: 18 20 32;
-        --color-apple-surface: 26 28 42;
-        --color-apple-muted: 22 24 38;
-        --color-apple-border: 48 52 72;
-        --color-apple-text: 236 238 248;
-        --color-apple-secondary: 168 172 190;
-        --color-apple-tertiary: 130 134 152;
+        --color-apple-bg: 42 44 50;
+        --color-apple-surface: 48 50 58;
+        --color-apple-muted: 38 40 46;
+        --color-apple-border: 62 65 74;
+        --color-apple-text: 235 236 240;
+        --color-apple-secondary: 165 168 178;
+        --color-apple-tertiary: 130 133 142;
       }
       body {
         font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Inter', 'Helvetica Neue', sans-serif;
         background-color: rgb(var(--color-apple-bg));
-        background-image:
-          radial-gradient(ellipse 100% 80% at 10% -10%, rgba(120, 170, 255, 0.45) 0%, transparent 50%),
-          radial-gradient(ellipse 80% 60% at 90% 10%, rgba(200, 150, 255, 0.35) 0%, transparent 45%),
-          radial-gradient(ellipse 70% 50% at 50% 100%, rgba(100, 200, 230, 0.25) 0%, transparent 50%),
-          linear-gradient(165deg, rgb(var(--color-apple-bg)) 0%, rgb(var(--color-apple-muted)) 100%);
-        background-attachment: fixed;
         color: rgb(var(--color-apple-text));
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
-      }
-      html.dark body {
-        background-image:
-          radial-gradient(ellipse 90% 70% at 15% 0%, rgba(60, 100, 200, 0.35) 0%, transparent 50%),
-          radial-gradient(ellipse 70% 60% at 85% 20%, rgba(120, 80, 200, 0.28) 0%, transparent 45%),
-          radial-gradient(ellipse 60% 50% at 50% 90%, rgba(40, 120, 180, 0.2) 0%, transparent 50%),
-          linear-gradient(180deg, rgb(var(--color-apple-bg)) 0%, rgb(12 14 28) 100%);
-        background-attachment: fixed;
       }
       ::-webkit-scrollbar {
         width: 8px;
